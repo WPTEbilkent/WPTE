@@ -12,10 +12,6 @@ class HomeController extends Controller
     public function index(){
         return view('welcome');
     }
-    public function tutorial(){
-        return view('tutorial');
-    }
-    public function tutorialPage(){
-        return view('tutorialPage');
-    }
+
+
 }

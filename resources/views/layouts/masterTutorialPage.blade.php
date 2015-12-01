@@ -15,19 +15,37 @@
     <title>Theme Blog - 50+ Best Responsive Templates</title>
 
     <!-- stylesheets -->
-    <link rel="stylesheet" href="../resources/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../resources/assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../resources/assets/css/animate.css">
-    <link rel="stylesheet" href="../resources/assets/css/style.css">
+    <link rel="stylesheet" href="../../resources/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../resources/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../resources/assets/css/animate.css">
+    <link rel="stylesheet" href="../../resources/assets/css/style.css">
 
 </head>
 
 <body>
 
+@yield('header')
 
 <main>
-  @yield('content')
+    <div class="container">
+        <div class="row">
+            @yield('content')
+            @yield('sidebar')
+        </div>
+    </div> <!-- end of container -->
+
 </main>
+
+<footer>
+    @yield('footer')
+</footer>
+
+<!--  Necessary scripts  -->
+@yield('scripts')
+
+
+        <!-- smooth-scroll -->
+@yield('smooth-script')
 
 
 </body>

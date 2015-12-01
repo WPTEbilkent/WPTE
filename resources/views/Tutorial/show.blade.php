@@ -1,8 +1,14 @@
 @extends('layouts.masterTutorialPage')
 @extends('HeadFoot')
 @section('content')
-    <div class="container">
-        <div class="row">
+    <?php
+    //extract($_GET);
+    //echo $pid;
+
+
+
+    ?>
+
 
             <!-- blog-contents -->
             <section class="col-md-8">
@@ -24,6 +30,7 @@
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <a href="#"><strong>Ut enim</strong></a> ad minim veniam. Duis aute irure dolor in reprehenderit in voluptate velit ess cillum dolore eu fugiat nulla pariatur. Excepteur sint <a href="#"><strong>non proident</strong></a>, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
 
+
                     <p>
                         Today we have released a cool agency website template. <a href="http://themewagon.com/themes/avada-plus-free-responsive-html5-agency-template/"><strong>Avada Plus</strong></a>, a Free Responsive HTML5 Agency Template. It is a re-skin of one of our most downloaded template Flusk – A Responsive Multi-Purpose Website Template. <a href="http://themewagon.com/themes/flusk-responsive-multi-purpose-website-template/"><strong>Flusk</strong></a> was downloaded more than 200 times last month and we thought it would be good to publish an updated version of that template.
                     </p>
@@ -40,7 +47,7 @@
                         <div class="item-info text-center">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
-                                    <img class="img-responsive center-block" src="assets/img/corporate.jpg" alt="Item number 1">
+                                    <img class="img-responsive center-block" src="../../resources/assets/img/corporate.jpg" alt="Item number 1">
                                     <a class="btn btn-success" target="_blank" href="http://technext.github.io/avada-plus/" >Demo</a>
                                     <a class="btn btn-danger" target="_blank" href="http://themewagon.com/themes/avada-plus-free-responsive-html5-agency-template/" >More Info</a>
                                 </div>
@@ -56,7 +63,7 @@
                         <div class="item-info text-center">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
-                                    <img class="img-responsive center-block" src="assets/img/restaurant.jpg" alt="Item number 1">
+                                    <img class="img-responsive center-block" src="../../resources/assets/img/restaurant.jpg" alt="Item number 1">
                                     <a class="btn btn-success" target="_blank" href="http://technext.github.io/Mamma-s-Kitchen/" >Demo</a>
                                     <a class="btn btn-danger" target="_blank" href="http://themewagon.com/themes/mammas-kitchen-free-responsive-html5-bootstrap-restaurant-template/" >More Info</a>
                                 </div>
@@ -72,7 +79,7 @@
                         <div class="item-info text-center">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
-                                    <img class="img-responsive center-block" src="assets/img/corporate.jpg" alt="Item number 1">
+                                    <img class="img-responsive center-block" src="../../resources/assets/img/corporate.jpg" alt="Item number 1">
                                     <a class="btn btn-success" target="_blank" href="http://technext.github.io/avada-plus/" >Demo</a>
                                     <a class="btn btn-danger" target="_blank" href="http://themewagon.com/themes/avada-plus-free-responsive-html5-agency-template/" >More Info</a>
                                 </div>
@@ -88,7 +95,7 @@
                         <div class="item-info text-center">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
-                                    <img class="img-responsive center-block" src="assets/img/restaurant.jpg" alt="Item number 1">
+                                    <img class="img-responsive center-block" src="../../resources/assets/img/restaurant.jpg" alt="Item number 1">
                                     <a class="btn btn-success" target="_blank" href="http://technext.github.io/Mamma-s-Kitchen/" >Demo</a>
                                     <a class="btn btn-danger" target="_blank" href="http://themewagon.com/themes/mammas-kitchen-free-responsive-html5-bootstrap-restaurant-template/" >More Info</a>
                                 </div>
@@ -104,7 +111,7 @@
                         <div class="item-info text-center">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
-                                    <img class="img-responsive center-block" src="assets/img/corporate.jpg" alt="Item number 1">
+                                    <img class="img-responsive center-block" src="../../resources/assets/img/corporate.jpg" alt="Item number 1">
                                     <a class="btn btn-success" target="_blank" href="http://technext.github.io/avada-plus/" >Demo</a>
                                     <a class="btn btn-danger" target="_blank" href="http://themewagon.com/themes/avada-plus-free-responsive-html5-agency-template/" >More Info</a>
                                 </div>
@@ -120,7 +127,7 @@
                         <div class="item-info text-center">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
-                                    <img class="img-responsive center-block" src="assets/img/restaurant.jpg" alt="Item number 1">
+                                    <img class="img-responsive center-block" src="../../resources/assets/img/restaurant.jpg" alt="Item number 1">
                                     <a class="btn btn-success" target="_blank" href="http://technext.github.io/Mamma-s-Kitchen/" >Demo</a>
                                     <a class="btn btn-danger" target="_blank" href="http://themewagon.com/themes/mammas-kitchen-free-responsive-html5-bootstrap-restaurant-template/" >More Info</a>
                                 </div>
@@ -160,7 +167,7 @@
 
                 <div class="advertisement">
                     <a href="http://themewagon.com/" class="template-images">
-                        <img class="img-responsive" src="assets/img/add.png" alt="Template Store">
+                        <img class="img-responsive" src="../../resources/assets/img/add.png" alt="Template Store">
                         <div class="overlay"></div>
                     </a>
                 </div>
@@ -185,7 +192,7 @@
                             <div class="well">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <img src="assets/img/commenter1.jpg" class="img-responsive center-block">
+                                        <img src="../../resources/assets/img/commenter1.jpg" class="img-responsive center-block">
                                     </div>
                                     <div class="col-md-10">
                                         <p class="comment-info">
@@ -202,7 +209,7 @@
                             <div class="well">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <img src="assets/img/commenter2.jpg" class="img-responsive center-block">
+                                        <img src="../../resources/assets/img/commenter2.jpg" class="img-responsive center-block">
                                     </div>
                                     <div class="col-md-10">
                                         <p class="comment-info">
@@ -259,48 +266,7 @@
             </section>
             <!-- end of blog-contents -->
 
-            <!-- sidebar -->
-            <aside class="col-md-4 col-sm-8 col-xs-8">
-                <div class="sidebar">
-                    <div class="search-widget">
-                        <div class="input-group margin-bottom-sm">
-                            <input class="form-control" type="text" placeholder="Search here">
-                            <a href="#" class="input-group-addon">
-                                <i class="fa fa-search fa-fw"></i>
-                            </a>
-                        </div>
-                    </div>
 
-                    <a href="http://themewagon.com/" class="template-images">
-                        <img class="img-responsive" src="assets/img/store1.png" alt="Template Store">
-                        <div class="overlay"></div>
-                    </a>
 
-                    <div class="subscribe-widget">
-                        <h4 class="text-capitalize text-center">
-                            get recent update by email
-                        </h4>
-                        <div class="input-group margin-bottom-sm">
-                            <input class="form-control" type="text" placeholder="Your Email">
-                            <a href="#" class="input-group-addon">
-                                <i class="fa fa-paper-plane fa-fw"></i>
-                            </a>
-                        </div>
-                    </div>
 
-                    <div class="share-widget hidden-xs hidden-sm">
-                        <ul class="social-share text-center">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        </ul> <!-- /.footer-share-button -->
-                    </div>
-                </div>
-            </aside>
-            <!-- end of sidebar -->
-
-        </div>
-    </div> <!-- end of /.container -->
 @endsection

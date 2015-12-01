@@ -10,13 +10,34 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 
+
+//HomePage Route..
 Route::get('/', 'HomeController@index');
-Route::get('/tutorial', 'HomeController@tutorial');
-Route::get('/tutorialPage', 'HomeController@tutorialPage');
+
+//TurorialPages routing
+Route::resource('/tutorial','TutorialController');
+
+//ProfilePage route..
+Route::get('/profile/{id}', ['uses' => 'ProfileController@getUser']);
 
 
-Route::get('/ozan/oo', function(){
-   return view('tutorial');
-});
+
+//Q&A routing..
+//Route::get('/QA','QAController@index');
+//Route::get('/QA/{page}','QAController@show');
+//Route::post('/QA/AskQuestion');
+Route::resource('/QA','QAController');
+
+
+
+

@@ -30,8 +30,12 @@
 @yield('header')
 
 <main>
-
-        @yield('content')
+    <div class="container">
+        <div class="row">
+            @yield('content')
+            @yield('sidebar')
+        </div>
+    </div> <!-- end of container -->
 
 </main>
 
@@ -43,7 +47,7 @@
 @yield('scripts')
 
 
-<!-- smooth-scroll -->
+        <!-- smooth-scroll -->
 @yield('smooth-script')
 
 

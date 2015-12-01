@@ -41,7 +41,7 @@ return view('navTop');
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="index.html">
-                <img src="assets/img/logo.png" alt="Site Logo">
+                <img src="../resources/assets/img/logo.png" alt="Site Logo">
             </a>
         </div>
 

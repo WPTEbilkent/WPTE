@@ -1,3 +1,8 @@
+<?php
+$url_css_js="http://localhost/laravel/resources/assets/";
+
+?>
+
 @section('footer')
     <div class="container">
         <div class="row">
@@ -44,7 +49,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.html">
-                    <img src="assets/img/logo.png" alt="Site Logo">
+                    <img src="{{$url_css_js}}img/logo.png" alt="Site Logo">
                 </a>
             </div>
 
@@ -60,11 +65,12 @@
             </div><!-- end of /.navbar-collapse -->
         </div><!-- end of /.container -->
     </nav>
+
 @stop
 @section('scripts')
-    <script type="text/javascript" src="../resources/assets/js/jquery-2.1.3.min.js"></script>
-    <script type="text/javascript" src="../resources/assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../resources/assets/js/jQuery.scrollSpeed.js"></script>
+    <script type="text/javascript" src="{{$url_css_js}}js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="{{$url_css_js}}js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{$url_css_js}}js/jQuery.scrollSpeed.js"></script>
 @stop
 @section('smooth-scripts')
     <script>
@@ -72,4 +78,56 @@
             jQuery.scrollSpeed(100, 1000);
         });
     </script>
+@stop
+@section('sidebar')
+        <!-- sidebar -->
+    <aside class="col-md-4 col-sm-8 col-xs-8">
+        <div class="sidebar">
+
+            <!-- search option -->
+            <div class="search-widget">
+                <div class="input-group margin-bottom-sm">
+                    <input class="form-control" type="text" placeholder="Search here">
+                    <a href="#" class="input-group-addon">
+                        <i class="fa fa-search fa-fw"></i>
+                    </a>
+                </div>
+            </div>
+
+            <a href="http://themewagon.com/" class="template-images">
+                <img class="img-responsive" src="{{$url_css_js}}img/store1.png" alt="Template Store">
+
+                <div class="overlay"></div>
+            </a>
+
+            <!-- subscribe form -->
+            <div class="subscribe-widget">
+                <h4 class="text-capitalize text-center">
+                    get recent update by email
+                </h4>
+
+                <div class="input-group margin-bottom-sm">
+                    <input class="form-control" type="text" placeholder="Your Email">
+                    <a href="#" class="input-group-addon">
+                        <i class="fa fa-paper-plane fa-fw"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- sidebar share button -->
+            <div class="share-widget hidden-xs hidden-sm">
+                <ul class="social-share text-center">
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                </ul> <!-- /.sidebar-share-button -->
+            </div> <!-- /.share-widget -->
+
+        </div>
+    </aside>
+    <!-- end of sidebar -->
+
+
 @stop
