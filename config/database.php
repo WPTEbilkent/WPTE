@@ -54,10 +54,10 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'laravel_testDB'),
-            'username'  => env('DB_USERNAME', 'root'),
-            'password'  => env('DB_PASSWORD', ''),
+            'host'      => env('DB_HOST', 'ygencmer.org'),
+            'database'  => env('DB_DATABASE', 'wpte_project'),
+            'username'  => env('DB_USERNAME', 'omer_wpte'),
+            'password'  => env('DB_PASSWORD', '59475947'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
