@@ -26,11 +26,11 @@ Route::get('/', 'HomeController@index');
 
 //TurorialPages routing
 Route::resource('/tutorial','TutorialController');
+//PageLoaderController
+Route::post('tutorial-page-load','TutorialController@pagingScroolLoader');
 
 //ProfilePage route..
 Route::get('/profile/{id}', ['uses' => 'ProfileController@getUser']);
-
-
 
 //Q&A routing..
 //Route::get('/QA','QAController@index');
