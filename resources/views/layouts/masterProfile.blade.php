@@ -9,7 +9,7 @@
 
 <html class="no-js"> <!--<![endif]-->
 <head>
-
+    <base href="http://localhost/laravel/public/">
     <!-- meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,12 +30,8 @@
 @yield('header')
 
 <main>
-    <div class="container">
-        <div class="row">
-            @yield('content')
-            @yield('sidebar')
-        </div>
-    </div> <!-- end of container -->
+
+    @yield('content')
 
 </main>
 
