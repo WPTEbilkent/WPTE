@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1726009358">
+  <component name="DataSourceManagerImpl" format="xml" hash="2712162377">
     <data-source source="LOCAL" name="MySQL - laravel_testdb@localhost" uuid="971efd4f-63df-4189-940d-eee65c870e2b">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
