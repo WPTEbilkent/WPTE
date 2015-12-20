@@ -19,7 +19,9 @@ class CreateQTable extends Migration
             $table->longText('question',30000);
             $table->integer('publisher_id');
             $table->integer('rate')->default(0);
-            $table->dateTime('created_at');
+            $table->dateTime('date');
+            $table->string('subject');
+            $table->string('tag_id');
             $table->integer('ans_cnt')->default(0);
 
 
