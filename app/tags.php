@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class tags extends Model
 {
-    public $table="tags";
+    protected $table="tags";
 }
