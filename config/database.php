@@ -56,13 +56,10 @@ return [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'ygencmer.org'),
             'database'  => env('DB_DATABASE', 'wpte_project'),
-<<<<<<< HEAD
-            'username'  => env('DB_USERNAME', 'yenigencmer'),
-            'password'  => env('DB_PASSWORD', 'y1969Mer!'),
-=======
+
             'username'  => env('DB_USERNAME', 'omer_wpte'),
             'password'  => env('DB_PASSWORD', '59475947'),
->>>>>>> 32ab001749d51c0cefb5fe4a9b2c9e9100833ad4
+
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
