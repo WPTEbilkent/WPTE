@@ -1,13 +1,7 @@
 @extends('layouts.masterTutorialPage')
 @extends('HeadFoot')
 @section('content')
-    <?php
-    //extract($_GET);
-    //echo $pid;
 
-
-
-    ?>
 
 
             <!-- blog-contents -->
@@ -24,10 +18,9 @@
                         <time>july 30,2015</time>
                     </div>
 
-                    <h1>50+ best free responsive corporate template in 2015</h1>
-                    <h2>Clean User Interface, User Experience &amp; Responsive Layout using Bootstrap Grid System</h2>
+                    <h1>{{$tutorial[0]->title}}</h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <a href="#"><strong>Ut enim</strong></a> ad minim veniam. Duis aute irure dolor in reprehenderit in voluptate velit ess cillum dolore eu fugiat nulla pariatur. Excepteur sint <a href="#"><strong>non proident</strong></a>, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        {{$tutorial[0]->content}}
                     </p>
 
 
