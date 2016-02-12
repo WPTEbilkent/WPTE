@@ -2,8 +2,6 @@
 @extends('HeadFoot')
 @section('content')
 
-
-
     <section class="col-md-8">
 @foreach($tutorials as $item)
         <article class="blog-item">
