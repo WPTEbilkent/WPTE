@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class tags extends Model
+class Tutorial extends Model
 {
-    protected $table="tags";
+   protected $table = 'tutorial';
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -17,9 +17,9 @@ class TutorialController extends Controller
      */
     public function index()
     {
-        //$questions = Questions::all();
-        //Return the view Tutorial
-        return view('Tutorial.index');
+        $tutorial = DB::table('tutorial')->paginate(10);
+        $tutorial->setPath('tutorial');
+        return view('Tutorial.index',['tutorials' => $tutorial]);
 
     }
 
@@ -56,7 +56,8 @@ class TutorialController extends Controller
     {
         //$user = Users::findOrNew($id);
         //returns the Tutorial page with id.
-        return view('Tutorial.show');
+        $tutorial = DB::table('tutorial')->where('id', $id)->get();
+        return view('Tutorial.show',['tutorial' => $tutorial]);
     }
 
     /**
@@ -92,4 +93,5 @@ class TutorialController extends Controller
     {
         //
     }
+
 }

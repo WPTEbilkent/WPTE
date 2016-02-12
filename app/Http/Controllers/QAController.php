@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Questions;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -17,8 +17,8 @@ class QAController extends Controller
      */
     public function index()
     {
-        $questions = Questions::all();
-        //Return the view QA
+        $questions = DB::table('question')->paginate(10);
+        $questions->setPath('QA');
         return view('QA.index')->with('questions',$questions);
 
     }
