@@ -56,10 +56,10 @@ $url_css_js="http://localhost/laravel/resources/assets/";
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="index.html">Home</span></a></li>
+                    <li class="active"><a href="{{action("HomeController@index")}}">Home</span></a></li>
                     <li><a href="html5-templates.html">HTML5 Templates</a></li>
                     <li><a href="wordpress-themes.html">Wordpress Themes</a></li>
-                    <li><a href="design-inspiration.html">Design Inspiration</a></li>
+                    <li><a href="{{action("QAController@index")}}">Design Inspiration</a></li>
                     <li><a href="resources.html">Resource</a></li>
                 </ul>
             </div><!-- end of /.navbar-collapse -->
