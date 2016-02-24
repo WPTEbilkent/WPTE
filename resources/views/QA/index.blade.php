@@ -2,9 +2,35 @@
 @extends('HeadFoot')
 @section('content')
 
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            var input;
+
+            $('#searchButton').click(function() {
+                input = $('#searchText').val();
+                if(input.length > 0) {
+                alert("ozan");
+                    /*
+                 $.ajax({
+                 type: 'GET',
+                 url: "http://localhost/laravel/public/QA/" + input
+
+                 });*/
+                   var a =  "{!! url('/QA/search') !!}" +"/" + input;
+
+                 $.get(a, function (question) {
+                     $("#qcontent").html(question);
+                 });
 
 
-    <section class="col-md-8">
+                }
+            });
+        });
+
+    </script>
+
+    <section class="col-md-8" id="QAContent">
+
         @foreach($questions as $item)
             <article class="blog-item">
                 <div class="row">
@@ -33,7 +59,7 @@
 
 
                     <!-- blog-contents -->
-
+            <a href="{{ URL::to('/QA/create') }}">Create a New QA</a>
             <article class="blog-item">
                 <div class="row">
                     <div class="col-md-3">
@@ -79,4 +105,6 @@
 
     </section>
     <!-- end of blog -->
+
+
 @stop

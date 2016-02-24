@@ -40,11 +40,12 @@ Route::get('/profile/{id}', ['uses' => 'ProfileController@getUser']);
 //Route::get('/QA','QAController@index');
 //Route::get('/QA/{page}','QAController@show');
 //Route::post('/QA/AskQuestion');
+Route::get('/QA/search/{tag}',"QAController@searchTag");
 Route::resource("/QA","QAController");
 
 //Article routing
 Route::resource("/articles","ArticleController");
 
 //Event routing
-Route::resoruce("/events" , "EventController");
+Route::get("/events" , "EventController@index");
 

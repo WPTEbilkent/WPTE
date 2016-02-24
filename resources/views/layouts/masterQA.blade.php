@@ -22,6 +22,13 @@
     <link rel="stylesheet" href="../resources/assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="../resources/assets/css/animate.css">
     <link rel="stylesheet" href="../resources/assets/css/style.css">
+    <!--  Necessary scripts  -->
+    @yield('scripts')
+
+
+            <!-- smooth-scroll -->
+    @yield('smooth-script')
+
 
 </head>
 
@@ -30,7 +37,7 @@
 @yield('header')
 
 <main>
-    <div class="container">
+    <div class="container" id="qcontent">
         <div class="row">
             @yield('content')
             @yield('sidebar')
@@ -42,13 +49,6 @@
 <footer>
     @yield('footer')
 </footer>
-
-<!--  Necessary scripts  -->
-@yield('scripts')
-
-
-        <!-- smooth-scroll -->
-@yield('smooth-script')
 
 
 </body>

@@ -7,9 +7,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class QAController extends Controller
 {
+
+    public function searchTag($tag){
+
+        $questions = DB::table('question')->where('tag',"$tag")->paginate(10);
+        $questions->setPath('QA');
+        return view('QA.index')->with('questions',$questions);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -32,7 +40,8 @@ class QAController extends Controller
 
     public function create()
     {
-        //
+
+        return view('QA.create');
     }
 
     /**
@@ -43,7 +52,10 @@ class QAController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::table('questions')->insert([
+            'title' => $request["title"],'subject' => $request["message"],'tag_id'=>'ozan'
+        ]);
+        return view('QA.create')->with("questions",$request);
     }
 
     /**
@@ -92,4 +104,5 @@ class QAController extends Controller
     {
         //
     }
+
 }
