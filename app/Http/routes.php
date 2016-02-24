@@ -21,7 +21,7 @@ Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::controllers([
-   'password' => 'Auth\PasswordController',
+    'password' => 'Auth\PasswordController',
 ]);
 /* Authentication route end */
 
@@ -40,8 +40,11 @@ Route::get('/profile/{id}', ['uses' => 'ProfileController@getUser']);
 //Route::get('/QA','QAController@index');
 //Route::get('/QA/{page}','QAController@show');
 //Route::post('/QA/AskQuestion');
-Route::resource('/QA','QAController');
+Route::resource("/QA","QAController");
 
+//Article routing
+Route::resource("/articles","ArticleController");
 
-
+//Event routing
+Route::resoruce("/events" , "EventController");
 

@@ -21,7 +21,7 @@
                         <h1>
                             <?php
                             //title and the destination with parameters
-                            echo link_to_action('TutorialController@show', $title = $item->title, $parameters = array('pid' => $item->id), $attributes = array());
+                            echo link_to_action('QAController@show', $title = $item->title, $parameters = array('pid' => $item->id), $attributes = array());
                             ?>
                         </h1>
                     </div>
