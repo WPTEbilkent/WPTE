@@ -5,25 +5,18 @@
     <script type="text/javascript">
         $( document ).ready(function() {
             var input;
+            var url;
 
             $('#searchButton').click(function() {
                 input = $('#searchText').val();
-                if(input.length > 0) {
-                alert("ozan");
-                    /*
-                 $.ajax({
-                 type: 'GET',
-                 url: "http://localhost/laravel/public/QA/" + input
-
-                 });*/
-                   var a =  "{!! url('/QA/search') !!}" +"/" + input;
-
-                 $.get(a, function (question) {
-                     $("#qcontent").html(question);
-                 });
-
-
+                if(!input.length > 0) {
+                    input = "null";
                 }
+                url =  "{!! url('/QA/search') !!}" +"/" + input;
+
+                $.get(url, function (question) {
+                    $("#QAContent").html(question);
+                });
             });
         });
 
@@ -53,8 +46,6 @@
                     </div>
                 </div>
             </article>
-
-
             @endforeach
 
 

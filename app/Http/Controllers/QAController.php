@@ -13,10 +13,15 @@ class QAController extends Controller
 {
 
     public function searchTag($tag){
-
-        $questions = DB::table('question')->where('tag',"$tag")->paginate(10);
-        $questions->setPath('QA');
-        return view('QA.index')->with('questions',$questions);
+        if($tag == "null"){
+           $view = QAController::index();
+        }else {
+            $questions = DB::table('question')->where('tag', "$tag")->paginate(10);
+            $questions->setPath('QA');
+            $view = view('QA.index')->with('questions',$questions);
+        }
+        $sections =$view->renderSections();
+        return $sections['content'];
     }
     /**
      * Display a listing of the resource.
@@ -25,7 +30,7 @@ class QAController extends Controller
      */
     public function index()
     {
-        $questions = DB::table('question')->paginate(10);
+        $questions = DB::table('question')->orderBy('id','desc')->paginate(10);
         $questions->setPath('QA');
         return view('QA.index')->with('questions',$questions);
 
@@ -52,8 +57,12 @@ class QAController extends Controller
      */
     public function store(Request $request)
     {
-        DB::table('questions')->insert([
-            'title' => $request["title"],'subject' => $request["message"],'tag_id'=>'ozan'
+        DB::table('question')->insert([
+            'title' => $request["title"],
+            'question' => $request["message"],
+            'tag'=>'Java',
+            'subject' => 'Subjectim budur',
+            'date' => date('Y/m/d'),
         ]);
         return view('QA.create')->with("questions",$request);
     }
