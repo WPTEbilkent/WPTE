@@ -16,7 +16,7 @@ class QAController extends Controller
         if($tag == "null"){
            $view = QAController::index();
         }else {
-            $questions = DB::table('question')->where('tag', "$tag")->paginate(10);
+            $questions = DB::table('question')->where('tag_id', "$tag")->paginate(10);
             $questions->setPath('QA');
             $view = view('QA.index')->with('questions',$questions);
         }
@@ -45,8 +45,14 @@ class QAController extends Controller
 
     public function create()
     {
+        $tags = DB::table('tag')->get();
+        $tag = [];
 
-        return view('QA.create');
+        for ($i=0;$i<count($tags);$i++){
+            $tag[$i]=$tags[$i]->name;
+        }
+
+        return view('QA.create')->with('tags',$tag);
     }
 
     /**
@@ -60,7 +66,7 @@ class QAController extends Controller
         DB::table('question')->insert([
             'title' => $request["title"],
             'question' => $request["message"],
-            'tag'=>'Java',
+            'tag_id'=>$request["tag_id"],
             'subject' => 'Subjectim budur',
             'date' => date('Y/m/d'),
         ]);

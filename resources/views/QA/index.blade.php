@@ -33,7 +33,7 @@
                             in
                             <a href="html5-templates.html">{{$item->title}}</a>
                             ,
-                            <a href="#">{{$item->tag}}</a>
+                            <a href="#">{{$item->tag_id}}</a>
                             <time>{{$item->date}}
                             </time>
                         </p>

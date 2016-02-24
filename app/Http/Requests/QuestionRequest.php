@@ -25,6 +25,7 @@ class QuestionRequest extends Request
     {
         return [
             'title' => 'required',
+            'tag_id' => 'required',
             'message' => 'required',
         ];
     }

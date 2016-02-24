@@ -2,7 +2,7 @@
 
 if($_POST)
     print_r($_POST);
-
+$tags = \App\tags::lists('name','id')
 ?>
 
 
@@ -19,9 +19,9 @@ if($_POST)
     {!! Form::text('title', null, array('required', 'class'=>'form-control', 'placeholder'=>'Başlık')) !!}
 </div>
 <div class="form-group">
-    {{$tags = \App\tags::all()}}
+
     {!! Form::label('Etiket :') !!}
-    {!! Form::select('tags', $tags) !!}
+    {!! Form::select('tag_id', $tags)!!}
 </div>
 <div class="form-group">
     {!! Form::label('Your Message') !!}
