@@ -16,7 +16,7 @@ class QAController extends Controller
         if($tag == "null"){
            $view = QAController::index();
         }else {
-            $questions = DB::table('question')->where('tag_id', "$tag")->paginate(10);
+            $questions = DB::table('question')->where('tags',"LIKE" ,"%$tag%")->paginate(10);
             $questions->setPath('QA');
             $view = view('QA.index')->with('questions',$questions);
         }
@@ -45,14 +45,7 @@ class QAController extends Controller
 
     public function create()
     {
-        $tags = DB::table('tag')->get();
-        $tag = [];
-
-        for ($i=0;$i<count($tags);$i++){
-            $tag[$i]=$tags[$i]->name;
-        }
-
-        return view('QA.create')->with('tags',$tag);
+        return view('QA.create');
     }
 
     /**
@@ -63,10 +56,15 @@ class QAController extends Controller
      */
     public function store(Request $request)
     {
+        $tags = trim($request["tags"]);
+
+
         DB::table('question')->insert([
             'title' => $request["title"],
             'question' => $request["message"],
-            'tag_id'=>$request["tag_id"],
+            'user_id' => 2,
+            'date' => date("Y-M-D"),
+            'tags'=>$tags,
             'subject' => 'Subjectim budur',
             'date' => date('Y/m/d'),
         ]);

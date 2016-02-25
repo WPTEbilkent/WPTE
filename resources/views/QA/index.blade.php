@@ -25,6 +25,11 @@
     <section class="col-md-8" id="QAContent">
 
         @foreach($questions as $item)
+            <?php
+            $tags = explode(',', $item->tags);
+            ?>
+
+
             <article class="blog-item">
                 <div class="row">
 
@@ -33,7 +38,11 @@
                             in
                             <a href="html5-templates.html">{{$item->title}}</a>
                             ,
-                            <a href="#">{{$item->tag_id}}</a>
+                            @foreach($tags as $tag)
+                                <a href="#">{{$tag}}</a>
+                            @endforeach
+
+
                             <time>{{$item->date}}
                             </time>
                         </p>

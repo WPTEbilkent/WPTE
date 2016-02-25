@@ -9,6 +9,14 @@
 
 <body>
 
+<!--  Necessary scripts  -->
+@yield('scripts')
+
+
+        <!-- smooth-scroll -->
+@yield('smooth-script')
+
+
 @yield('header')
 
 <main>
@@ -24,14 +32,6 @@
 <footer>
     @yield('footer')
 </footer>
-
-<!--  Necessary scripts  -->
-@yield('scripts')
-
-
-        <!-- smooth-scroll -->
-@yield('smooth-script')
-
 
 </body>
 </html>

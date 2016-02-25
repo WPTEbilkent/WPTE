@@ -2,7 +2,6 @@
 
 if($_POST)
     print_r($_POST);
-$tags = \App\tags::lists('name','id')
 ?>
 
 
@@ -19,13 +18,12 @@ $tags = \App\tags::lists('name','id')
     {!! Form::text('title', null, array('required', 'class'=>'form-control', 'placeholder'=>'Başlık')) !!}
 </div>
 <div class="form-group">
-
     {!! Form::label('Etiket :') !!}
-    {!! Form::select('tag_id', $tags)!!}
+    {!! Form::text('tags', null, array('required', 'class'=>'form-control', 'placeholder'=>'Etiket')) !!}
 </div>
 <div class="form-group">
-    {!! Form::label('Your Message') !!}
-    {!! Form::textarea('message', null, array('required',  'class'=>'form-control',  'placeholder'=>'Your message')) !!}
+    {!! Form::label('Sorunuz:') !!}
+    {!! Form::textarea('message', null, array('required',  'class'=>'form-control',  'placeholder'=>'Sorunuz')) !!}
 </div>
 
 <div class="form-group">

@@ -12,6 +12,14 @@
 
 <body>
 
+<!--  Necessary scripts  -->
+@yield('scripts')
+
+
+        <!-- smooth-scroll -->
+@yield('smooth-script')
+
+
 @yield('header')
 
 <main>

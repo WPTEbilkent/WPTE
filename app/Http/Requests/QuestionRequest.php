@@ -23,9 +23,9 @@ class QuestionRequest extends Request
      */
     public function rules()
     {
+
         return [
             'title' => 'required',
-            'tag_id' => 'required',
             'message' => 'required',
         ];
     }
