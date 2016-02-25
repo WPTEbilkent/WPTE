@@ -1,5 +1,5 @@
 <form method="POST" action="/laravel/public/auth/login">
-    {!! csrf_field() !!}
+    {{ csrf_field() }}
 
     <div>
         Email

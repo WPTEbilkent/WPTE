@@ -2,10 +2,45 @@
 @extends('HeadFoot')
 @section('content')
 
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            var input="null";
+            var url;
+
+            $('#searchButton').click(function() {
+                input = $('#searchText').val();
+                if(!input > 0){
+                    input = "null"
+                }
+                url =  "{!! url('/QA/search') !!}" +"/" + input;
+                ajax(url);
+            });
+            $('.searchTag').click(function() {
+                input = $(this).html();
+                url =  "{!! url('/QA/search') !!}" +"/" + input;
+                ajax(url);
+            });
 
 
-    <section class="col-md-8">
+
+
+        });
+        function ajax(url){
+            $.get(url, function (question) {
+                $("#QAContent").html(question);
+            });
+        }
+
+    </script>
+
+    <section class="col-md-8" id="QAContent">
+
         @foreach($questions as $item)
+            <?php
+            $tags = explode(',', $item->tags);
+            ?>
+
+
             <article class="blog-item">
                 <div class="row">
 
@@ -14,7 +49,11 @@
                             in
                             <a href="html5-templates.html">{{$item->title}}</a>
                             ,
-                            <a href="#">{{$item->tag}}</a>
+                            @foreach($tags as $tag)
+                                <a href="#" class="searchTag">{{$tag}}</a>
+                            @endforeach
+
+
                             <time>{{$item->date}}
                             </time>
                         </p>
@@ -27,13 +66,11 @@
                     </div>
                 </div>
             </article>
-
-
             @endforeach
 
 
                     <!-- blog-contents -->
-
+            <a href="{{ URL::to('/QA/create') }}">Create a New QA</a>
             <article class="blog-item">
                 <div class="row">
                     <div class="col-md-3">
@@ -79,4 +116,6 @@
 
     </section>
     <!-- end of blog -->
+
+
 @stop

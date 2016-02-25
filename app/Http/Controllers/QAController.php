@@ -7,9 +7,22 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class QAController extends Controller
 {
+
+    public function searchTag($tag){
+        if($tag == "null"){
+           $view = QAController::index();
+        }else {
+            $questions = DB::table('question')->where('tags',"LIKE" ,"%$tag%")->orderBy('id','desc')->paginate(10);
+            $questions->setPath('QA');
+            $view = view('QA.index')->with('questions',$questions);
+        }
+        $sections =$view->renderSections();
+        return $sections['content'];
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +30,7 @@ class QAController extends Controller
      */
     public function index()
     {
-        $questions = DB::table('question')->paginate(10);
+        $questions = DB::table('question')->orderBy('id','desc')->paginate(10);
         $questions->setPath('QA');
         return view('QA.index')->with('questions',$questions);
 
@@ -32,7 +45,7 @@ class QAController extends Controller
 
     public function create()
     {
-        //
+        return view('QA.create');
     }
 
     /**
@@ -43,7 +56,19 @@ class QAController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tags = trim($request["tags"]);
+
+
+        DB::table('question')->insert([
+            'title' => $request["title"],
+            'question' => $request["message"],
+            'user_id' => 2,
+            'date' => date("Y-M-D"),
+            'tags'=>$tags,
+            'subject' => 'Subjectim budur',
+            'date' => date('Y/m/d'),
+        ]);
+        return view('QA.create')->with("questions",$request);
     }
 
     /**
@@ -92,4 +117,5 @@ class QAController extends Controller
     {
         //
     }
+
 }
