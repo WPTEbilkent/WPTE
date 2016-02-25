@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             @yield('content')
-            @yield('sidebar')
+
         </div>
     </div> <!-- end of container -->
 

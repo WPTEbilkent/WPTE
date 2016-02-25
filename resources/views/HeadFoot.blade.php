@@ -8,9 +8,8 @@ $url_css_js="http://localhost/laravel/resources/assets/";
         <div class="row">
             <!-- copyright -->
             <div class="col-md-4 col-sm-4">
-                copyright &copy; 2015 <a href="#" style="margin-left: 4px;">Your website Link</a>
+                copyright &copy; 2015 <a href="#" style="margin-left: 4px;">Havelsan A.Ş.</a>
                 <br>
-                Theme by <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
             </div>
 
             <!-- footer share button -->
@@ -64,20 +63,23 @@ $url_css_js="http://localhost/laravel/resources/assets/";
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
-                    <img src="{{$url_css_js}}img/logo.png" alt="Site Logo">
+                <a style="padding-left:5%" class="navbar-brand" href="/">
+                    <span>"Site logo will come here"</span>
+                  <!--  <img src="{{$url_css_js}}img/WPTELogo.jpg" alt="Site Logo"> -->
                 </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="{{action("HomeController@index")}}">Home</span></a></li>
-                    <li><a href="html5-templates.html">HTML5 Templates</a></li>
-                    <li><a href="wordpress-themes.html">Wordpress Themes</a></li>
-                    <li><a href="{{action("QAController@index")}}">Design Inspiration</a></li>
-                    <li><a href="resources.html">Resource</a></li>
+                    <li><a href="/"><span>WPTE</span></a></li>
+                    <li class="active"><a href="resources.html">Soru & Cevap</a></li>
+                    <li><a href="wordpress-themes.html">Eğİtİm</a></li>
+                    <li><a href="design-inspiration.html">Etkİnlİkler</a></li>
+                    <li><a href="resources.html">Makaleler</a></li>
+                    <li><a href="resources.html">Gİrİş</a></li>
                 </ul>
+
             </div><!-- end of /.navbar-collapse -->
         </div><!-- end of /.container -->
     </nav>
@@ -103,8 +105,8 @@ $url_css_js="http://localhost/laravel/resources/assets/";
             <!-- search option -->
             <div class="search-widget">
                 <div class="input-group margin-bottom-sm">
-                    <input id="searchText" class="form-control" type="text" placeholder="Search here">
-                    <a id="searchButton" href="#" class="input-group-addon">
+                    <input class="form-control" type="text" placeholder="Search here">
+                    <a href="#" class="input-group-addon">
                         <i class="fa fa-search fa-fw"></i>
                     </a>
                 </div>
@@ -113,11 +115,14 @@ $url_css_js="http://localhost/laravel/resources/assets/";
             <a href="http://themewagon.com/" class="template-images">
                 <img class="img-responsive" src="{{$url_css_js}}img/store1.png" alt="Template Store">
 
-                <div class="overlay"></div>
+                <div class="overlay"><span style="color: red; font-size: 26pt">This area is reserved for event getter</span></div>
             </a>
 
             <!-- subscribe form -->
             <div class="subscribe-widget">
+
+                <!-- TODO ->
+                <!-- silinecek ->
                 <h4 class="text-capitalize text-center">
                     get recent update by email
                 </h4>
