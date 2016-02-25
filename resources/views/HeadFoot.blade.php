@@ -105,8 +105,8 @@ $url_css_js="http://localhost/laravel/resources/assets/";
             <!-- search option -->
             <div class="search-widget">
                 <div class="input-group margin-bottom-sm">
-                    <input class="form-control" type="text" placeholder="Search here">
-                    <a href="#" class="input-group-addon">
+                    <input id="searchText" class="form-control" type="text" placeholder="Etiket Ara">
+                    <a href="#" class="input-group-addon" id="searchButton">
                         <i class="fa fa-search fa-fw"></i>
                     </a>
                 </div>
