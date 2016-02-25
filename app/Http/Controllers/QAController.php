@@ -56,7 +56,7 @@ class QAController extends Controller
      */
     public function store(Request $request)
     {
-        $tags = trim($request["tags"]);
+        $tags = str_replace(" ","",$request["tags"]);
 
 
         DB::table('question')->insert([

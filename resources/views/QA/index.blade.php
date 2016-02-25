@@ -4,10 +4,12 @@
 
     <script type="text/javascript">
         $( document ).ready(function() {
-            var input="null";
-            var url;
+            var input="";
+            var url="";
 
             $('#searchButton').click(function() {
+                input="";
+                url="";
                 input = $('#searchText').val();
                 if(!input > 0){
                     input = "null"
@@ -16,6 +18,8 @@
                 ajax(url);
             });
             $('.searchTag').click(function() {
+                input="";
+                url="";
                 input = $(this).html();
                 url =  "{!! url('/QA/search') !!}" +"/" + input;
                 ajax(url);
