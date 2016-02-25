@@ -11,8 +11,8 @@
                 input="";
                 url="";
                 input = $('#searchText').val();
-                if(!input > 0){
-                    input = "null"
+                if(!input.length > 0){
+                    input = "null";
                 }
                 url =  "{!! url('/QA/search') !!}" +"/" + input;
                 ajax(url);
