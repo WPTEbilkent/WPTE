@@ -4,21 +4,32 @@
 
     <script type="text/javascript">
         $( document ).ready(function() {
-            var input;
+            var input="null";
             var url;
 
             $('#searchButton').click(function() {
                 input = $('#searchText').val();
-                if(!input.length > 0) {
-                    input = "null";
+                if(!input > 0){
+                    input = "null"
                 }
                 url =  "{!! url('/QA/search') !!}" +"/" + input;
-
-                $.get(url, function (question) {
-                    $("#QAContent").html(question);
-                });
+                ajax(url);
             });
+            $('.searchTag').click(function() {
+                input = $(this).html();
+                url =  "{!! url('/QA/search') !!}" +"/" + input;
+                ajax(url);
+            });
+
+
+
+
         });
+        function ajax(url){
+            $.get(url, function (question) {
+                $("#QAContent").html(question);
+            });
+        }
 
     </script>
 
@@ -39,7 +50,7 @@
                             <a href="html5-templates.html">{{$item->title}}</a>
                             ,
                             @foreach($tags as $tag)
-                                <a href="#">{{$tag}}</a>
+                                <a href="#" class="searchTag">{{$tag}}</a>
                             @endforeach
 
 

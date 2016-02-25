@@ -16,7 +16,7 @@ class QAController extends Controller
         if($tag == "null"){
            $view = QAController::index();
         }else {
-            $questions = DB::table('question')->where('tags',"LIKE" ,"%$tag%")->paginate(10);
+            $questions = DB::table('question')->where('tags',"LIKE" ,"%$tag%")->orderBy('id','desc')->paginate(10);
             $questions->setPath('QA');
             $view = view('QA.index')->with('questions',$questions);
         }
