@@ -72,9 +72,9 @@
             </article>
             @endforeach
 
-
-                    <!-- blog-contents -->
             <a href="{{ URL::to('/QA/create') }}">Create a New QA</a>
+                    <!-- blog-contents -->
+
             <article class="blog-item">
                 <div class="row">
                     <div class="col-md-3">

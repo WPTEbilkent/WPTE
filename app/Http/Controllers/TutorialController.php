@@ -15,11 +15,23 @@ class TutorialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function searchTag($tag){
+        if($tag == "null"){
+            $view = TutorialController::index();
+        }else {
+            $tutorials = DB::table('tutorial')->where('tag',"LIKE" ,"%$tag%")->orderBy('id','desc')->paginate(10);
+            $tutorials->setPath('tutorial');
+            $view = view('tutorial.index')->with('tutorials',$tutorials);
+        }
+        $sections =$view->renderSections();
+        return $sections['content'];
+    }
+
     public function index()
     {
-        $tutorial = DB::table('tutorial')->paginate(10);
+        $tutorial = DB::table('tutorial')->orderBy('id','desc')->paginate(10);
         $tutorial->setPath('tutorial');
-        return view('Tutorial.index',['tutorials' => $tutorial]);
+        return view('tutorial.index',['tutorials' => $tutorial]);
 
     }
 
@@ -32,7 +44,7 @@ class TutorialController extends Controller
 
     public function create()
     {
-        //
+        return view('tutorial.create');
     }
 
     /**
@@ -43,7 +55,17 @@ class TutorialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tags = str_replace(" ","",$request["tags"]);
+
+
+        DB::table('tutorial')->insert([
+            'title' => $request["title"],
+            'content' => $request["message"],
+            'publisher_id' => 2,
+            'date' => date("Y-M-D"),
+            'tag'=>$tags,
+        ]);
+        return view('Tutorial.create')->with("tutorial",$request);
     }
 
     /**
@@ -57,7 +79,7 @@ class TutorialController extends Controller
         //$user = Users::findOrNew($id);
         //returns the Tutorial page with id.
         $tutorial = DB::table('tutorial')->where('id', $id)->get();
-        return view('Tutorial.show',['tutorial' => $tutorial]);
+        return view('tutorial.show',['tutorial' => $tutorial]);
     }
 
     /**
