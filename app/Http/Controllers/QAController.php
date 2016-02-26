@@ -67,7 +67,7 @@ class QAController extends Controller
             'user_id' => 2,
             'tags'=>$tags,
             'subject' => 'Subjectim budur',
-            'date' => date('d/m/Y'),
+            'date' => date('Y/m/d'),
         ]);
         return view('QA.create')->with("questions",$request);
     }

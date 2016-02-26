@@ -64,10 +64,10 @@ class TutorialController extends Controller
             'title' => $title,
             'content' => $request["message"],
             'publisher_id' => 2,
-            'date' => date('d/m/Y'),
+            'date' => date('Y-m-d'),
             'tag'=>$tags,
         ]);
-        return view('Tutorial.create')->with("tutorial",$date);
+        return view('Tutorial.create');
     }
 
     /**
