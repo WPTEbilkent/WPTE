@@ -20,8 +20,8 @@ class TutorialController extends Controller
             $view = TutorialController::index();
         }else {
             $tutorials = DB::table('tutorial')->where('tag',"LIKE" ,"%$tag%")->orderBy('id','desc')->paginate(10);
-            $tutorials->setPath('tutorial');
-            $view = view('tutorial.index')->with('tutorials',$tutorials);
+            $tutorials->setPath('Tutorial');
+            $view = view('Tutorial.index')->with('tutorials',$tutorials);
         }
         $sections =$view->renderSections();
         return $sections['content'];
@@ -31,7 +31,7 @@ class TutorialController extends Controller
     {
         $tutorial = DB::table('tutorial')->orderBy('id','desc')->paginate(10);
         $tutorial->setPath('tutorial');
-        return view('tutorial.index',['tutorials' => $tutorial]);
+        return view('Tutorial.index',['tutorials' => $tutorial]);
 
     }
 
@@ -44,7 +44,7 @@ class TutorialController extends Controller
 
     public function create()
     {
-        return view('tutorial.create');
+        return view('Tutorial.create');
     }
 
     /**
@@ -79,7 +79,7 @@ class TutorialController extends Controller
         //$user = Users::findOrNew($id);
         //returns the Tutorial page with id.
         $tutorial = DB::table('tutorial')->where('id', $id)->get();
-        return view('tutorial.show',['tutorial' => $tutorial]);
+        return view('Tutorial.show',['tutorial' => $tutorial]);
     }
 
     /**
