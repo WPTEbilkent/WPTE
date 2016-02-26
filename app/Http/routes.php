@@ -29,7 +29,9 @@ Route::controllers([
 Route::get('/', 'HomeController@index');
 
 //TurorialPages routing
+Route::get('/tutorial/search/{tag}',"TutorialController@searchTag");
 Route::resource('/tutorial','TutorialController');
+
 //PageLoaderController
 Route::post('tutorial-page-load','TutorialController@pagingScroolLoader');
 

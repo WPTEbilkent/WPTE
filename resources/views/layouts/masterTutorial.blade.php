@@ -12,7 +12,12 @@
 
 <body>
 
+<!--  Necessary scripts  -->
+@yield('scripts')
+
 @yield('header')
+
+
 
 <main>
     <div class="container">
@@ -27,9 +32,6 @@
 <footer>
     @yield('footer')
 </footer>
-
-<!--  Necessary scripts  -->
-@yield('scripts')
 
 
         <!-- smooth-scroll -->
