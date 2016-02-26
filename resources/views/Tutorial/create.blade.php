@@ -2,6 +2,9 @@
 
 if($_POST)
     print_r($_POST);
+if(isset($tutorial)){
+    echo $tutorial;
+}
 ?>
 
 
@@ -10,6 +13,7 @@ if($_POST)
         <li>{{ $error }}</li>
     @endforeach
 </ul>
+
 
 {!! Form::open(array('route' => 'tutorial.store', 'class' => 'form')) !!}
 

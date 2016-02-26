@@ -53,8 +53,7 @@
                             @foreach($tags as $tag)
                                 <a href="#" class="searchTag">{{$tag}}</a>
                             @endforeach
-                            <time>{{$item->date}}
-                            </time>
+                            <time>{{$item->date}}</time>
                         </p>
                         <h1>
                             <?php

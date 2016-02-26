@@ -56,16 +56,17 @@ class TutorialController extends Controller
     public function store(Request $request)
     {
         $tags = str_replace(" ","",$request["tags"]);
+        $date = date('Y/m/d');
 
 
         DB::table('tutorial')->insert([
             'title' => $request["title"],
             'content' => $request["message"],
             'publisher_id' => 2,
-            'date' => date("Y-M-D"),
+            'date' => date('Y/m/d'),
             'tag'=>$tags,
         ]);
-        return view('Tutorial.create')->with("tutorial",$request);
+        return view('Tutorial.create')->with("tutorial",$date);
     }
 
     /**
