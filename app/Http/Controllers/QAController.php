@@ -57,16 +57,17 @@ class QAController extends Controller
     public function store(Request $request)
     {
         $tags = str_replace(" ","",$request["tags"]);
+        $tags = mb_strtolower($tags);
+        $title = mb_strtoupper($request["title"]);
 
 
         DB::table('question')->insert([
-            'title' => $request["title"],
+            'title' => $title,
             'question' => $request["message"],
             'user_id' => 2,
-            'date' => date("Y-M-D"),
             'tags'=>$tags,
             'subject' => 'Subjectim budur',
-            'date' => date('Y/m/d'),
+            'date' => date('d/m/Y'),
         ]);
         return view('QA.create')->with("questions",$request);
     }
