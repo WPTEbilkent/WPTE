@@ -78,8 +78,6 @@ class TutorialController extends Controller
      */
     public function show($id)
     {
-        //$user = Users::findOrNew($id);
-        //returns the Tutorial page with id.
         $tutorial = DB::table('tutorial')->where('id', $id)->get();
         return view('Tutorial.show',['tutorial' => $tutorial]);
     }

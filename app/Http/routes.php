@@ -51,3 +51,6 @@ Route::resource("/articles","ArticleController");
 //Event routing
 Route::get("/events" , "EventController@index");
 
+//Twitch routing
+Route::resource("/twitch","TwitchController");
+
