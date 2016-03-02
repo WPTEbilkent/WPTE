@@ -8,6 +8,16 @@
 
 
             <!-- blog-contents -->
+<script src="/laravel/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script src="/laravel/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('#ata').ckeditor();
+    });
+
+
+
+</script>
             <section class="col-md-11">
                 <!-- TODO ->
                 <!-- soru ve her cevap için rate gelecek, answers gelecek, answer butonu, butondan sonra açılacak olan text editörü
@@ -96,9 +106,11 @@
                                 <p>
                                     Answer content will be placed here
                                 </p>
+
                             </div>
                         </div>
                     </div>
+                  <textarea id="ata"></textarea>
 
                 </div>
 

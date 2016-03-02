@@ -6,6 +6,10 @@
 
 <html class="no-js"> <!--<![endif]-->
 
+<!--  Necessary scripts  -->
+@yield('scripts')
+        <!-- smooth-scroll -->
+@yield('smooth-script')
 
 <body>
 
@@ -25,12 +29,8 @@
     @yield('footer')
 </footer>
 
-<!--  Necessary scripts  -->
-@yield('scripts')
 
 
-        <!-- smooth-scroll -->
-@yield('smooth-script')
 
 
 </body>
