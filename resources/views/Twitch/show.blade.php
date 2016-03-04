@@ -1,4 +1,4 @@
-@extends('layouts.masterTutorialPage')
+@extends('layouts.masterTwitch')
 @extends('HeadFoot')
 @section('content')
 
