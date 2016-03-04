@@ -40,6 +40,7 @@
     <section class="col-md-8" id="TutorialContent">
         @foreach($tutorials as $item)
             <?php
+            $user=App\user::find($item->publisher_id);
             $tags = explode(',', $item->tag);
             ?>
             <article class="blog-item">
@@ -48,7 +49,10 @@
                     <div class="col-md-9">
                         <p>
                             in
-                            <a href="html5-templates.html">{{ $item->publisher_id }}</a>
+                            <a href="html5-templates.html">
+
+                                {{ $user->name }}
+                            </a>
                             ,
                             @foreach($tags as $tag)
                                 <a href="#" class="searchTag">{{$tag}}</a>

@@ -73,8 +73,8 @@ $url_css_js="http://localhost/laravel/resources/assets/";
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/"><span>WPTE</span></a></li>
-                    <li class="active"><a href="resources.html">Soru & Cevap</a></li>
-                    <li><a href="wordpress-themes.html">Eğİtİm</a></li>
+                    <li class="active"><a href="{{url("/QA")}}">Soru & Cevap</a></li>
+                    <li><a href="{{url("/tutorial")}}">Eğİtİm</a></li>
                     <li><a href="design-inspiration.html">Etkİnlİkler</a></li>
                     <li><a href="resources.html">Makaleler</a></li>
                     <li><a href="resources.html">Gİrİş</a></li>

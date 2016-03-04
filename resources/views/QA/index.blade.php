@@ -41,6 +41,7 @@
 
         @foreach($questions as $item)
             <?php
+            $user = App\user::find($item->user_id);
             $tags = explode(',', $item->tags);
             ?>
 
@@ -50,9 +51,12 @@
 
                     <div class="col-md-9">
                         <p>
-                            in
-                            <a href="html5-templates.html">{{$item->title}}</a>
-                            ,
+                            By:
+                            <a href="html5-templates.html">
+                                {{$user->name}}
+
+                            </a>
+                            , Tags:
                             @foreach($tags as $tag)
                                 <a href="#" class="searchTag">{{$tag}}</a>
                             @endforeach

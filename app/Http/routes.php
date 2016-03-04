@@ -42,6 +42,7 @@ Route::get('/profile/{id}', ['uses' => 'ProfileController@getUser']);
 //Route::get('/QA','QAController@index');
 //Route::get('/QA/{page}','QAController@show');
 //Route::post('/QA/AskQuestion');
+Route::post('/QA/answer',"QAController@newAnswer");
 Route::get('/QA/search/{tag}',"QAController@searchTag");
 Route::resource("/QA","QAController");
 
