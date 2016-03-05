@@ -8,7 +8,7 @@ $url_css_js="http://localhost/bitirme/WPTE_v1/resources/assets/";
         <div class="row">
             <!-- copyright -->
             <div class="col-md-4 col-sm-4">
-                copyright &copy; 2015 <a href="#" style="margin-left: 4px;">Havelsan A.Ş.</a>
+                copyright &copy; 2015 <a href="http://www.havelsan.com.tr" target="_blank" style="margin-left: 4px;">Havelsan A.Ş.</a>
                 <br>
             </div>
 
@@ -43,7 +43,7 @@ $url_css_js="http://localhost/bitirme/WPTE_v1/resources/assets/";
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>Theme Blog - 50+ Best Responsive Templates</title>
+        <title>Welcome to YouTestify!</title>
 
         <!-- stylesheets -->
         <link rel="stylesheet" href="{{$url_css_js}}/css/bootstrap.min.css">
@@ -73,8 +73,8 @@ $url_css_js="http://localhost/bitirme/WPTE_v1/resources/assets/";
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/"><span>WPTE</span></a></li>
-                    <li class="active"><a href="resources.html">Soru & Cevap</a></li>
-                    <li><a href="wordpress-themes.html">Eğİtİm</a></li>
+                    <li class="active"><a href="{{url("/QA")}}">Soru & Cevap</a></li>
+                    <li><a href="{{url("/tutorial")}}">Eğİtİm</a></li>
                     <li><a href="design-inspiration.html">Etkİnlİkler</a></li>
                     <li><a href="resources.html">Makaleler</a></li>
                     <li><a href="resources.html">Gİrİş</a></li>

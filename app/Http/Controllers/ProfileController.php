@@ -18,8 +18,7 @@ class ProfileController extends Controller
 
     public function getUser($id)
     {
-        $data['id'] = $id;
-        return view('profile',$data);
+        return view('profile')->with('id', $id);
     }
 
 

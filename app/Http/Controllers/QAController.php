@@ -12,6 +12,15 @@ use Illuminate\Support\Facades\Redirect;
 class QAController extends Controller
 {
 
+    public function newAnswer(Request $request){
+        DB::table('answers')->insert([
+            'answer' => $request["message"],
+            'user_id' => 2,
+            'question_id' => $request["q_id"],
+            'date' => date('Y/m/d'),
+        ]);
+        return back();
+    }
     public function searchTag($tag){
         if($tag == "null"){
            $view = QAController::index();
@@ -57,13 +66,14 @@ class QAController extends Controller
     public function store(Request $request)
     {
         $tags = str_replace(" ","",$request["tags"]);
+        $tags = mb_strtolower($tags);
+        $title = mb_strtoupper($request["title"]);
 
 
         DB::table('question')->insert([
-            'title' => $request["title"],
+            'title' => $title,
             'question' => $request["message"],
             'user_id' => 2,
-            'date' => date("Y-M-D"),
             'tags'=>$tags,
             'subject' => 'Subjectim budur',
             'date' => date('Y/m/d'),
@@ -80,8 +90,11 @@ class QAController extends Controller
     public function show($id)
     {
         $question = Questions::findOrNew($id);
-        //returns the qa page with id.
-       return view('QA.show')->with('question',$question);
+        $answers = DB::table('answers')->where('question_id', $id)->get();
+
+
+
+       return view('QA.show')->with('question',$question)->with('answers',$answers);
     }
 
     /**

@@ -1,13 +1,19 @@
 @extends('layouts.masterQAPage')
 @extends('HeadFoot')
 @section('content')
-    <?php
-    //extract($_GET);
-    //echo $pid;
-    ?>
 
 
             <!-- blog-contents -->
+<script src="/laravel/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script src="/laravel/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('#ata').ckeditor();
+    });
+
+
+
+</script>
             <section class="col-md-11">
                 <!-- TODO ->
                 <!-- soru ve her cevap için rate gelecek, answers gelecek, answer butonu, butondan sonra açılacak olan text editörü
@@ -60,23 +66,34 @@
                 <div class="feedback">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1>Question Title Will Be Placed Here</h1>
+                            <h1>{{$question->title}}</h1>
                             <div class="cmnt-clipboard"><span class="btn-clipboard">Reply</span></div>
                             <div class="well">
                                 <div class="row">
                                     <div class="col-md-2">
-                                        Rate system will be placed here
+                                        {{$question->rate}}
                                     </div>
                                     <div class="col-md-10">
                                         <p class="comment-info">
-                                            <strong>User Name Will Be Placed Here</strong> <span>22 april 2015</span>
+                                            <strong>
+                                                <?php
+                                                    $user=App\user::find($question->user_id);
+                                                ?>
+                                                {{$user->name}}
+                                            </strong>
+                                            <span>{{$question->date}}</span>
                                         </p>
-                                        <p>
-                                            Question content will be placed here
-                                        </p>
+                                        {!! $question->question !!}
                                     </div>
                                 </div>
-                                <h3><span class="label label-default" style="margin-left: 17%">Question Tags Will Be Placed Here</span></h3>
+                                <?php
+                                $tags = explode(",",$question->tags);
+                                ?>
+                                <h3 style="margin-left: 17%">
+                                @foreach($tags as $tag)
+                                    <span class="label label-default" >{{$tag}}</span>
+                                @endforeach
+                                </h3>
                             </div>
                         </div>
                     </div>
@@ -84,21 +101,33 @@
 
 
                     <br><br>
+                    @foreach($answers as $answer)
+                        <?php
+                        $user=App\user::find($answer->user_id);
+                        ?>
                     <div class="well">
                         <div class="row">
                             <div class="col-md-2">
-                                Rate system will be placed here
+                                {{$answer->rate}}
                             </div>
                             <div class="col-md-10">
                                 <p class="comment-info">
-                                    <strong>User Name Will Be Placed Here</strong> <span>22 april 2015</span>
+                                    <strong>{{$user->name}}</strong> <span>{{$answer->date}}</span>
                                 </p>
-                                <p>
-                                    Answer content will be placed here
-                                </p>
+                                    {!! $answer->answer !!}
                             </div>
                         </div>
                     </div>
+                    @endforeach
+                    {!! Form::open(array('action' => 'QAController@newAnswer' , 'class' => 'form')) !!}
+                    <div class="form-group">
+                        {!! Form::hidden('q_id', $question->id) !!}
+                        {!! Form::textarea('message', null, array('id' => 'ata', 'required',  'class'=>'form-control',  'placeholder'=>'Cevap Yaziniz')) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::submit('Submit',  array('class'=>'btn btn-primary')) !!}
+                    </div>
+                    {!! Form::close() !!}
 
                 </div>
 

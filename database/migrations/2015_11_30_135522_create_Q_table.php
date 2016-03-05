@@ -12,7 +12,7 @@ class CreateQTable extends Migration
      */
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::create('question', function (Blueprint $table) {
             //
             $table->increments('id');
             $table->string('title',150);
@@ -22,7 +22,7 @@ class CreateQTable extends Migration
             $table->dateTime('date');
             $table->string('subject');
             $table->string('tag_id');
-            $table->integer('ans_cnt')->default(0);
+
 
 
 

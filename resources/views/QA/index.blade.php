@@ -41,6 +41,7 @@
 
         @foreach($questions as $item)
             <?php
+            $user = App\user::find($item->user_id);
             $tags = explode(',', $item->tags);
             ?>
 
@@ -50,9 +51,12 @@
 
                     <div class="col-md-9">
                         <p>
-                            in
-                            <a href="html5-templates.html">{{$item->title}}</a>
-                            ,
+                            By:
+                            <a href="html5-templates.html">
+                                {{$user->name}}
+
+                            </a>
+                            , Tags:
                             @foreach($tags as $tag)
                                 <a href="#" class="searchTag">{{$tag}}</a>
                             @endforeach
@@ -72,39 +76,7 @@
             </article>
             @endforeach
 
-            <a href="{{ URL::to('/QA/create') }}">Create a New QA</a>
-                    <!-- blog-contents -->
-
-            <article class="blog-item">
-                <div class="row">
-                    <div class="col-md-3">
-                        <a href="#">
-                            <img src="../resources/assets/img/event.jpg" class="img-thumbnail center-block"
-                                 alt="Blog Post Thumbnail">
-                        </a>
-                    </div>
-                    <div class="col-md-9">
-                        <p>
-                            in
-                            <a href="html5-templates.html">html5</a>
-                            ,
-                            <a href="#">templates</a>
-                            <time>23-july-2015
-                            </time>
-                        </p>
-                        <h1>
-                            <?php
-                            //title and the destination with parameters
-                            echo link_to_action('TutorialController@show', $title = "50+ best free responsive event template in 2015", $parameters = array('pid' => 123), $attributes = array());
-                            ?>
-
-
-
-                        </h1>
-                    </div>
-                </div>
-            </article> <!-- /.blog-item -->
-
+            <a class="btn btn-large btn-success" href="{{ URL::to('/QA/create') }}">Ask A Question!</a>
 
             <div class="page-turn">
                 <div class="row">

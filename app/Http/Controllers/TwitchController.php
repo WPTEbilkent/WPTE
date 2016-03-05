@@ -2,38 +2,26 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class TutorialController extends Controller
+
+class TwitchController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function searchTag($tag){
-        if($tag == "null"){
-            $view = TutorialController::index();
-        }else {
-            $tutorials = DB::table('tutorial')->where('tag',"LIKE" ,"%$tag%")->orderBy('id','desc')->paginate(10);
-            $tutorials->setPath('Tutorial');
-            $view = view('Tutorial.index')->with('tutorials',$tutorials);
-        }
-        $sections =$view->renderSections();
-        return $sections['content'];
-    }
-
     public function index()
     {
-        $tutorial = DB::table('tutorial')->orderBy('id','desc')->paginate(10);
-        $tutorial->setPath('tutorial');
-        return view('Tutorial.index',['tutorials' => $tutorial]);
-
+        $twitch = DB::table('twitch')->orderBy('id','desc')->paginate(10);
+        $twitch->setPath('twitch');
+        return view('Twitch.index', ['twitches' => $twitch]);
     }
+
 
 
     /**
@@ -41,10 +29,9 @@ class TutorialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function create()
     {
-        return view('Tutorial.create');
+        //
     }
 
     /**
@@ -55,19 +42,17 @@ class TutorialController extends Controller
      */
     public function store(Request $request)
     {
-        $tags = str_replace(" ","",$request["tags"]);
-        $tags = mb_strtolower($tags);
-        $title = mb_strtoupper($request["title"]);
+
+        $url = str_replace(" ","",$request["url"]);
+        $url = mb_strtolower($url);
+        $url_arr = explode("/",$url);
 
 
-        DB::table('tutorial')->insert([
-            'title' => $title,
-            'content' => $request["message"],
-            'publisher_id' => 2,
-            'date' => date('Y-m-d'),
-            'tag'=>$tags,
+
+        DB::table('twitch')->insert([
+            'url' => $url_arr[1],
         ]);
-        return view('Tutorial.create');
+        return view("Twitch.index");
     }
 
     /**
@@ -78,8 +63,8 @@ class TutorialController extends Controller
      */
     public function show($id)
     {
-        $tutorial = DB::table('tutorial')->where('id', $id)->get();
-        return view('Tutorial.show',['tutorial' => $tutorial]);
+        return view('Twitch.show',['twitch_id' => $id]);
+
     }
 
     /**
@@ -115,5 +100,4 @@ class TutorialController extends Controller
     {
         //
     }
-
 }
