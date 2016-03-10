@@ -40,8 +40,7 @@
     <section class="col-md-8" id="TutorialContent">
         @foreach($tutorials as $item)
             <?php
-            $user=App\user::find($item->publisher_id);
-            $tags = explode(',', $item->tag);
+            $tags = explode(',', $item->tags);
             ?>
             <article class="blog-item">
                 <div class="row">
@@ -51,7 +50,7 @@
                             in
                             <a href="html5-templates.html">
 
-                                {{ $user->name }}
+                                {{ $item->user->name }}
                             </a>
                             ,
                             @foreach($tags as $tag)

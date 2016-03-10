@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTutorialsTable extends Migration
+class CreateQuestionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,19 @@ class CreateTutorialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tutorials', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
+
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
-            $table->string('title',150);
-            $table->LongText('content',30000);
-            $table->string('tags', 15);
-            $table->integer('rate');
-            $table->date('date');
+            $table->string('title', 150);
+            $table->longText('question', 30000);
+            $table->string('tags');
+            $table->integer('rate')->default(0);
+            $table->dateTime('date');
 
             //constraints for table
+
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
@@ -37,10 +39,10 @@ class CreateTutorialsTable extends Migration
      */
     public function down()
     {
-        Schema::table('tutorials', function (Blueprint $table) {
-            $table->dropForeign('tutorial_user_id_foreign');
+        Schema::table('questions', function (Blueprint $table) {
+            $table->dropForeign('question_user_id_foreign');
         });
 
-        Schema::drop('tutorials');
+        Schema::drop('questions');
     }
 }

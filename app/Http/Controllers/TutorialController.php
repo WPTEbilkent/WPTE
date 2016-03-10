@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Tutorial as Tutorials;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
@@ -29,9 +30,10 @@ class TutorialController extends Controller
 
     public function index()
     {
-        $tutorial = DB::table('tutorial')->orderBy('id','desc')->paginate(10);
-        $tutorial->setPath('tutorial');
-        return view('Tutorial.index',['tutorials' => $tutorial]);
+       //$tutorials = DB::table('tutorial')->orderBy('id','desc')->paginate(10);
+        $tutorials = Tutorials::orderBy('id','desc')->paginate(10);
+        $tutorials->setPath('tutorial');
+        return view('Tutorial.index',['tutorials' => $tutorials]);
 
     }
 
@@ -59,15 +61,16 @@ class TutorialController extends Controller
         $tags = mb_strtolower($tags);
         $title = mb_strtoupper($request["title"]);
 
+        $tutorial = new Tutorials;
+        $tutorial->user_id = 4;
+        $tutorial->title = $title;
+        $tutorial->content = $request->message;
+        $tutorial->tags = $tags;
+        $tutorial->rate = 0;
+        $tutorial->date = date("Y-m-d H:i:s");
+        $tutorial->save();
 
-        DB::table('tutorial')->insert([
-            'title' => $title,
-            'content' => $request["message"],
-            'publisher_id' => 2,
-            'date' => date('Y-m-d'),
-            'tag'=>$tags,
-        ]);
-        return view('Tutorial.create');
+        return $this->index();
     }
 
     /**
@@ -78,8 +81,9 @@ class TutorialController extends Controller
      */
     public function show($id)
     {
-        $tutorial = DB::table('tutorial')->where('id', $id)->get();
-        return view('Tutorial.show',['tutorial' => $tutorial]);
+
+        $tutorial = Tutorials::where('id' , $id)->get();
+        return view('Tutorial.show')->with('tutorial' , $tutorial);
     }
 
     /**

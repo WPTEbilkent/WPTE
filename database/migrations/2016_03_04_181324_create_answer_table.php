@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTutorialsTable extends Migration
+class CreateAnswerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,15 @@ class CreateTutorialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tutorials', function (Blueprint $table) {
+
+        Schema::create('answers', function (Blueprint $table) {
             $table->engine = 'InnoDB';
+
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
-            $table->string('title',150);
-            $table->LongText('content',30000);
-            $table->string('tags', 15);
-            $table->integer('rate');
+            $table->integer('question_id')->unsigned()->index();
+            $table->longText('answer', 30000);
+            $table->integer('rate')->default(0);
             $table->date('date');
 
             //constraints for table
@@ -27,6 +28,12 @@ class CreateTutorialsTable extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
+
+            $table->foreign('question_id')
+                ->references('id')
+                ->on('questions')
+                ->onDelete('cascade');
+
         });
     }
 
@@ -37,10 +44,11 @@ class CreateTutorialsTable extends Migration
      */
     public function down()
     {
-        Schema::table('tutorials', function (Blueprint $table) {
-            $table->dropForeign('tutorial_user_id_foreign');
+        Schema::table('answers', function (Blueprint $table) {
+            $table->dropForeign('answers_user_id_foreign');
+            $table->dropForeign('answers_question_id_foreign');
         });
 
-        Schema::drop('tutorials');
+        Schema::drop('answers');
     }
 }

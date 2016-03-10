@@ -41,20 +41,16 @@
 
         @foreach($questions as $item)
             <?php
-            $user = App\user::find($item->user_id);
             $tags = explode(',', $item->tags);
             ?>
-
-
-            <article class="blog-item">
+                <article class="blog-item">
                 <div class="row">
 
                     <div class="col-md-9">
                         <p>
                             By:
                             <a href="html5-templates.html">
-                                {{$user->name}}
-
+                                {{$item->user->name}}
                             </a>
                             , Tags:
                             @foreach($tags as $tag)
