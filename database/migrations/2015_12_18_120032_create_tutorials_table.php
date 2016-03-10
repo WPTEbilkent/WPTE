@@ -12,15 +12,21 @@ class CreateTutorialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tutorial', function (Blueprint $table) {
+        Schema::create('tutorials', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('publisher_id');
-            $table->string('title');
-            $table->string('content');
-            $table->string('tag',15);
+            $table->integer('user_id')->unsigned()->index();
+            $table->string('title',150);
+            $table->LongText('content',30000);
+            $table->string('tags', 15);
             $table->integer('rate');
             $table->date('date');
 
+            //constraints for table
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 
@@ -31,6 +37,10 @@ class CreateTutorialsTable extends Migration
      */
     public function down()
     {
+        Schema::table('tutorials', function (Blueprint $table) {
+            $table->dropForeign('tutorial_user_id_foreign');
+        });
+
         Schema::drop('tutorials');
     }
 }

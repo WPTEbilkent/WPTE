@@ -4,8 +4,8 @@
 
 
             <!-- blog-contents -->
-<script src="/laravel/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-<script src="/laravel/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+<script src="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script src="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
 <script type="text/javascript">
     $(function(){
         $('#ata').ckeditor();
@@ -76,10 +76,7 @@
                                     <div class="col-md-10">
                                         <p class="comment-info">
                                             <strong>
-                                                <?php
-                                                    $user=App\user::find($question->user_id);
-                                                ?>
-                                                {{$user->name}}
+                                                {{$user= $question->user->name}}
                                             </strong>
                                             <span>{{$question->date}}</span>
                                         </p>
@@ -102,9 +99,6 @@
 
                     <br><br>
                     @foreach($answers as $answer)
-                        <?php
-                        $user=App\user::find($answer->user_id);
-                        ?>
                     <div class="well">
                         <div class="row">
                             <div class="col-md-2">
@@ -112,7 +106,7 @@
                             </div>
                             <div class="col-md-10">
                                 <p class="comment-info">
-                                    <strong>{{$user->name}}</strong> <span>{{$answer->date}}</span>
+                                    <strong>{{$answer->user->name}}</strong> <span>{{$answer->date}}</span>
                                 </p>
                                     {!! $answer->answer !!}
                             </div>

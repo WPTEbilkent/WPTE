@@ -8,6 +8,7 @@
             <section class="col-md-11">
 
                 <article class="single-blog-item">
+                    <p>{{$tutorial[0]->user->name}},{{$tutorial[0]->date}}</p>
 
                     <div class="alert alert-info">
                         {{--<a href="">{{$item->tag}}</a>,--}}

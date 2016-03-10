@@ -149,7 +149,6 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
 
-        Zarlach\TwitchApi\Providers\TwitchApiServiceProvider::class,
 
     ],
 
@@ -202,8 +201,6 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
 
-
-        'TwitchApi' => Zarlach\TwitchApi\Facades\TwitchApiServiceFacade::class,
 
     ],
 

@@ -11,8 +11,8 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 class User extends Model implements AuthenticatableContract,
-                                    AuthorizableContract,
-                                    CanResetPasswordContract
+    AuthorizableContract,
+    CanResetPasswordContract
 {
     use Authenticatable, Authorizable, CanResetPassword;
 
@@ -21,6 +21,56 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var string
      */
-    protected $table = 'user';
+    protected $table = 'users';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name', 'email', 'password','phone','birth_date','login_date','type'];
+
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = ['password', 'remember_token'];
+
+    public function roles()
+    {
+
+        return $this->belongsToMany(Role::class);
+    }
+
+    // get string as role name like admin and check
+    public function hasRole($role)
+    {
+
+        if (is_string($role)) {
+            return $this->roles->contains('name', $role);
+        }
+
+        // if returns empty means that user has not role
+        return !! $role->intersect($this->roles)->count();
+
+//        foreach ($role as $r) {
+//            if ($this->hasRole($r->name)) {
+//                return true;
+//            }
+//        }
+    }
+
+    public function assignRole($role)
+    {
+        // if given is string
+        if (is_string($role)) {
+            return $this->roles()->save(
+                Role::whereName($role)->firstOrfail()
+            );
+        }
+
+        // given is collection
+        return $this->roles()->save($role);
+    }
 }

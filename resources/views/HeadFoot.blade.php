@@ -46,10 +46,10 @@ $url_css_js="http://localhost/laravel/resources/assets/";
         <title>Welcome to YouTestify!</title>
 
         <!-- stylesheets -->
-        <link rel="stylesheet" href="{{$url_css_js}}/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{$url_css_js}}/css/font-awesome.min.css">
-        <link rel="stylesheet" href="{{$url_css_js}}/css/animate.css">
-        <link rel="stylesheet" href="{{$url_css_js}}/css/style.css">
+        <link rel="stylesheet" href="{{$url_css_js}}css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{$url_css_js}}css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{$url_css_js}}css/animate.css">
+        <link rel="stylesheet" href="{{$url_css_js}}css/style.css">
 
     </head>
     <nav class="navbar navbar-default navbar-fixed-top">

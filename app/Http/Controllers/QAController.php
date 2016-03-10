@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Questions;
+use App\Questions as Questions;
+use App\Answers as Answers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -13,22 +15,29 @@ class QAController extends Controller
 {
 
     public function newAnswer(Request $request){
-        DB::table('answers')->insert([
-            'answer' => $request["message"],
-            'user_id' => 2,
-            'question_id' => $request["q_id"],
-            'date' => date('Y/m/d'),
-        ]);
+
+        $answer = new Answers;
+
+        $answer->user_id = 4;
+        $answer->question_id = $request->q_id;
+        $answer->answer = $request->message;
+        $answer->rate = 0;
+        $answer->date = date("Y-m-d H:i:s");
+        $answer->save();
+
         return back();
     }
     public function searchTag($tag){
         if($tag == "null"){
            $view = QAController::index();
         }else {
-            $questions = DB::table('question')->where('tags',"LIKE" ,"%$tag%")->orderBy('id','desc')->paginate(10);
+            //Gathers Questions where the tags are alike with the tags given.
+            $questions = Questions::where('tags', 'LIKE', "%$tag%")->orderBy('id','desc')->paginate(10);
             $questions->setPath('QA');
+            //creating view accordingly attaching questions that we have gathered with.
             $view = view('QA.index')->with('questions',$questions);
         }
+        //renders section in view and for ajax setting the related section(content).
         $sections =$view->renderSections();
         return $sections['content'];
     }
@@ -39,7 +48,7 @@ class QAController extends Controller
      */
     public function index()
     {
-        $questions = DB::table('question')->orderBy('id','desc')->paginate(10);
+        $questions = Questions::paginate(10);
         $questions->setPath('QA');
         return view('QA.index')->with('questions',$questions);
 
@@ -69,15 +78,16 @@ class QAController extends Controller
         $tags = mb_strtolower($tags);
         $title = mb_strtoupper($request["title"]);
 
+        $question = new Questions;
 
-        DB::table('question')->insert([
-            'title' => $title,
-            'question' => $request["message"],
-            'user_id' => 2,
-            'tags'=>$tags,
-            'subject' => 'Subjectim budur',
-            'date' => date('Y/m/d'),
-        ]);
+        $question->user_id = 4;
+        $question->title = $title;
+        $question->question = $request->question;
+        $question->tags = $tags;
+        $question->rate = 0;
+        $question->date = date("Y-m-d H:i:s");
+        $question->save();
+
         return view('QA.create')->with("questions",$request);
     }
 
@@ -89,11 +99,12 @@ class QAController extends Controller
      */
     public function show($id)
     {
+        //Question  database tablosundan ilgili id ile veriyi(soruyu) cekiyor.
         $question = Questions::findOrNew($id);
-        $answers = DB::table('answers')->where('question_id', $id)->get();
+        //Answers tablosundan ilgili questionla ilgili var ise cevaplari(Answers) buluyor ve getiriyor.
+        $answers = Answers::where('question_id',$id)->get();
 
-
-
+        //Gerekli view a aldigi verilerle birlikte gonderiyor ve sayfa aciliyor.
        return view('QA.show')->with('question',$question)->with('answers',$answers);
     }
 
