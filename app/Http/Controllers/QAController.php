@@ -10,22 +10,26 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
+use Auth;
 
 class QAController extends Controller
 {
 
     public function newAnswer(Request $request){
+        if (Auth::guest()) {
+            return Redirect::to('/auth/login');
+        } else {
+            $answer = new Answers;
 
-        $answer = new Answers;
+            $answer->user_id = 4;
+            $answer->question_id = $request->q_id;
+            $answer->answer = $request->message;
+            $answer->rate = 0;
+            $answer->date = date("Y-m-d H:i:s");
+            $answer->save();
 
-        $answer->user_id = 4;
-        $answer->question_id = $request->q_id;
-        $answer->answer = $request->message;
-        $answer->rate = 0;
-        $answer->date = date("Y-m-d H:i:s");
-        $answer->save();
-
-        return back();
+            return back();
+        }
     }
     public function searchTag($tag){
         if($tag == "null"){
@@ -63,9 +67,12 @@ class QAController extends Controller
 
     public function create()
     {
-        return view('QA.create');
+        if (Auth::guest()) {
+            return Redirect::to('/auth/login');
+        } else {
+            return view('QA.create');
+        }
     }
-
     /**
      * Store a newly created resource in storage.
      *
