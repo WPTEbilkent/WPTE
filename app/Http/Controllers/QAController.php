@@ -52,7 +52,7 @@ class QAController extends Controller
      */
     public function index()
     {
-        $questions = Questions::paginate(10);
+        $questions = Questions::orderBy('id','desc')->paginate(10);
         $questions->setPath('QA');
         return view('QA.index')->with('questions',$questions);
 

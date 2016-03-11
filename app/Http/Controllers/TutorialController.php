@@ -23,7 +23,7 @@ class TutorialController extends Controller
         if ($tag == "null") {
             $view = TutorialController::index();
         } else {
-            $tutorials = DB::table('tutorial')->where('tag', "LIKE", "%$tag%")->orderBy('id', 'desc')->paginate(10);
+            $tutorials = Tutorials::where('tag','LIKE',"%$tag%")->orderBy('id','desc')->paginate(10);
             $tutorials->setPath('Tutorial');
             $view = view('Tutorial.index')->with('tutorials', $tutorials);
         }
@@ -33,9 +33,9 @@ class TutorialController extends Controller
 
     public function index()
     {
-        //$tutorials = DB::table('tutorial')->orderBy('id','desc')->paginate(10);
+
         $tutorials = Tutorials::orderBy('id', 'desc')->paginate(10);
-        $tutorials->setPath('tutorial');
+        $tutorials->setPath('Tutorial');
         return view('Tutorial.index', ['tutorials' => $tutorials]);
 
     }

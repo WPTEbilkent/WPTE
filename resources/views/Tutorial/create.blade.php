@@ -2,11 +2,11 @@
 @extends('HeadFoot')
 @section('content')
 
-    <script src="/laravel/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-    <script src="/laravel/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+    <script src="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script src="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
     <script type="text/javascript">
         $(function(){
-            $('#question').ckeditor();
+            $('#tutorialText').ckeditor();
         });
     </script>
 
@@ -31,7 +31,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('Sorunuz:') !!}
-                {!! Form::textarea('message', null, array('id' => 'question', 'required',  'class'=>'form-control',  'placeholder'=>'Mesaj')) !!}
+                {!! Form::textarea('message', null, array('id' => 'tutorialText', 'required',  'class'=>'form-control',  'placeholder'=>'Mesaj')) !!}
             </div>
 
             <div class="form-group">
@@ -46,3 +46,4 @@
 
 
     </div>
+@endsection
