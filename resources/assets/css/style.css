@@ -11,14 +11,14 @@
 .navbar-default {
 	background-color: #1E1E1E;
 	border: none;
-	box-shadow: 0px 1px 1px #A96113;
+	box-shadow: 0px 1px 1px #666666;
 }
 
 .navbar-default .navbar-nav>.active>a, 
 .navbar-default .navbar-nav>.active>a:focus, 
 .navbar-default .navbar-nav>.active>a:hover {
 	background-color: transparent;
-	color: #E4840D;
+	color: #80bfff;
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -66,7 +66,7 @@
 }
 
 .navbar-default .navbar-nav>.active>a:after {
-	background-color: #E4840D;
+	background-color: #3399ff;
 }
 
 /*.navbar-default .navbar-nav>.active>a:hover:after {
@@ -116,18 +116,18 @@
 ================================================================================*/
 
 body {
-	background-color: #f1eeed;
+	background-color: #404040;
 	font-family: 'Roboto', sans-serif;
 	font-size: 15px;
 	line-height: 1.82em;
 }
 
 a {
-	color: #000000;
+	color: #bfbfbf;
 }
 
 a:hover {
-	color: #000000;
+	color: #538cc6;
 	text-decoration: none;
 }
 
@@ -304,7 +304,7 @@ input[type="checkbox"] {
 .pagination>.active>span, 
 .pagination>.active>span:focus, 
 .pagination>.active>span:hover {
-	background-color: #E4840D;
+	background-color: #4080bf;
 	/*border-color: #AF6F20;*/
 	border-color: transparent;
 	color: #E6E6E6;
@@ -314,7 +314,7 @@ input[type="checkbox"] {
 .pagination>li>a:hover, 
 .pagination>li>span:focus, 
 .pagination>li>span:hover {
-	background-color: #E4840D;
+	background-color: #4080bf;
 	color: #ffffff;
 }
 
@@ -335,8 +335,8 @@ input[type="checkbox"] {
 ===============================================================================*/
 
 .blog-item {
-	background-color: #ffffff;
-	/*border: 1px solid #f1f1f1;*/
+	/*background-color: #ffffff;*/
+	border-bottom: 1px solid #595959;
 	margin-bottom: 5px;
 	padding: 30px;
 }
@@ -407,11 +407,11 @@ input[type="checkbox"] {
 }
 
 .related-articles .alert-info a {
-	color: #556B2F;
+	color: #4080bf;
 }
 
 .related-articles .alert-info a:hover {
-	color: #000;
+	color: #556B2F;
 }
 
 .advertisement {
@@ -743,7 +743,7 @@ only screen and (max-device-width : 550px){
 .subscribe-widget .input-group a.input-group-addon {
 	border: none;
 	border-radius: 0px;
-    color: #E4840D;
+    color: #80bfff;
     background-color: #1E1E1E;
 }
 
@@ -784,10 +784,9 @@ only screen and (max-device-width : 550px){
 
 .share-widget .social-share li a i, 
 footer .social-share li a i {
-	background-color: #ffffff;
-	border: 1px solid #000000;
+	background-color: #333333;
 	border-radius: 0px;
-	color: #000000;
+	color: #e6e6e6;
 	font-size: 15px;
 	font-weight: 100;
 	height: 40px;
@@ -802,8 +801,8 @@ footer .social-share li a i {
 }
 
 .share-widget .social-share li a i:hover {
-	background-color: #000000;
-	color: #E4840D;
+	background-color: #2d5986;
+	color: #FFFFFF;
 }
 
 @media(min-width: 501px) and (max-width: 991px) {
@@ -838,7 +837,7 @@ footer .social-share li a i {
 
 footer {
     background-color: #1E1E1E;
-    color: #ffffff;
+    color: #cccccc;
     font-size: 14px;
     font-weight: 300;
     padding: 21px 0px;
@@ -847,13 +846,13 @@ footer {
 }
 
 footer a {
-    color: #D2924C;
+    color: #eeeeee;
     font-size: 16px;
     font-weight: 400;
 }
 
 footer a:hover {
-    color: #E4840D;
+    color: #2d5986;
 }
 
 footer .social-share {
@@ -861,13 +860,13 @@ footer .social-share {
 }
 
 footer .social-share li a i {
-	background-color: #ffffff;
+	background-color: #333333;
 	border-radius: 50%;
 	border: 1px solid #1E1E1E;
 }
 
 footer .social-share li a i:hover {
-    background-color: #AF6F20;
+    background-color: #2d5986;
     color: #ffffff;
 }
 

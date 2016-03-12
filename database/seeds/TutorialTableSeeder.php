@@ -13,7 +13,7 @@ class TutorialTableSeeder extends Seeder{
         foreach(range(1,30) as $index){
 
 
-            DB::table('tutorial')->insert([
+            DB::table('tutorials')->insert([
                 'title'=> $faker->sentence(30,true),
                 'publisher_id' => $faker->numberBetween(10,10000),
                 'date' => $faker->date('d-m-Y','now'),

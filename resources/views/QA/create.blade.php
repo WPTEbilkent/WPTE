@@ -1,7 +1,49 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Yasar Ozan
- * Date: 01-Dec-15
- * Time: 7:35 PM
- */
+@extends('layouts.masterQA')
+@extends('HeadFoot')
+@section('content')
+
+    <script src="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script src="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#questionText').ckeditor();
+        });
+    </script>
+
+<ul>
+    @foreach($errors->all() as $error)
+        <li>{{ $error }}</li>
+    @endforeach
+</ul>
+
+
+<div class="col-md-12">
+    <div class="col-md-8">
+        {!! Form::open(array('route' => 'QA.store', 'class' => 'form')) !!}
+
+        <div class="form-group", style="margin-top: 4%">
+            {!! Form::label('Başlık :') !!}
+            {!! Form::text('title', null, array('required', 'class'=>'form-control', 'placeholder'=>'Başlık')) !!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('Etiket :') !!}
+            {!! Form::text('tags', null, array('required', 'class'=>'form-control', 'placeholder'=>'Etiket')) !!}
+        </div>
+        <div class="form-group">
+            {!! Form::label('Sorunuz:') !!}
+            {!! Form::textarea('question', null, array('id' => 'questionText', 'required',  'class'=>'form-control',  'placeholder'=>'Sorunuz')) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::submit('Submit',  array('class'=>'btn btn-primary')) !!}
+        </div>
+        {!! Form::close() !!}
+    </div>
+
+    <div class="col-md-4" style="border: 1px solid red">
+        This area is reserved to live title search results
+    </div>
+
+
+</div>
+@endsection

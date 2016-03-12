@@ -29,7 +29,9 @@ Route::controllers([
 Route::get('/', 'HomeController@index');
 
 //TurorialPages routing
+Route::get('/tutorial/search/{tag}',"TutorialController@searchTag");
 Route::resource('/tutorial','TutorialController');
+
 //PageLoaderController
 Route::post('tutorial-page-load','TutorialController@pagingScroolLoader');
 
@@ -40,11 +42,16 @@ Route::get('/profile/{id}', ['uses' => 'ProfileController@getUser']);
 //Route::get('/QA','QAController@index');
 //Route::get('/QA/{page}','QAController@show');
 //Route::post('/QA/AskQuestion');
+Route::post('/QA/answer',"QAController@newAnswer");
+Route::get('/QA/search/{tag}',"QAController@searchTag");
 Route::resource("/QA","QAController");
 
 //Article routing
 Route::resource("/articles","ArticleController");
 
 //Event routing
-Route::resoruce("/events" , "EventController");
+Route::get("/events" , "EventController@index");
+
+//Twitch routing
+Route::resource("/twitch","TwitchController");
 
