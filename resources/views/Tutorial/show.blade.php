@@ -1,10 +1,7 @@
 @extends('layouts.masterTutorialPage')
 @extends('HeadFoot')
 @section('content')
-
-
-
-            <!-- blog-contents -->
+          <!-- blog-contents -->
             <section class="col-md-11">
 
                 <article class="single-blog-item">
@@ -21,9 +18,9 @@
                     </div>
 
                     <h1>{{$tutorial[0]->title}}</h1>
-                    <p>
-                        {{$tutorial[0]->content}}
-                    </p>
+
+                        {!! $tutorial[0]->content !!}
+
                 </article>
 
             </section>

@@ -1,4 +1,4 @@
-<form method="POST" action="/laravel/public/auth/login">
+<form method="POST" action="/auth/login">
     {{ csrf_field() }}
 
     <div>

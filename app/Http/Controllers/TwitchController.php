@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
+use Auth;
 
 
 class TwitchController extends Controller
@@ -17,9 +19,13 @@ class TwitchController extends Controller
      */
     public function index()
     {
-        $twitch = DB::table('twitch')->orderBy('id','desc')->paginate(10);
-        $twitch->setPath('twitch');
-        return view('Twitch.index', ['twitches' => $twitch]);
+        if (Auth::guest()) {
+            return Redirect::to('/auth/login');
+        } else {
+            $twitch = DB::table('twitch')->orderBy('id', 'desc')->paginate(10);
+            $twitch->setPath('twitch');
+            return view('Twitch.index', ['twitches' => $twitch]);
+        }
     }
 
 
@@ -42,17 +48,19 @@ class TwitchController extends Controller
      */
     public function store(Request $request)
     {
+        if (Auth::guest()) {
+            return Redirect::to('/auth/login');
+        } else {
+            $url = str_replace(" ", "", $request["url"]);
+            $url = mb_strtolower($url);
+            $url_arr = explode("/", $url);
 
-        $url = str_replace(" ","",$request["url"]);
-        $url = mb_strtolower($url);
-        $url_arr = explode("/",$url);
 
-
-
-        DB::table('twitch')->insert([
-            'url' => $url_arr[1],
-        ]);
-        return view("Twitch.index");
+            DB::table('twitch')->insert([
+                'url' => $url_arr[1],
+            ]);
+            return view("Twitch.index");
+        }
     }
 
     /**

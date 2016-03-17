@@ -10,15 +10,14 @@
 <html class="no-js"> <!--<![endif]-->
 
 
-<body>
-
-<!--  Necessary scripts  -->
+    <!--  Necessary scripts  -->
 @yield('scripts')
+        <!-- smooth-scroll -->
+@yield('smooth-script')
 
+
+<body>
 @yield('header')
-
-
-
 <main>
     <div class="container">
         <div class="row">
@@ -33,9 +32,6 @@
     @yield('footer')
 </footer>
 
-
-        <!-- smooth-scroll -->
-@yield('smooth-script')
 
 
 </body>

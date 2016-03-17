@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
+use Auth;
 
 class TutorialController extends Controller
 {
@@ -16,24 +18,25 @@ class TutorialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function searchTag($tag){
-        if($tag == "null"){
+    public function searchTag($tag)
+    {
+        if ($tag == "null") {
             $view = TutorialController::index();
-        }else {
-            $tutorials = DB::table('tutorial')->where('tag',"LIKE" ,"%$tag%")->orderBy('id','desc')->paginate(10);
+        } else {
+            $tutorials = Tutorials::where('tag','LIKE',"%$tag%")->orderBy('id','desc')->paginate(10);
             $tutorials->setPath('Tutorial');
-            $view = view('Tutorial.index')->with('tutorials',$tutorials);
+            $view = view('Tutorial.index')->with('tutorials', $tutorials);
         }
-        $sections =$view->renderSections();
+        $sections = $view->renderSections();
         return $sections['content'];
     }
 
     public function index()
     {
-       //$tutorials = DB::table('tutorial')->orderBy('id','desc')->paginate(10);
-        $tutorials = Tutorials::orderBy('id','desc')->paginate(10);
-        $tutorials->setPath('tutorial');
-        return view('Tutorial.index',['tutorials' => $tutorials]);
+
+        $tutorials = Tutorials::orderBy('id', 'desc')->paginate(10);
+        $tutorials->setPath('Tutorial');
+        return view('Tutorial.index', ['tutorials' => $tutorials]);
 
     }
 
@@ -46,18 +49,22 @@ class TutorialController extends Controller
 
     public function create()
     {
-        return view('Tutorial.create');
+        if (Auth::guest()) {
+            return Redirect::to('/auth/login');
+        } else {
+            return view('Tutorial.create');
+        }
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $tags = str_replace(" ","",$request["tags"]);
+        $tags = str_replace(" ", "", $request["tags"]);
         $tags = mb_strtolower($tags);
         $title = mb_strtoupper($request["title"]);
 
@@ -76,20 +83,20 @@ class TutorialController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
 
-        $tutorial = Tutorials::where('id' , $id)->get();
-        return view('Tutorial.show')->with('tutorial' , $tutorial);
+        $tutorial = Tutorials::where('id', $id)->get();
+        return view('Tutorial.show')->with('tutorial', $tutorial);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -100,8 +107,8 @@ class TutorialController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -112,7 +119,7 @@ class TutorialController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
