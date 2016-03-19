@@ -18,7 +18,6 @@ class CreateSubscribeTable extends Migration
             $table->increments('id');
             $table->integer('subscriber_id')->unsigned()->index();
             $table->integer('subscribed_id')->unsigned()->index();
-            $table->rememberToken();
             $table->timestamps();
 
             //constraints for table

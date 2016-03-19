@@ -30,6 +30,7 @@ Route::get('/', 'HomeController@index');
 
 //TurorialPages routing
 Route::get('/tutorial/search/{tag}',"TutorialController@searchTag");
+Route::get('/tutorial/subscribe/{id}',"TutorialController@subscribe");
 Route::resource('/tutorial','TutorialController');
 
 //PageLoaderController

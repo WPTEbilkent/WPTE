@@ -14,10 +14,10 @@ class CreateTags extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-        $table->increments('id');
-        $table->string('name',50);
-        $table->integer('count');
-        $table->date('date');
+            $table->increments('id');
+            $table->string('name',50);
+            $table->integer('count');
+            $table->date('date');
 
         });
     }
