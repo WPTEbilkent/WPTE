@@ -20,19 +20,23 @@ class TutorialController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function subscribe($id){
-
-        $subs = Subscription::where("subscriber_id", $id)->where("subscribed_id",Auth::user()->id)->get();
-
-        if($subs!=0){
-            return back();
+        if (Auth::guest()) {
+            return Redirect::to('/auth/login');
         }
-        else {
+        else{
+            $subs = Subscription::where("subscriber_id", $id)->where("subscribed_id",Auth::user()->id)->get();
 
-            $subscription = new Subscription;
-            $subscription->subscriber_id = $id;
-            $subscription->subscribed_id = Auth::user()->id;
-            $subscription->save();
-            return back();
+            if(!$subs){
+                return back();
+            }
+            else {
+
+                $subscription = new Subscription;
+                $subscription->subscriber_id = $id;
+                $subscription->subscribed_id = Auth::user()->id;
+                $subscription->save();
+                return back();
+            }
         }
 
     }
