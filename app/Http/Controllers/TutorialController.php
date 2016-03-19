@@ -10,6 +10,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Auth;
+use App\Subscription;
 
 class TutorialController extends Controller
 {
@@ -18,6 +19,24 @@ class TutorialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function subscribe($id){
+
+        $subs = Subscription::where("subscriber_id", $id)->where("subscribed_id",Auth::user()->id)->get();
+
+        if($subs!=0){
+            return back();
+        }
+        else {
+
+            $subscription = new Subscription;
+            $subscription->subscriber_id = $id;
+            $subscription->subscribed_id = Auth::user()->id;
+            $subscription->save();
+            return back();
+        }
+
+    }
+
     public function searchTag($tag)
     {
         if ($tag == "null") {
