@@ -69,7 +69,7 @@ class TutorialController extends Controller
         $title = mb_strtoupper($request["title"]);
 
         $tutorial = new Tutorials;
-        $tutorial->user_id = 4;
+        $tutorial->user_id = Auth::user()->id;
         $tutorial->title = $title;
         $tutorial->content = $request->message;
         $tutorial->tags = $tags;
