@@ -16,7 +16,6 @@
         @endforeach
     </ul>
 
-
     <div class="col-md-12">
         <div class="col-md-8">
             {!! Form::open(array('route' => 'tutorial.store', 'class' => 'form')) !!}

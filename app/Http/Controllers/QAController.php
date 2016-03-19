@@ -21,7 +21,7 @@ class QAController extends Controller
         } else {
             $answer = new Answers;
 
-            $answer->user_id = 4;
+            $answer->user_id = Auth::user()->id;
             $answer->question_id = $request->q_id;
             $answer->answer = $request->message;
             $answer->rate = 0;
@@ -87,7 +87,7 @@ class QAController extends Controller
 
         $question = new Questions;
 
-        $question->user_id = 4;
+        $question->user_id = Auth::user()->id;
         $question->title = $title;
         $question->question = $request->question;
         $question->tags = $tags;
