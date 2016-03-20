@@ -1,5 +1,5 @@
 <?php
-$url_css_js="http://localhost/laravel/resources/assets/";
+$url_css_js="http://localhost/WPTE/resources/assets/";
 
 ?>
 
