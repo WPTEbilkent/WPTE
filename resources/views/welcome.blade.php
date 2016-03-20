@@ -6,6 +6,15 @@ $url_css_js="http://localhost/WPTE/resources/assets/";
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<script type="text/javascript">
+    $(document).ready(function(){
+        //buraya login olunan kullanıcının ismini alıp (başarılı bir login gerçekleşmişse):
+        // 1) header'daki Kayıt Ol butonunu Çıkış ile değiştiren ve Giriş butonunu login olunan kullanıcı adı yapan,
+        // 2) Kullanıcı adına tıklandığında profil düzenleme sayfasını açan,
+        // 3) Giriş yapıldıktan sonra sayfanın en altında bulunan form kısmını hidden yapan,
+        // 4) Çıkış butonuna basıldığında sayfanın ilk haline geri getiren script gelecek.
+    });
+</script>
 <head>
     <meta charset="utf-8">
     <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
@@ -23,8 +32,8 @@ $url_css_js="http://localhost/WPTE/resources/assets/";
     <link rel="stylesheet" href="{{$url_css_js}}css/styles.css">
     <link rel="stylesheet" href="{{$url_css_js}}css/queries.css">
     <link rel="stylesheet" href="{{$url_css_js}}css/etline-font.css">
-    <link rel="stylesheet" href="{{$url_css_js}}animate.css/animate.min.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{$url_css_js}}bower_components/animate.css/animate.min.css">
+    <link rel="stylesheet" href="{{$url_css_js}}css/font-awesome.min.css">
     <script src="{{$url_css_js}}js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 <body id="top">
@@ -35,18 +44,18 @@ $url_css_js="http://localhost/WPTE/resources/assets/";
     <section class="navigation">
         <header>
             <div class="header-content">
-                <div class="logo"><a href="#"><img src="img/sedna-logo.png" alt="Sedna logo"></a></div>
+                <div class="logo"><p>Site Logo Will Come Here</p></div>
                 <div class="header-nav">
                     <nav>
                         <ul class="primary-nav">
-                            <li><a href="#features">Features</a></li>
-                            <li><a href="#assets">Assets</a></li>
-                            <li><a href="#blog">Blog</a></li>
-                            <li><a href="#download">Download</a></li>
+                            <li><a href="#features">Soru & Cevap</a></li>
+                            <li><a href="#assets">EĞİTİM</a></li>
+                            <li><a href="#blog">ETKİNLİKLER</a></li>
+                            <li><a href="#download">MAKALELER</a></li>
                         </ul>
                         <ul class="member-actions">
-                            <li><a href="#download" class="login">Log in</a></li>
-                            <li><a href="#download" class="btn-white btn-small">Sign up</a></li>
+                            <li><a href="#download" class="login">GİRİŞ</a></li>
+                            <li><a href="#download" class="btn-white btn-small">KAYIT OL</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -148,7 +157,7 @@ $url_css_js="http://localhost/WPTE/resources/assets/";
             <div class="iphone-wrap wp2"></div>
         </div>
     </div>
-    <div class="responsive-feature-img"><img src="img/devices.png" alt="responsive devices"></div>
+    <div class="responsive-feature-img"><img src="{{$url_css_js}}img/devices.png" alt="responsive devices"></div>
 </section>
 <section class="features-extra section-padding" id="assets">
     <div class="container">
@@ -165,7 +174,7 @@ $url_css_js="http://localhost/WPTE/resources/assets/";
         </div>
     </div>
     <div class="macbook-wrap wp3"></div>
-    <div class="responsive-feature-img"><img src="img/macbook-pro.png" alt="responsive devices"></div>
+    <div class="responsive-feature-img"><img src="{{$url_css_js}}img/macbook-pro.png" alt="responsive devices"></div>
 </section>
 <section class="hero-strip section-padding">
     <div class="container">
@@ -175,7 +184,7 @@ $url_css_js="http://localhost/WPTE/resources/assets/";
             </h2>
             <p>Change/swap/edit every aspect of Sedna before you hit development with the included Sketch file.</p>
             <a href="#" class="btn btn-ghost btn-accent btn-large">Download now!</a>
-            <div class="logo-placeholder floating-logo"><img src="img/sketch-logo.png" alt="Sketch Logo"></div>
+            <div class="logo-placeholder floating-logo"><img src="{{$url_css_js}}img/sketch-logo.png" alt="Sketch Logo"></div>
         </div>
     </div>
 </section>
@@ -204,12 +213,12 @@ $url_css_js="http://localhost/WPTE/resources/assets/";
             <div class="col-md-4">
                 <article class="blog-post">
                     <figure>
-                        <a href="img/blog-img-01.jpg" class="single_image">
+                        <a href="{{$url_css_js}}img/blog-img-01.jpg" class="single_image">
                             <div class="blog-img-wrap">
                                 <div class="overlay">
                                     <i class="fa fa-search"></i>
                                 </div>
-                                <img src="img/blog-img-01.jpg" alt="Sedna blog image"/>
+                                <img src="{{$url_css_js}}img/blog-img-01.jpg" alt="Sedna blog image"/>
                             </div>
                         </a>
                         <figcaption>
@@ -222,12 +231,12 @@ $url_css_js="http://localhost/WPTE/resources/assets/";
             <div class="col-md-4">
                 <article class="blog-post">
                     <figure>
-                        <a href="img/blog-img-02.jpg" class="single_image">
+                        <a href="{{$url_css_js}}img/blog-img-02.jpg" class="single_image">
                             <div class="blog-img-wrap">
                                 <div class="overlay">
                                     <i class="fa fa-search"></i>
                                 </div>
-                                <img src="img/blog-img-02.jpg" alt="Sedna blog image"/>
+                                <img src="{{$url_css_js}}img/blog-img-02.jpg" alt="Sedna blog image"/>
                             </div>
                         </a>
                         <figcaption>
@@ -240,12 +249,12 @@ $url_css_js="http://localhost/WPTE/resources/assets/";
             <div class="col-md-4">
                 <article class="blog-post">
                     <figure>
-                        <a href="img/blog-img-03.jpg" class="single_image">
+                        <a href="{{$url_css_js}}img/blog-img-03.jpg" class="single_image">
                             <div class="blog-img-wrap">
                                 <div class="overlay">
                                     <i class="fa fa-search"></i>
                                 </div>
-                                <img src="img/blog-img-03.jpg" class="single_image" alt="Sedna blog image"/>
+                                <img src="{{$url_css_js}}img/blog-img-03.jpg" class="single_image" alt="Sedna blog image"/>
                             </div>
                         </a>
                         <figcaption>
@@ -266,17 +275,17 @@ $url_css_js="http://localhost/WPTE/resources/assets/";
                 <div class="flexslider">
                     <ul class="slides">
                         <li>
-                            <div class="avatar"><img src="img/avatar.jpg" alt="Sedna Testimonial Avatar"></div>
+                            <div class="avatar"><img src="{{$url_css_js}}img/avatar.jpg" alt="Sedna Testimonial Avatar"></div>
                             <h2>"Lorem ipsum dolor sit amet, nullam lucia nisi."</h2>
                             <p class="author">Peter Finlan, Product Designer.</p>
                         </li>
                         <li>
-                            <div class="avatar"><img src="img/mani.jpg" alt="Sedna Testimonial Avatar"></div>
+                            <div class="avatar"><img src="{{$url_css_js}}img/mani.jpg" alt="Sedna Testimonial Avatar"></div>
                             <h2>"Nunc vel maximus purus. Nullam ac urna ornare."</h2>
                             <p class="author">Manoela Ilic, Founder @ Codrops.</p>
                         </li>
                         <li>
-                            <div class="avatar"><img src="img/130.jpg" alt="Sedna Testimonial Avatar"></div>
+                            <div class="avatar"><img src="{{$url_css_js}}img/130.jpg" alt="Sedna Testimonial Avatar"></div>
                             <h2>"Nullam ac urna ornare, ultrices nisl ut, lacinia nisi."</h2>
                             <p class="author">Blaz Robar, Pixel Guru</p>
                         </li>
@@ -292,14 +301,15 @@ $url_css_js="http://localhost/WPTE/resources/assets/";
             <div class="col-md-6 col-md-offset-3">
                 <h3>Get started with Sedna, absolutely free</h3>
                 <p>Grab your copy today, exclusively from Codrops</p>
-                <form class="signup-form" action="#" method="POST" role="form">
+                <form class="signup-form" action="auth/login" method="POST" role="form">
+                    {{ csrf_field() }}
                     <div class="form-input-group">
-                        <i class="fa fa-envelope"></i><input type="text" class="" placeholder="Enter your email" required>
+                        <i class="fa fa-envelope"></i><input type="text" class="" placeholder="E-mail Adresinizi Girin" required>
                     </div>
                     <div class="form-input-group">
-                        <i class="fa fa-lock"></i><input type="text" class="" placeholder="Enter your password" required>
+                        <i class="fa fa-lock"></i><input type="password" class="" placeholder="Şifrenizi Girin" required>
                     </div>
-                    <button type="submit" class="btn-fill sign-up-btn">Sign up for free</button>
+                    <button type="submit" class="btn-fill sign-up-btn">GİRİŞ YAP</button>
                 </form>
             </div>
         </div>
@@ -317,36 +327,35 @@ $url_css_js="http://localhost/WPTE/resources/assets/";
 <footer>
     <div class="container">
         <div class="row">
+            <div class="social-share">
+                <p>BİZİ ARKADAŞLARINIZLA PAYLAŞIN</p>
+                <a href="https://twitter.com/peterfinlan" class="twitter-share"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="facebook-share"><i class="fa fa-facebook"></i></a>
+            </div>
+
             <div class="col-md-7">
                 <div class="footer-links">
                     <ul class="footer-group">
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Sign up</a></li>
-                        <li><a href="http://tympanus.net/codrops/licensing/">Licence</a></li>
-                        <li><a href="http://tympanus.net/codrops/">Codrops</a></li>
-                        <li><a href="http://www.peterfinlan.com/">Peter Finlan</a></li>
+                        <li><a href="#">HAKKINDA</a></li>
+                        <li><a href="#">GİZLİLİK</a></li>
+                        <li><a href="#">İLETİŞİM</a></li>
                     </ul>
-                    <p>Copyright © 2015 <a href="#">Sedna</a><br>
-                        <a href="http://tympanus.net/codrops/licensing/">Licence</a> | Crafted with <span class="fa fa-heart pulse2"></span> by <a href="http://www.peterfinlan.com/">Peter Finlan</a>.</p>
+                    <p>Copyright © 2015 <a href="http://www.havelsan.com.tr" target="_blank">Havelsan A.Ş.</a><br></p>
                 </div>
             </div>
-            <div class="social-share">
-                <p>Share Sedna with your friends</p>
-                <a href="https://twitter.com/peterfinlan" class="twitter-share"><i class="fa fa-twitter"></i></a> <a href="#" class="facebook-share"><i class="fa fa-facebook"></i></a>
-            </div>
+
         </div>
     </div>
 </footer>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-<script src="bower_components/retina.js/dist/retina.js"></script>
-<script src="js/jquery.fancybox.pack.js"></script>
-<script src="js/vendor/bootstrap.min.js"></script>
-<script src="js/scripts.js"></script>
-<script src="js/jquery.flexslider-min.js"></script>
-<script src="bower_components/classie/classie.js"></script>
-<script src="bower_components/jquery-waypoints/lib/jquery.waypoints.min.js"></script>
+<script src="{{$url_css_js}}js/jquery-2.1.3.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{$url_css_js}}js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+<script src="{{$url_css_js}}bower_components/retina.js/dist/retina.js"></script>
+<script src="{{$url_css_js}}js/jquery.fancybox.pack.js"></script>
+<script src="{{$url_css_js}}js/vendor/bootstrap.min.js"></script>
+<script src="{{$url_css_js}}js/scripts.js"></script>
+<script src="{{$url_css_js}}js/jquery.flexslider-min.js"></script>
+<script src="{{$url_css_js}}bower_components/classie/classie.js"></script>
+<script src="{{$url_css_js}}bower_components/jquery-waypoints/lib/jquery.waypoints.min.js"></script>
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
     (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
