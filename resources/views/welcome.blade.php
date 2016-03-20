@@ -6,15 +6,8 @@ $url_css_js="http://localhost/laravel/resources/assets/";
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-<script type="text/javascript">
-    $(document).ready(function(){
-        //buraya login olunan kullanıcının ismini alıp (başarılı bir login gerçekleşmişse):
-        // 1) header'daki Kayıt Ol butonunu Çıkış ile değiştiren ve Giriş butonunu login olunan kullanıcı adı yapan,
-        // 2) Kullanıcı adına tıklandığında profil düzenleme sayfasını açan,
-        // 3) Giriş yapıldıktan sonra sayfanın en altında bulunan form kısmını hidden yapan,
-        // 4) Çıkış butonuna basıldığında sayfanın ilk haline geri getiren script gelecek.
-    });
-</script>
+
+
 <head>
     <meta charset="utf-8">
     <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
@@ -48,15 +41,17 @@ $url_css_js="http://localhost/laravel/resources/assets/";
                 <div class="header-nav">
                     <nav>
                         <ul class="primary-nav">
-                            <li><a href="#features">Soru & Cevap</a></li>
+
+                            <li><a href="#features">SORU & CEVAP</a></li>
                             <li><a href="#assets">EĞİTİM</a></li>
                             <li><a href="#blog">ETKİNLİKLER</a></li>
                             <li><a href="#download">MAKALELER</a></li>
                         </ul>
                         <ul class="member-actions">
-                            <li><a href="#download" class="login">GİRİŞ</a></li>
-                            <li><a href="#download" class="btn-white btn-small">KAYIT OL</a></li>
+                            <li id="users"><a href="#login" class="login">GİRİŞ</a></li>
+                            <li id="logout"><a href="/auth/register" class="btn-white btn-small">KAYIT OL</a></li>
                         </ul>
+
                     </nav>
                 </div>
                 <div class="navicon">
@@ -295,7 +290,7 @@ $url_css_js="http://localhost/laravel/resources/assets/";
         </div>
     </div>
 </section>
-<section class="sign-up section-padding text-center" id="download">
+<section class="sign-up section-padding text-center" id="login">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
@@ -304,10 +299,10 @@ $url_css_js="http://localhost/laravel/resources/assets/";
                 <form class="signup-form" action="auth/login" method="POST" role="form">
                     {{ csrf_field() }}
                     <div class="form-input-group">
-                        <i class="fa fa-envelope"></i><input type="text" class="" placeholder="E-mail Adresinizi Girin" required>
+                        <i class="fa fa-envelope"></i><input type="text" name="email" class="" placeholder="E-mail Adresinizi Girin" required>
                     </div>
                     <div class="form-input-group">
-                        <i class="fa fa-lock"></i><input type="password" class="" placeholder="Şifrenizi Girin" required>
+                        <i class="fa fa-lock"></i><input type="password" name="password" class="" placeholder="Şifrenizi Girin" required>
                     </div>
                     <button type="submit" class="btn-fill sign-up-btn">GİRİŞ YAP</button>
                 </form>
@@ -364,6 +359,27 @@ $url_css_js="http://localhost/laravel/resources/assets/";
         e.src='//www.google-analytics.com/analytics.js';
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
     ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        //buraya login olunan kullanıcının ismini alıp (başarılı bir login gerçekleşmişse):
+        // 1) header'daki Kayıt Ol butonunu Çıkış ile değiştiren ve Giriş butonunu login olunan kullanıcı adı yapan,
+        // 2) Kullanıcı adına tıklandığında profil düzenleme sayfasını açan,
+        // 3) Giriş yapıldıktan sonra sayfanın en altında bulunan form kısmını hidden yapan,
+        // 4) Çıkış butonuna basıldığında sayfanın ilk haline geri getiren script gelecek.
+       $user_auth = {{Auth::Check()}}
+
+        if($user_auth){
+            $user_name="<?php if(Auth::check()){echo Auth::user()->name;} ?>";
+            $user_id = "<?php if(Auth::check()){echo Auth::user()->id;} ?>";
+            $("li#users a").html($user_name);
+            $("li#users a").attr("href" , "/profile/" + $user_id);
+            $("li#logout a").html("Çıkış Yap");
+            $("li#logout a").attr("href" , "/auth/logout");
+            $("#login").hide();
+
+        }
+    });
 </script>
 </body>
 </html>
