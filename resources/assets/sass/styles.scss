@@ -298,6 +298,7 @@ header {
   }
   .logo {
     display: inline-block;
+    height: 19px;
   }
   ul.primary-nav {
     margin: 0 0 0 75px;
@@ -372,9 +373,9 @@ Intro
 }
 
 /* ==========================================================================
-Features-stack
+question-stack
 ========================================================================== */
-.features {
+.question {
   position: relative;
 
   p {
@@ -410,15 +411,15 @@ Features-stack
     display: inline-block;
     width: 80%;
   }
-  ul.features-stack {
+  ul.question-stack {
     margin-top: 50px;
   }
-  ul.features-stack li {
+  ul.question-stack li {
     margin-top: 20px;
     padding-bottom: 20px;
     border-bottom: solid 1px $keyline-color;
   }
-  ul.features-stack li:last-child {
+  ul.question-stack li:last-child {
     padding-bottom: 0px;
     border-bottom: none;
   }
@@ -443,7 +444,8 @@ Features-stack
     right: 61%;
   }
 }
-.features .responsive-feature-img, .features-extra .responsive-feature-img {
+
+.question .responsive-feature-img, .question-extra .responsive-feature-img {
   display: none;
 }
 .devices {
@@ -451,9 +453,9 @@ Features-stack
 }
 
 /* ==========================================================================
-.features-extra
+.question-extra
 ========================================================================== */
-.features-extra {
+.question-extra {
   position: relative;
   z-index: 3;
 

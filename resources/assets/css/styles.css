@@ -77,10 +77,10 @@ h5 {
 .btn-margin-right {
   margin-right: 20px; }
 
-section.intro, section.features-extra, section.sign-up {
+section.intro, section.question-extra, section.sign-up {
   background: #fff; }
 
-section.features, section.blog-intro, section.blog {
+section.question, section.blog-intro, section.blog {
   background: #F3F4F8; }
 
 /* ==========================================================================
@@ -362,7 +362,8 @@ Hero
     font-weight: 300;
     margin-bottom: 80px; }
   .hero .hero-content {
-    padding-top: 26%; }
+    padding-top: 20%;
+  }
 
 .navigation {
   -webkit-transition: all 300ms ease-in-out;
@@ -392,7 +393,9 @@ header {
     header a.login {
       margin-right: 20px; }
   header .logo {
-    display: inline-block; }
+    display: inline-block;
+    height: 19px;
+  }
   header ul.primary-nav {
     margin: 0 0 0 75px;
     padding: 0; }
@@ -449,52 +452,72 @@ Intro
   display: inline-block;
   width: 80%; }
 
+.intro-content h5 {
+  color: #FF5274;
+}
+
+.intro-content p {
+  color: #FFFFFF;
+}
+
 /* ==========================================================================
-Features-stack
+question-stack
 ========================================================================== */
-.features {
+.question {
   position: relative; }
-  .features p {
+
+.question p {
     margin-bottom: 0;
     padding-bottom: 0; }
-  .features h3 {
+
+.question h3 {
     margin: 0 0 20px 0; }
-  .features span.icon {
+
+.question span.icon {
     font-size: 35px;
     color: #FF5274;
     font-weight: bold; }
-  .features .feature-icon {
+
+.question .feature-icon {
     display: inline-block;
     vertical-align: top;
     padding: 6px 0 0 0;
     margin-right: 20px;
     width: 35px; }
-  .features .feature-content {
+
+.question .feature-content {
     display: inline-block;
     width: 75%; }
-  .features .intro-icon {
+
+.question .intro-icon {
     display: inline-block;
     vertical-align: top;
     padding: 6px 0 0 0;
     margin-right: 20px; }
-  .features .intro-content {
+
+.question .intro-content {
     display: inline-block;
     width: 80%; }
-  .features ul.features-stack {
+
+.question ul.question-stack {
     margin-top: 50px; }
-  .features ul.features-stack li {
+
+.question ul.question-stack li {
     margin-top: 20px;
     padding-bottom: 20px;
     border-bottom: solid 1px #E6E9EA; }
-  .features ul.features-stack li:last-child {
+
+.question ul.question-stack li:last-child {
     padding-bottom: 0px;
     border-bottom: none; }
-  .features .ipad-wrap {
+
+.question .ipad-wrap {
     width: 706px;
     height: 1002px;
     background: url("../img/ipad-device.png") no-repeat center center;
     z-index: 1; }
-  .features .iphone-wrap {
+
+.question .iphone-wrap {
     width: 304px;
     height: 620px;
     background: url("../img/iphone6.png") no-repeat center center;
@@ -502,26 +525,29 @@ Features-stack
     left: 530px;
     bottom: 129px;
     z-index: 2; }
-  .features .device-showcase {
+
+.question .device-showcase {
     position: absolute;
     bottom: -365px;
     right: 61%; }
 
-.features .responsive-feature-img, .features-extra .responsive-feature-img {
+.question .responsive-feature-img, .question-extra .responsive-feature-img {
   display: none; }
 
 .devices {
   position: relative; }
 
 /* ==========================================================================
-.features-extra
+.question-extra
 ========================================================================== */
-.features-extra {
+.question-extra {
   position: relative;
   z-index: 3; }
-  .features-extra .btn {
+
+.question-extra .btn {
     margin-top: 20px; }
-  .features-extra .macbook-wrap {
+
+.question-extra .macbook-wrap {
     position: absolute;
     width: 916px;
     height: 540px;
