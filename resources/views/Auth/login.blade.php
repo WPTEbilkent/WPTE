@@ -16,6 +16,6 @@
     </div>
 
     <div>
-        <button type="submit">Login</button>
+        <button type="submit">Login</button> <a href="/auth/register" class="button">Kayıt Ol</a>
     </div>
 </form>

@@ -42,8 +42,8 @@ class CreateSubscribeTable extends Migration
     public function down()
     {
         Schema::table('subscribe', function (Blueprint $table) {
-            $table->dropForeign('subscribes_subscriber_id_foreign');
-            $table->dropForeign('subscribes_subscribed_id_foreign');
+            $table->dropForeign('subscribe_subscriber_id_foreign');
+            $table->dropForeign('subscribe_subscribed_id_foreign');
         });
 
         Schema::drop('subscribe');

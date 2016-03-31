@@ -38,7 +38,7 @@ class CreateTutorialsTable extends Migration
     public function down()
     {
         Schema::table('tutorials', function (Blueprint $table) {
-            $table->dropForeign('tutorial_user_id_foreign');
+            $table->dropForeign('tutorials_user_id_foreign');
         });
 
         Schema::drop('tutorials');

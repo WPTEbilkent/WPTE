@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuestionTable extends Migration
+class CreateCommentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,23 +12,26 @@ class CreateQuestionTable extends Migration
      */
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
-
+        Schema::create('comments', function (Blueprint $table) {
             $table->engine = 'InnoDB';
+
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
-            $table->string('title', 150);
-            $table->longText('question', 30000);
-            $table->string('tags');
-            $table->integer('rate')->default(0);
-            $table->dateTime('date');
+            $table->integer('answer_id')->unsigned()->index();
+            $table->text('comment', 1000);
+            $table->date('date');
 
             //constraints for table
-
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
+
+            $table->foreign('answer_id')
+                ->references('id')
+                ->on('answers')
+                ->onDelete('cascade');
+
         });
     }
 
@@ -39,10 +42,11 @@ class CreateQuestionTable extends Migration
      */
     public function down()
     {
-        Schema::table('questions', function (Blueprint $table) {
-            $table->dropForeign('questions_user_id_foreign');
+        Schema::table('comments', function (Blueprint $table) {
+            $table->dropForeign('comments_user_id_foreign');
+            $table->dropForeign('comments_answer_id_foreign');
         });
 
-        Schema::drop('questions');
+        Schema::drop('comments');
     }
 }

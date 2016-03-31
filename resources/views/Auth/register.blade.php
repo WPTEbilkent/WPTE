@@ -22,6 +22,6 @@
     </div>
 
     <div>
-        <button type="submit">Register</button>
+        <button type="submit">Register</button> <a href="/auth/login" class="button">Giriş Yap</a>
     </div>
 </form>

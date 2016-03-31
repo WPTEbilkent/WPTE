@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Questions as Questions;
 use App\Answers as Answers;
+use App\Comments as Comments;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -15,6 +16,22 @@ use Auth;
 class QAController extends Controller
 {
 
+    public function newComment(Request $request){
+        if (Auth::guest()) {
+            return Redirect::to('/auth/login');
+        } else {
+            $comment = new Comments;
+
+            $comment->user_id = Auth::user()->id;
+            $comment->answer_id = $request->a_id;
+            $comment->comment = $request->comment;
+            $comment->date = date("Y-m-d H:i:s");
+            $comment->save();
+
+            return back();
+        }
+
+    }
     public function newAnswer(Request $request){
         if (Auth::guest()) {
             return Redirect::to('/auth/login');
@@ -110,6 +127,7 @@ class QAController extends Controller
         $question = Questions::findOrNew($id);
         //Answers tablosundan ilgili questionla ilgili var ise cevaplari(Answers) buluyor ve getiriyor.
         $answers = Answers::where('question_id',$id)->get();
+
 
         //Gerekli view a aldigi verilerle birlikte gonderiyor ve sayfa aciliyor.
        return view('QA.show')->with('question',$question)->with('answers',$answers);

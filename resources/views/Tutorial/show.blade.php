@@ -5,6 +5,7 @@
             <section class="col-md-11">
 
                 <article class="single-blog-item">
+
                     <p>{{$tutorial[0]->user->name}},{{$tutorial[0]->date}}</p>
                     <a class="btn btn-large btn-success" href="/tutorial/subscribe/{{$tutorial[0]->user->id}}">{{$tutorial[0]->user->name}} Abone Ol</a>
                     <div class="alert alert-info">
