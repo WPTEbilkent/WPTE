@@ -367,7 +367,7 @@ $url_css_js="http://localhost/laravel/resources/assets/";
         // 2) Kullanıcı adına tıklandığında profil düzenleme sayfasını açan,
         // 3) Giriş yapıldıktan sonra sayfanın en altında bulunan form kısmını hidden yapan,
         // 4) Çıkış butonuna basıldığında sayfanın ilk haline geri getiren script gelecek.
-       $user_auth = {{Auth::Check()}}
+       $user_auth = {{Auth::Check()}} + ""
 
         if($user_auth){
             $user_name="<?php if(Auth::check()){echo Auth::user()->name;} ?>";
