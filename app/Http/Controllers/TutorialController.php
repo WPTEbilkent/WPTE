@@ -98,7 +98,6 @@ class TutorialController extends Controller
         $tutorial->content = $request->message;
         $tutorial->tags = $tags;
         $tutorial->rate = 0;
-        $tutorial->picture = $request->file('image');
         $tutorial->date = date("Y-m-d H:i:s");
         $tutorial->save();
 
