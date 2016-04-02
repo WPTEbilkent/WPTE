@@ -61,8 +61,8 @@ $url_css_js = "http://localhost/laravel/resources/assets/";
                             <li><a href="#download">MAKALELER</a></li>
                         </ul>
                         <ul class="member-actions">
-                            <li><a href="#download" class="login">GİRİŞ</a></li>
-                            <li><a href="#download" class="btn-white btn-small">KAYIT OL</a></li>
+                             <li id="users"><a href="#login" class="login">GİRİŞ</a></li>
+                            <li id="logout"><a href="/auth/register" class="btn-white btn-small">KAYIT OL</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -298,22 +298,21 @@ $url_css_js = "http://localhost/laravel/resources/assets/";
         </div>
     </div>
 </section>
-<section class="sign-up section-padding text-center" id="download">
+<section class="sign-up section-padding text-center" id="login">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <h3>Get started with Sedna, absolutely free</h3>
                 <p>Grab your copy today, exclusively from Codrops</p>
-                <form class="signup-form" action="#" method="POST" role="form">
+                <form class="signup-form" action="auth/login" method="POST" role="form">
+                        {{ csrf_field() }}
                     <div class="form-input-group">
-                        <i class="fa fa-envelope"></i><input type="text" class="" placeholder="Enter your email"
-                                                             required>
+                        <i class="fa fa-envelope"></i><input type="text" name="email" class="" placeholder="E-mail Adresinizi Girin" required>
                     </div>
                     <div class="form-input-group">
-                        <i class="fa fa-lock"></i><input type="text" class="" placeholder="Enter your password"
-                                                         required>
+                        <i class="fa fa-lock"></i><input type="password" name="password" class="" placeholder="Şifrenizi Girin" required>
                     </div>
-                    <button type="submit" class="btn-fill sign-up-btn">Sign up for free</button>
+                    <button type="submit" class="btn-fill sign-up-btn">GİRİŞ YAP</button>
                 </form>
             </div>
         </div>
@@ -331,20 +330,19 @@ $url_css_js = "http://localhost/laravel/resources/assets/";
 <footer>
     <div class="container">
         <div class="row">
+            <div class="social-share">
+                <p>BİZİ ARKADAŞLARINIZLA PAYLAŞIN</p>
+                <a href="https://twitter.com/peterfinlan" class="twitter-share"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="facebook-share"><i class="fa fa-facebook"></i></a>
+             </div>
             <div class="col-md-7">
                 <div class="footer-links">
                     <ul class="footer-group">
-                        <li><a href="#">question</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Sign up</a></li>
-                        <li><a href="http://tympanus.net/codrops/licensing/">Licence</a></li>
-                        <li><a href="http://tympanus.net/codrops/">Codrops</a></li>
-                        <li><a href="http://www.peterfinlan.com/">Peter Finlan</a></li>
+                        <li><a href="#">HAKKINDA</a></li>
+                        <li><a href="#">GİZLİLİK</a></li>
+                        <li><a href="#">İLETİŞİM</a></li>
                     </ul>
-                    <p>Copyright © 2015 <a href="#">Sedna</a><br>
-                        <a href="http://tympanus.net/codrops/licensing/">Licence</a> | Crafted with <span
-                                class="fa fa-heart pulse2"></span> by <a href="http://www.peterfinlan.com/">Peter
-                            Finlan</a>.</p>
+                    <p>Copyright © 2015 <a href="http://www.havelsan.com.tr" target="_blank">Havelsan A.Ş.</a><br></p>
                 </div>
             </div>
             <div class="social-share">
