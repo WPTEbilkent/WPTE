@@ -39,6 +39,8 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password', 'remember_token'];
 
+
+
     public function roles()
     {
 
@@ -74,5 +76,18 @@ class User extends Model implements AuthenticatableContract,
 
         // given is collection
         return $this->roles()->save($role);
+    }
+
+    public function isAdmin()
+    {
+        foreach ($this->roles()->get() as $role)
+        {
+            if ($role->name == 'Admin')
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
