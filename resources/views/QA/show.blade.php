@@ -85,6 +85,7 @@
 
                     if ($comments) {
                         foreach ($comments as $comment) {
+                            echo "<div class='container'>";
                             echo "<div class='col-md-10'>";
                             echo "<p class=comment-info>";
                             echo "'<strong>";
@@ -92,6 +93,7 @@
                             echo"</strong><span>'.$comment->date.'</span>'";
                             echo "</p>";
                             echo $comment->comment;
+                            echo "</div>";
                             echo "</div>";
                          }
                     }
@@ -105,7 +107,7 @@
                 {!! Form::open(array('action' => 'QAController@newComment' , 'class' => 'form')) !!}
                 <div class="form-group">
                     {!! Form::hidden('a_id', $answer->id) !!}
-                    {!! Form::text('comment', null, array('id' => 'cmnt', 'required',  'class'=>'form-control',  'placeholder'=>'Yorum Yazınız')) !!}
+                    {!! Form::text('comment', null, array('id' => 'cmnt', 'required',  'class'=>'form-control',  'placeholder'=>'Yorum Yazın')) !!}
                 </div>
                 <div class="form-group col-md-offset-11">
                     {!! Form::submit('Submit',  array('class'=>'btn btn-primary')) !!}
@@ -120,7 +122,7 @@
         {!! Form::open(array('action' => 'QAController@newAnswer' , 'class' => 'form')) !!}
         <div class="form-group">
             {!! Form::hidden('q_id', $question->id) !!}
-            {!! Form::textarea('message', null, array('id' => 'ata', 'required',  'class'=>'form-control',  'placeholder'=>'Cevap Yaziniz')) !!}
+            {!! Form::textarea('message', null, array('id' => 'ata', 'required',  'class'=>'form-control',  'placeholder'=>'Cevap Yazin')) !!}
         </div>
         <div class="form-group">
             {!! Form::submit('Submit',  array('class'=>'btn btn-primary')) !!}
