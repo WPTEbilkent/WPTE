@@ -1,6 +1,5 @@
 <?php
 $url_css_js="http://localhost/WPTE/resources/assets/";
-
 ?>
 
 @section('footer')

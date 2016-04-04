@@ -547,7 +547,7 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/img\/sedna-logo.png": {
+	"\/img\/youtestify_small.png": {
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
@@ -558,6 +558,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+    "\/img\/sedna-logo.png": {
+    		"fileType": 32768,
+    		"ignore": 0,
+    		"ignoreWasSetByUser": 0,
+    		"initialSize": 2339,
+    		"inputAbbreviatedPath": "\/img\/sedna-logo.png",
+    		"outputAbbreviatedPath": "\/img\/sedna-logo.png",
+    		"outputPathIsOutsideProject": 0,
+    		"outputPathIsSetByUser": 0,
+    		"processed": 0
+    		},
 	"\/img\/sedna-logo@2x.png": {
 		"fileType": 32768,
 		"ignore": 0,
