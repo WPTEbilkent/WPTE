@@ -16,12 +16,12 @@ use Auth;
 class QAController extends Controller
 {
 
-    public function newComment(Request $request){
+    public function newComment(Request $request)
+    {
         if (Auth::guest()) {
             return Redirect::to('/auth/login');
         } else {
             $comment = new Comments;
-
             $comment->user_id = Auth::user()->id;
             $comment->answer_id = $request->a_id;
             $comment->comment = $request->comment;
@@ -30,9 +30,10 @@ class QAController extends Controller
 
             return back();
         }
-
     }
-    public function newAnswer(Request $request){
+
+    public function newAnswer(Request $request)
+    {
         if (Auth::guest()) {
             return Redirect::to('/auth/login');
         } else {
@@ -48,20 +49,23 @@ class QAController extends Controller
             return back();
         }
     }
-    public function searchTag($tag){
-        if($tag == "null"){
-           $view = QAController::index();
-        }else {
+
+    public function searchTag($tag)
+    {
+        if ($tag == "null") {
+            $view = QAController::index();
+        } else {
             //Gathers Questions where the tags are alike with the tags given.
-            $questions = Questions::where('tags', 'LIKE', "%$tag%")->orderBy('id','desc')->paginate(10);
+            $questions = Questions::where('tags', 'LIKE', "%$tag%")->orderBy('id', 'desc')->paginate(10);
             $questions->setPath('QA');
             //creating view accordingly attaching questions that we have gathered with.
-            $view = view('QA.index')->with('questions',$questions);
+            $view = view('QA.index')->with('questions', $questions);
         }
         //renders section in view and for ajax setting the related section(content).
-        $sections =$view->renderSections();
+        $sections = $view->renderSections();
         return $sections['content'];
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -69,12 +73,10 @@ class QAController extends Controller
      */
     public function index()
     {
-        $questions = Questions::orderBy('id','desc')->paginate(10);
+        $questions = Questions::orderBy('id', 'desc')->paginate(10);
         $questions->setPath('QA');
-        return view('QA.index')->with('questions',$questions);
-
+        return view('QA.index')->with('questions', $questions);
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -90,15 +92,16 @@ class QAController extends Controller
             return view('QA.create');
         }
     }
+
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $tags = str_replace(" ","",$request["tags"]);
+        $tags = str_replace(" ", "", $request["tags"]);
         $tags = mb_strtolower($tags);
         $title = mb_strtoupper($request["title"]);
 
@@ -112,13 +115,13 @@ class QAController extends Controller
         $question->date = date("Y-m-d H:i:s");
         $question->save();
 
-        return view('QA.create')->with("questions",$request);
+        return view('QA.create')->with("questions", $request);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -126,17 +129,16 @@ class QAController extends Controller
         //Question  database tablosundan ilgili id ile veriyi(soruyu) cekiyor.
         $question = Questions::findOrNew($id);
         //Answers tablosundan ilgili questionla ilgili var ise cevaplari(Answers) buluyor ve getiriyor.
-        $answers = Answers::where('question_id',$id)->get();
-
+        $answers = Answers::where('question_id', $id)->get();
 
         //Gerekli view a aldigi verilerle birlikte gonderiyor ve sayfa aciliyor.
-       return view('QA.show')->with('question',$question)->with('answers',$answers);
+        return view('QA.show')->with('question', $question)->with('answers', $answers);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -147,8 +149,8 @@ class QAController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -159,7 +161,7 @@ class QAController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
