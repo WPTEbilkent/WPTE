@@ -1,5 +1,5 @@
 <?php
-$url_css_js="http://localhost/WPTE/resources/assets/";
+$url_css_js="http://localhost/bitirme/WPTE_v1/resources/assets/";
 ?>
 
 @section('footer')

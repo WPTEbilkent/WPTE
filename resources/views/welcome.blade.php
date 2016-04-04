@@ -1,5 +1,5 @@
 <?php
-$url_css_js = "http://localhost/WPTE/resources/assets/";
+$url_css_js = "http://localhost/bitirme/WPTE_v1/resources/assets/";
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -83,8 +83,6 @@ $url_css_js = "http://localhost/WPTE/resources/assets/";
                 <div class="hero-content text-center">
                     <h1>YouTestify</h1>
                     <p class="intro">A unique web platform for test engineers.</p>
-                    {{--<a href="#" class="btn btn-fill btn-large btn-margin-right">Download</a>--}}
-                    {{--<a href="#" class="btn btn-accent btn-large">Learn more</a>--}}
                 </div>
             </div>
         </div>
