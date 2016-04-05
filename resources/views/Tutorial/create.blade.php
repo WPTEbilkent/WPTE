@@ -2,11 +2,57 @@
 @extends('HeadFoot')
 @section('content')
 
-    <script src="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-    <script src="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
     <script type="text/javascript">
         $(function(){
             $('#tutorialText').ckeditor();
+
+            function split(val) {
+                return val.split(/,\s*/);
+            }
+
+            $("#tags")
+                    .bind("keydown", function (event) {
+                        if (event.keyCode === $.ui.keyCode.TAB &&
+                                $(this).autocomplete("instance").menu.active) {
+                            event.preventDefault();
+                        }
+                    })
+                    .autocomplete({
+                        focus: function () {
+                            // prevent value inserted on focus
+                            return false;
+                        },
+                        source: function (request, response) {
+                            var terms = $.trim(request.term).split(',');
+                            if (terms.length == 0)
+                                return;
+                            var searchTerm = $.trim(terms[terms.length - 1]);
+                            if (searchTerm.length == 0)
+                                return;
+                            $.getJSON("/tags?term=" + searchTerm, function (data) {
+                                response($.map(data, function (value, key) {
+                                    return {
+                                        label: value.name,
+                                        value: value.name
+                                    };
+                                }));
+                            });
+                        },
+                        autoFocus: false,
+                        minLength: 3,
+                        select: function (event, ui) {
+                            debugger;
+                            var terms = split(this.value);
+                            // remove the current input
+                            terms.pop();
+                            // add the selected item
+                            terms.push(ui.item.value);
+                            // add placeholder to get the comma-and-space at the end
+                            terms.push("");
+                            this.value = terms.join(", ");
+                            return false;
+                        }
+                    });
         });
     </script>
 
@@ -26,7 +72,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('Etiket :') !!}
-                {!! Form::text('tags', null, array('required', 'class'=>'form-control', 'placeholder'=>'Etiket')) !!}
+                {!! Form::text('tags', null, array('id'=>'tags', 'required', 'class'=>'form-control', 'placeholder'=>'Etiket')) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('Sorunuz:') !!}

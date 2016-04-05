@@ -1,5 +1,6 @@
 <?php
 $url_css_js="http://localhost/bitirme/WPTE_v1/resources/assets/";
+$url_vendor_ckeditor="http://localhost/bitirme/WPTE_v1/vendor/unisharp/laravel-ckeditor/";
 ?>
 
 @section('footer')
@@ -49,6 +50,14 @@ $url_css_js="http://localhost/bitirme/WPTE_v1/resources/assets/";
         <link rel="stylesheet" href="{{$url_css_js}}css/font-awesome.min.css">
         <link rel="stylesheet" href="{{$url_css_js}}css/animate.css">
         <link rel="stylesheet" href="{{$url_css_js}}css/style.css">
+        <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+        <script src="{{$url_vendor_ckeditor}}ckeditor.js"></script>
+        <script src="{{$url_vendor_ckeditor}}adapters/jquery.js"></script>
 
     </head>
     <nav class="navbar navbar-default navbar-fixed-top">

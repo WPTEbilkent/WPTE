@@ -3,9 +3,6 @@
 @section('content')
 
         <!-- blog-contents -->
-<script src="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/ckeditor.js"
-        xmlns="http://www.w3.org/1999/html"></script>
-<script src="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
 <script type="text/javascript">
     $(function () {
         $('#ata').ckeditor();
@@ -84,7 +81,7 @@
                             echo "</p>";
                             echo $comment->comment;
                             echo "</div>";
-                         }
+                        }
                     }
                     ?>
                 </div>
