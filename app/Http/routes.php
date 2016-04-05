@@ -45,6 +45,9 @@ Route::post('/QA/answer',"QAController@newAnswer");
 Route::get('/QA/search/{tag}',"QAController@searchTag");
 Route::resource("/QA","QAController");
 
+//Tag routing
+Route::get('/tags', "TagController@autocomplete");
+
 //Article routing
 Route::resource("/articles","ArticleController");
 
