@@ -28,6 +28,13 @@ Route::controllers([
 //HomePage Route..
 Route::get('/', 'HomeController@index');
 
+//File upload
+//Route::get('/upload', 'FileUploadController@index');
+Route::get('upload', function() {
+    return View::make('Tutorial.create');
+});
+Route::post('apply/upload', 'FileUploadController@upload');
+
 //TurorialPages routing
 Route::get('/tutorial/search/{tag}',"TutorialController@searchTag");
 Route::get('/tutorial/subscribe/{id}',"TutorialController@subscribe");

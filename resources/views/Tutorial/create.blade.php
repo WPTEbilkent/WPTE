@@ -54,6 +54,13 @@
                         }
                     });
         });
+
+        $(document).ready(function () {
+
+            $("#myBtn").click(function(){
+                $('#myModal').modal('show');
+            });
+        });
     </script>
 
     <ul>
@@ -79,16 +86,91 @@
                 {!! Form::textarea('message', null, array('id' => 'tutorialText', 'required',  'class'=>'form-control',  'placeholder'=>'Mesaj')) !!}
             </div>
 
+            <button id="myBtn" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Fotoğraf Yükle</button>
+            @if(Session::has('success'))
+                <div class="alert-box success">
+                    <h5>{!! Session::get('success') !!}</h5>
+                </div>
+            @endif
+
             <div class="form-group">
                 {!! Form::submit('Submit',  array('class'=>'btn btn-primary')) !!}
             </div>
             {!! Form::close() !!}
         </div>
 
+
         <div class="col-md-4" style="border: 1px solid red">
             This area is reserved to live title search results
         </div>
 
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Fotoğraf Yükle</h4>
+                    </div>
+                    <div class="modal-body">
+                        {{--@if(Session::has('success'))--}}
+                            {{--<div class="alert-box success">--}}
+                                {{--<h2>{!! Session::get('success') !!}</h2>--}}
+                            {{--</div>--}}
+                        {{--@endif--}}
+                        {{--<div class="secure">Upload form</div>--}}
+                        {{--<div>Upload form123</div>--}}
+                        {!! Form::open(array('url'=>'apply/upload','method'=>'POST', 'files'=>true)) !!}
+                        <div class="control-group">
+                            <div class="controls">
+                                {!! Form::file('image') !!}
+                                <p class="errors">{!!$errors->first('image')!!}</p>
+                                @if(Session::has('error'))
+                                    <p class="errors">{!! Session::get('error') !!}</p>
+                                @endif
+                            </div>
+                        </div>
+                        <div id="success"> </div>
+                        {!! Form::submit('Yükle', array('class'=>'send-btn btn btn-primary')) !!}
+                        {!! Form::close() !!}
+                    </div>
+                    {{--<div class="modal-footer">--}}
+                        {{--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--}}
+                        {{--<button type="button" class="btn btn-primary">Save changes</button>--}}
+                        {{--{!! Form::submit('Submit', array('class'=>'send-btn btn btn-primary')) !!}--}}
+                        {{--{!! Form::close() !!}--}}
+                    {{--</div>--}}
+                </div>
+            </div>
+        </div>
+
+
+        {{--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">--}}
+            {{--<div class="text-content">--}}
+                {{--<div class="span7 offset1">--}}
+                    {{--@if(Session::has('success'))--}}
+                        {{--<div class="alert-box success">--}}
+                            {{--<h2>{!! Session::get('success') !!}</h2>--}}
+                        {{--</div>--}}
+                    {{--@endif--}}
+                    {{--<div class="secure">Upload form</div>--}}
+                    {{--<div>Upload form123</div>--}}
+                    {{--{!! Form::open(array('url'=>'apply/upload','method'=>'POST', 'files'=>true)) !!}--}}
+                    {{--<div class="control-group">--}}
+                        {{--<div class="controls">--}}
+                            {{--{!! Form::file('image') !!}--}}
+                            {{--<p class="errors">{!!$errors->first('image')!!}</p>--}}
+                            {{--@if(Session::has('error'))--}}
+                                {{--<p class="errors">{!! Session::get('error') !!}</p>--}}
+                            {{--@endif--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div id="success"> </div>--}}
+                    {{--{!! Form::submit('Submit', array('class'=>'send-btn')) !!}--}}
+                    {{--{!! Form::close() !!}--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
     </div>
 @endsection
