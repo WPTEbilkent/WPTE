@@ -35,6 +35,9 @@ Route::get('upload', function() {
 });
 Route::post('apply/upload', 'FileUploadController@upload');
 
+//VoteController Routing
+Route::get('vote', 'VoteController@changeVote');
+
 //TurorialPages routing
 Route::get('/tutorial/search/{tag}',"TutorialController@searchTag");
 Route::get('/tutorial/subscribe/{id}',"TutorialController@subscribe");

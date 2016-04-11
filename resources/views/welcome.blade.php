@@ -10,11 +10,17 @@ $url_css_js = "http://localhost/bitirme/WPTE_v1/resources/assets/";
     <meta charset="utf-8">
     <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Sedna: Free HTML5/CSS3 Template by Peter Finlan</title>
+    <title>YouTestify - A unique web platform for test engineers.</title>
     <meta name="description" content="A free HTML5/CSS3 template made exclusively for Codrops by Peter Finlan"/>
     <meta name="keywords" content="html5 template, free, css3, one page, animations, agency, portfolio, web design"/>
     <meta name="author" content="Peter Finlan"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
@@ -26,13 +32,7 @@ $url_css_js = "http://localhost/bitirme/WPTE_v1/resources/assets/";
     <link rel="stylesheet" href="{{$url_css_js}}css/queries.css">
     <link rel="stylesheet" href="{{$url_css_js}}css/etline-font.css">
     <link rel="stylesheet" href="{{$url_css_js}}bower_components/animate.css/animate.min.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <script src="{{$url_css_js}}js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-7243260-2']);
@@ -124,7 +124,7 @@ $url_css_js = "http://localhost/bitirme/WPTE_v1/resources/assets/";
                 <table class="table table-hover ">
                     <?php
                         $questions = App\Questions::orderBy('date')
-                                ->take(10)
+                                ->take(5)
                                 ->get();
                         foreach ($questions as $question) {
                             echo "<tr>";
@@ -162,7 +162,7 @@ $url_css_js = "http://localhost/bitirme/WPTE_v1/resources/assets/";
                 <table class="table table-hover ">
                     <?php
                     $tutorials = App\Tutorial::orderBy('date')
-                            ->take(10)
+                            ->take(5)
                             ->get();
                     foreach ($tutorials as $tutorial) {
                         echo "<tr>";

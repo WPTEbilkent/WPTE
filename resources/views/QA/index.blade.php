@@ -37,6 +37,7 @@
             $tags = explode(',', $item->tags);
             ?>
             <article class="blog-item">
+
                 <div class="row">
                     <div class="col-md-9">
                         <p>

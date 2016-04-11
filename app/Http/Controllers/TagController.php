@@ -24,10 +24,10 @@ class TagController extends Controller
 
         $results = array();
 
-        $queries = DB::table('tags')
-            ->where('name', 'LIKE', '%'.$term.'%')
-            ->orderBy('count', 'desc')
-            ->take(5)->get();
+            $queries = DB::table('tags')
+                ->where('name', 'LIKE', '%'.$term.'%')
+                ->orderBy('count', 'desc')
+                ->take(5)->get();
 
         foreach ($queries as $query)
         {

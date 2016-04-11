@@ -7,28 +7,50 @@
     $(function () {
         $('#ata').ckeditor();
     });
+
+    function addVote(qa_id, content, vote) {
+        /*$("#vote").autocomplete({
+            focus: function () {
+                // prevent value inserted on focus
+                return false;
+            },
+            source: function (request, response) {
+                $.getJSON("/vote?content_id=" + qa_id + "&content=" + content + "&vote=" + vote, function (data) {
+                    response($.map(data, function (value, key) {
+                        return {
+                            label: value.name,
+                            value: value.name,
+                            this:innerHTML = value.vote
+
+
+                        };
+                    }));
+                });
+            },
+        });*/
+        url = "{!! url('/vote') !!}" + "?content_id=" + qa_id + "&content=" + content + "&vote=" + vote;
+        ajax(url);
+    }
+    function ajax(url) {
+        $.get(url, function (response) {
+            $("#vote").html(response["vote"]);
+        });
+    }
 </script>
+
 <section class="col-md-11">
-    <!-- TODO ->
-    <!-- soru ve her cevap için rate gelecek, answers gelecek, answer butonu, butondan sonra açılacak olan text editörü
-    <article class="single-blog-item">
-        <div class="alert alert-info">
-            <a href="index.html">home</a>,
-            <a href="#">css3</a>,
-            <a href="#">jquery</a>,
-            <a href="#">tutorials</a>
-            updated
-            <time>july 30,2015</time>
-        </div>
-        <!-- end of /.list-item -->
     <div class="feedback">
         <div class="row">
             <div class="col-md-12">
                 <h1>{{$question->title}}</h1>
                 <div class="well">
                     <div class="row">
-                        <div class="col-md-2">
-                            {{$question->rate}}
+                        <div class="col-md-1">
+                            <div class="btn-votes">
+                                <input type="button" title="Up" class="up" onClick="addVote('{!! $question->id !!}', 'question', '1' )"/>
+                                <div id="vote" class="label-votes">{{$question->rate}}</div>
+                                <input type="button" title="Down" class="down" onClick="addVote('{!! $question->id !!}', 'question', '-1' )"/>
+                            </div>
                         </div>
                         <div class="col-md-10">
                             <p class="comment-info">

@@ -21,4 +21,8 @@ class Answers extends Model
     {
         return $this->hasMany('App\Comments', 'answer_id');
     }
+    public function vote()
+    {
+        return $this->hasMany('App\Vote');
+    }
 }

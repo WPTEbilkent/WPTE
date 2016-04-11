@@ -85,8 +85,7 @@
                 {!! Form::textarea('question', null, array('id' => 'questionText', 'required',  'class'=>'form-control',  'placeholder'=>'Sorunuz')) !!}
             </div>
 
-            <button id="myBtn" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Fotoğraf Yükle
-            </button>
+            <button id="myBtn" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Fotoğraf Yükle </button>
             @if(Session::has('success'))
                 <div class="alert-box success">
                     <h5>{!! Session::get('success') !!}</h5>
