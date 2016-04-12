@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
+use Auth;
 
 class ProfileController extends Controller
 {
@@ -18,8 +20,11 @@ class ProfileController extends Controller
 
     public function getUser($id)
     {
-        $data['id'] = $id;
-        return view('profile',$data);
+        if (Auth::guest()) {
+            return Redirect::to('/auth/login');
+        } else {
+            return view('profile')->with('id', $id);
+        }
     }
 
 

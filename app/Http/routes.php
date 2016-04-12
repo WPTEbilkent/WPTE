@@ -28,8 +28,21 @@ Route::controllers([
 //HomePage Route..
 Route::get('/', 'HomeController@index');
 
+//File upload
+//Route::get('/upload', 'FileUploadController@index');
+Route::get('upload', function() {
+    return View::make('Tutorial.create');
+});
+Route::post('apply/upload', 'FileUploadController@upload');
+
+//VoteController Routing
+Route::get('vote', 'VoteController@changeVote');
+
 //TurorialPages routing
+Route::get('/tutorial/search/{tag}',"TutorialController@searchTag");
+Route::get('/tutorial/subscribe/{id}',"TutorialController@subscribe");
 Route::resource('/tutorial','TutorialController');
+
 //PageLoaderController
 Route::post('tutorial-page-load','TutorialController@pagingScroolLoader');
 
@@ -37,14 +50,20 @@ Route::post('tutorial-page-load','TutorialController@pagingScroolLoader');
 Route::get('/profile/{id}', ['uses' => 'ProfileController@getUser']);
 
 //Q&A routing..
-//Route::get('/QA','QAController@index');
-//Route::get('/QA/{page}','QAController@show');
-//Route::post('/QA/AskQuestion');
+Route::post('/QA/comment',"QAController@newComment");
+Route::post('/QA/answer',"QAController@newAnswer");
+Route::get('/QA/search/{tag}',"QAController@searchTag");
 Route::resource("/QA","QAController");
+
+//Tag routing
+Route::get('/tags', "TagController@autocomplete");
 
 //Article routing
 Route::resource("/articles","ArticleController");
 
 //Event routing
-Route::resoruce("/events" , "EventController");
+Route::get("/events" , "EventController@index");
+
+//Twitch routing
+Route::resource("/twitch","TwitchController");
 

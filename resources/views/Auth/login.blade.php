@@ -1,21 +1,39 @@
-<form method="POST" action="/laravel/public/auth/login">
-    {!! csrf_field() !!}
+@extends('layouts.masterLogin')
+@extends('HeadFoot')
+@section('content')
 
-    <div>
-        Email
-        <input type="email" name="email" value="{{ old('email') }}">
-    </div>
+    <div class="container">
+        <form method="POST" action="/auth/login">
+            {{ csrf_field() }}
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 form-control-label">Email Adresiniz</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail3" name="email" placeholder="Email" value="{{ old('email') }}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 form-control-label">Şifreniz</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3" name="password" placeholder="Şifre">
+                </div>
+            </div>
 
-    <div>
-        Password
-        <input type="password" name="password" id="password">
+            <div class="form-group row">
+                <label class="col-sm-2"></label>
+                <div class="col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="rememberMe"> Beni Hatırla
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-success" >GİRİŞ YAP</button>
+                    <a href="/auth/register" class="button"><button type="button" class="btn btn-success" >KAYIT OL</button></a>
+                </div>
+            </div>
+        </form>
     </div>
-
-    <div>
-        <input type="checkbox" name="remember"> Remember Me
-    </div>
-
-    <div>
-        <button type="submit">Login</button>
-    </div>
-</form>
+@stop

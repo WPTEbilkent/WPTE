@@ -1,6 +1,6 @@
 <?php
-$url_css_js="http://localhost/laravel/resources/assets/";
-
+$url_css_js="http://localhost/bitirme/WPTE_v1/resources/assets/";
+$url_vendor_ckeditor="http://localhost/bitirme/WPTE_v1/vendor/unisharp/laravel-ckeditor/";
 ?>
 
 @section('footer')
@@ -8,9 +8,8 @@ $url_css_js="http://localhost/laravel/resources/assets/";
         <div class="row">
             <!-- copyright -->
             <div class="col-md-4 col-sm-4">
-                copyright &copy; 2015 <a href="#" style="margin-left: 4px;">Your website Link</a>
+                copyright &copy; 2015 <a href="http://www.havelsan.com.tr" target="_blank" style="margin-left: 4px;">Havelsan A.Ş.</a>
                 <br>
-                Theme by <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
             </div>
 
             <!-- footer share button -->
@@ -37,8 +36,33 @@ $url_css_js="http://localhost/laravel/resources/assets/";
 
 @stop
 @section('header')
+    <head>
+
+        <!-- meta -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Welcome to YouTestify!</title>
+
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="{{$url_css_js}}css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{$url_css_js}}css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{$url_css_js}}css/animate.css">
+        <link rel="stylesheet" href="{{$url_css_js}}css/style.css">
+        <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+        <script src="{{$url_vendor_ckeditor}}ckeditor.js"></script>
+        <script src="{{$url_vendor_ckeditor}}adapters/jquery.js"></script>
+
+    </head>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
+
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -48,20 +72,23 @@ $url_css_js="http://localhost/laravel/resources/assets/";
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
-                    <img src="{{$url_css_js}}img/logo.png" alt="Site Logo">
+                <a style="padding-left:5%" class="navbar-brand" href="/">
+                    <span>"Site logo will come here"</span>
+                  <!--  <img src="{{$url_css_js}}img/WPTELogo.jpg" alt="Site Logo"> -->
                 </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="{{action("HomeController@index")}}">Home</span></a></li>
-                    <li><a href="html5-templates.html">HTML5 Templates</a></li>
-                    <li><a href="wordpress-themes.html">Wordpress Themes</a></li>
-                    <li><a href="{{action("QAController@index")}}">Design Inspiration</a></li>
-                    <li><a href="resources.html">Resource</a></li>
+                    <li><a href="/"><span>WPTE</span></a></li>
+                    <li class="active"><a href="{{url("/QA")}}">Soru & Cevap</a></li>
+                    <li><a href="{{url("/tutorial")}}">Eğİtİm</a></li>
+                    <li><a href="design-inspiration.html">Etkİnlİkler</a></li>
+                    <li><a href="resources.html">Makaleler</a></li>
+                    <li><a href="resources.html">Gİrİş</a></li>
                 </ul>
+
             </div><!-- end of /.navbar-collapse -->
         </div><!-- end of /.container -->
     </nav>
@@ -87,8 +114,8 @@ $url_css_js="http://localhost/laravel/resources/assets/";
             <!-- search option -->
             <div class="search-widget">
                 <div class="input-group margin-bottom-sm">
-                    <input class="form-control" type="text" placeholder="Search here">
-                    <a href="#" class="input-group-addon">
+                    <input id="searchText" class="form-control" type="text" placeholder="Etiket Ara">
+                    <a href="#" class="input-group-addon" id="searchButton">
                         <i class="fa fa-search fa-fw"></i>
                     </a>
                 </div>
@@ -97,11 +124,14 @@ $url_css_js="http://localhost/laravel/resources/assets/";
             <a href="http://themewagon.com/" class="template-images">
                 <img class="img-responsive" src="{{$url_css_js}}img/store1.png" alt="Template Store">
 
-                <div class="overlay"></div>
+                <div class="overlay"><span style="color: red; font-size: 26pt">This area is reserved for event getter</span></div>
             </a>
 
             <!-- subscribe form -->
             <div class="subscribe-widget">
+
+                <!-- TODO ->
+                <!-- silinecek ->
                 <h4 class="text-capitalize text-center">
                     get recent update by email
                 </h4>
