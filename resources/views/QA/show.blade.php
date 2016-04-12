@@ -9,31 +9,17 @@
     });
 
     function addVote(qa_id, content, vote) {
-        /*$("#vote").autocomplete({
-            focus: function () {
-                // prevent value inserted on focus
-                return false;
-            },
-            source: function (request, response) {
-                $.getJSON("/vote?content_id=" + qa_id + "&content=" + content + "&vote=" + vote, function (data) {
-                    response($.map(data, function (value, key) {
-                        return {
-                            label: value.name,
-                            value: value.name,
-                            this:innerHTML = value.vote
-
-
-                        };
-                    }));
-                });
-            },
-        });*/
         url = "{!! url('/vote') !!}" + "?content_id=" + qa_id + "&content=" + content + "&vote=" + vote;
         ajax(url);
     }
     function ajax(url) {
         $.get(url, function (response) {
-            $("#vote").html(response["vote"]);
+            if (response[0]["message"]){
+                alert(response[0]["message"]);
+            } else {
+                document.getElementById(response[0]["div_id"]).innerHTML = response[0]["vote"]
+            }
+
         });
     }
 </script>
@@ -48,7 +34,7 @@
                         <div class="col-md-1">
                             <div class="btn-votes">
                                 <input type="button" title="Up" class="up" onClick="addVote('{!! $question->id !!}', 'question', '1' )"/>
-                                <div id="vote" class="label-votes">{{$question->rate}}</div>
+                                <div id="vote_question_{!! $question->id !!}" class="label-votes">{{$question->vote}}</div>
                                 <input type="button" title="Down" class="down" onClick="addVote('{!! $question->id !!}', 'question', '-1' )"/>
                             </div>
                         </div>
@@ -80,9 +66,16 @@
             ?>
             <div class="well">
                 <div class="row">
-                    <div class="col-md-2">
-                        {{$answer->rate}}
+                    <div class="col-md-1">
+                        <div class="btn-votes">
+                            <input type="button" title="Up" class="up" onClick="addVote('{!! $answer->id !!}', 'q_answer', '1' )"/>
+                            <div id="vote_q_answer_{!! $answer->id !!}" class="label-votes">{{$answer->vote}}</div>
+                            <input type="button" title="Down" class="down" onClick="addVote('{!! $answer->id !!}', 'q_answer', '-1' )"/>
+                        </div>
                     </div>
+                    {{--<div class="col-md-2">--}}
+                        {{--{{$answer->rate}}--}}
+                    {{--</div>--}}
                     <div class="col-md-10">
                         <div id="reply" class="cmnt-clipboard"><span class="btn-clipboard">Yorum</span></div>
                         <p class="comment-info">
@@ -91,21 +84,25 @@
                         {!! $answer->answer !!}
                     </div>
                 </div>
-                <div class="col-md-offset-1">
-                    <?php
-                    if ($comments) {
-                        foreach ($comments as $comment) {
-                            echo "<div class='col-md-10'>";
-                            echo "<p class=comment-info>";
-                            echo "'<strong>";
-                            echo $comment->user->name;
-                            echo "</strong><span>'.$comment->date.'</span>'";
-                            echo "</p>";
-                            echo $comment->comment;
-                            echo "</div>";
-                        }
-                    }
-                    ?>
+                <div class="well">
+                    <div class="row">
+                        <div class="col-md-offset-1">
+                            <?php
+                            if ($comments) {
+                                foreach ($comments as $comment) {
+                                    echo "<div class='col-md-10'>";
+                                    echo "<p class=comment-info>";
+                                    echo "'<strong>";
+                                    echo $comment->user->name;
+                                    echo "</strong><span>'.$comment->date.'</span>'";
+                                    echo "</p>";
+                                    echo $comment->comment;
+                                    echo "</div>";
+                                }
+                            }
+                            ?>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-offset-1">

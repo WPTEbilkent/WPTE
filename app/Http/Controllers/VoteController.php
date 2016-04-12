@@ -14,45 +14,46 @@ use App\Vote as Vote;
 
 class VoteController extends Controller
 {
-    function changeVote(){
+    function changeVote()
+    {
         $user_id = Auth::user()->id;
         $content_id = Input::get('content_id');
         $content = Input::get('content');
         $vote = Input::get('vote');
 
-        if(!($vote == 1 || $vote == -1)){
+        if (!($vote == 1 || $vote == -1)) {
             return back();
-        }
-        else {
+        } else {
             $voteObject = Vote::where('user_id', $user_id)
                 ->where('content_id', $content_id)
                 ->where('content', $content)
                 ->first();
 
             if ($voteObject) {
-                $results[] = [ 'message' => "Kullanılmış Oy", 'vote' => $voteObject->vote ];
-                return back();
-            } else {
-                $voteObject = Vote::where('content_id', $content_id)
-                    ->where('content', $content)
-                    ->first();
-                if($voteObject){
-                    $voteObject->vote += $vote;
-                    $voteObject->save();
-                    $results[] = [ 'message' => "", 'vote' => $voteObject->vote ];
-                }
-                else{
-                    $newVote = new Vote();
-                    $newVote->user_id = $user_id;
-                    $newVote->content_id = $content_id;
-                    $newVote->content = $content;
-                    $newVote->vote = $vote;
-                    $newVote->save();
-                    $results[] = [ 'message' => "", 'vote' => $newVote->vote ];
-                }
+                $results[] = ['message' => "Daha önce oy verilmiş!", 'vote' => $voteObject->vote, 'div_id' => 'vote_' . $content . '_' . $content_id];
                 return Response::json($results);
+            } else {
 
+                $votes = Vote::where('content_id', $content_id)->where('content', $content)->get(['vote']);
 
+                if ($votes) {
+                    $oldVote = 0;
+                    foreach ($votes as $vote_t) {
+                        $oldVote += $vote_t['vote'];
+                    }
+                } else {
+                    $oldVote = 0;
+                }
+
+                $newVote = new Vote();
+                $newVote->user_id = $user_id;
+                $newVote->content_id = $content_id;
+                $newVote->content = $content;
+                $newVote->vote = $oldVote + $vote;
+                $newVote->save();
+                $results[] = ['message' => 0, 'vote' => $newVote->vote, 'div_id' => 'vote_' . $content . '_' . $content_id];
+
+                return Response::json($results);
             }
         }
     }

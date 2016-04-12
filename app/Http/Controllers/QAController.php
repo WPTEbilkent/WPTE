@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Questions as Questions;
 use App\Answers as Answers;
 use App\Comments as Comments;
+use App\Vote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -130,8 +131,34 @@ class QAController extends Controller
     {
         //Question  database tablosundan ilgili id ile veriyi(soruyu) cekiyor.
         $question = Questions::findOrNew($id);
+        $votes = Vote::where('content_id', $id)->where('content', 'question')->get(['vote']);
+
+        if ($votes) {
+            $vote = 0;
+            foreach ($votes as $vote_t) {
+                $vote += $vote_t['vote'];
+            }
+
+            $question['vote'] = $vote;
+        } else {
+            $question['vote'] = 0;
+        }
+
         //Answers tablosundan ilgili questionla ilgili var ise cevaplari(Answers) buluyor ve getiriyor.
         $answers = Answers::where('question_id', $id)->get();
+        foreach ($answers as $answer) {
+            $answer_votes = Vote::where('content_id', $answer->id)->where('content', 'q_answer')->get(['vote']);
+
+            if ($answer_votes) {
+                $vote = 0;
+                foreach ($answer_votes as $vote_t) {
+                    $vote += $vote_t['vote'];
+                }
+                $answer['vote'] = $vote;
+            } else {
+                $answer['vote'] = 0;
+            }
+        }
 
         //Gerekli view a aldigi verilerle birlikte gonderiyor ve sayfa aciliyor.
         return view('QA.show')->with('question', $question)->with('answers', $answers);
