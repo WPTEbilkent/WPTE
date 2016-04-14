@@ -9,6 +9,9 @@
     });
 
     function addVote(qa_id, content, vote) {
+        @if(Auth::guest())
+                window.location = "/auth/login";
+        @endif
         url = "{!! url('/vote') !!}" + "?content_id=" + qa_id + "&content=" + content + "&vote=" + vote;
         ajax(url);
     }
