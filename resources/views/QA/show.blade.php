@@ -40,6 +40,7 @@
                                 <div id="vote_question_{!! $question->id !!}" class="label-votes">{{$question->vote}}</div>
                                 <input type="button" title="Down" class="down" onClick="addVote('{!! $question->id !!}', 'question', '-1' )"/>
                             </div>
+                            <a href="{{ route('QA.edit', $question->id) }}">edit</a>
                         </div>
                         <div class="col-md-10">
                             <p class="comment-info">

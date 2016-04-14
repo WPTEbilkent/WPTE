@@ -172,7 +172,10 @@ class QAController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $question = Questions::findorfail($id);
+        return view('QA.edit')->with('oldQuestion',$question);
+
     }
 
     /**
@@ -184,8 +187,21 @@ class QAController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+            $tags = str_replace(" ", "", $request["tags"]);
+            $tags = mb_strtolower($tags);
+            $title = mb_strtoupper($request["title"]);
+
+            $question = Questions::findorfail($id);
+
+            $question->title = $title;
+            $question->question = $request->question;
+            $question->tags = $tags;
+            $question->save();
+
+
+        return back();
     }
+
 
     /**
      * Remove the specified resource from storage.
