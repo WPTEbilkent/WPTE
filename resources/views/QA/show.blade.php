@@ -12,12 +12,12 @@
         @if(Auth::guest())
                 window.location = "/auth/login";
         @endif
-        url = "{!! url('/vote') !!}" + "?content_id=" + qa_id + "&content=" + content + "&vote=" + vote;
+                url = "{!! url('/vote') !!}" + "?content_id=" + qa_id + "&content=" + content + "&vote=" + vote;
         ajax(url);
     }
     function ajax(url) {
         $.get(url, function (response) {
-            if (response[0]["message"]){
+            if (response[0]["message"]) {
                 alert(response[0]["message"]);
             } else {
                 document.getElementById(response[0]["div_id"]).innerHTML = response[0]["vote"]
@@ -36,11 +36,18 @@
                     <div class="row">
                         <div class="col-md-1">
                             <div class="btn-votes">
-                                <input type="button" title="Up" class="up" onClick="addVote('{!! $question->id !!}', 'question', '1' )"/>
-                                <div id="vote_question_{!! $question->id !!}" class="label-votes">{{$question->vote}}</div>
-                                <input type="button" title="Down" class="down" onClick="addVote('{!! $question->id !!}', 'question', '-1' )"/>
+                                <input type="button" title="Up" class="up"
+                                       onClick="addVote('{!! $question->id !!}', 'question', '1' )"/>
+                                <div id="vote_question_{!! $question->id !!}"
+                                     class="label-votes">{{$question->vote}}</div>
+                                <input type="button" title="Down" class="down"
+                                       onClick="addVote('{!! $question->id !!}', 'question', '-1' )"/>
                             </div>
                             <a href="{{ route('QA.edit', $question->id) }}">edit</a>
+
+                            {!! Form::open([ 'method' => 'DELETE','route' => ['QA.destroy', $question->id]]) !!}
+                            {!! Form::submit('Delete this task?', ['class' => 'btn btn-danger']) !!}
+                            {!! Form::close() !!}
                         </div>
                         <div class="col-md-10">
                             <p class="comment-info">
@@ -72,13 +79,15 @@
                 <div class="row">
                     <div class="col-md-1">
                         <div class="btn-votes">
-                            <input type="button" title="Up" class="up" onClick="addVote('{!! $answer->id !!}', 'q_answer', '1' )"/>
+                            <input type="button" title="Up" class="up"
+                                   onClick="addVote('{!! $answer->id !!}', 'q_answer', '1' )"/>
                             <div id="vote_q_answer_{!! $answer->id !!}" class="label-votes">{{$answer->vote}}</div>
-                            <input type="button" title="Down" class="down" onClick="addVote('{!! $answer->id !!}', 'q_answer', '-1' )"/>
+                            <input type="button" title="Down" class="down"
+                                   onClick="addVote('{!! $answer->id !!}', 'q_answer', '-1' )"/>
                         </div>
                     </div>
                     {{--<div class="col-md-2">--}}
-                        {{--{{$answer->rate}}--}}
+                    {{--{{$answer->rate}}--}}
                     {{--</div>--}}
                     <div class="col-md-10">
                         <div id="reply" class="cmnt-clipboard"><span class="btn-clipboard">Yorum</span></div>

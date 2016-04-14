@@ -15,7 +15,7 @@ class Questions extends Model
         return $this->belongsTo('App\User');
     }
     public function answers(){
-        return $this->belongsToMany('App\Answers');
+        return $this->hasMany('App\Answers', 'question_id');
     }
     public function vote()
     {

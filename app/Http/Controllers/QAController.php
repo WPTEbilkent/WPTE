@@ -211,7 +211,15 @@ class QAController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $question = Questions::findorfail($id);
+        if( $answers = $question->answers()){
+            $answers->delete();
+        }
+        $question->delete();
+
+
+
+        return redirect()->route('QA.index');
     }
 
 }
