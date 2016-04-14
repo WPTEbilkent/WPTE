@@ -199,7 +199,7 @@ class QAController extends Controller
             $question->save();
 
 
-        return back();
+        return redirect()->route('QA.index');
     }
 
 

@@ -25,7 +25,7 @@ class TutorialRequest extends Request
     {
         return [
             'title' => 'required',
-            'message' => 'required',
+            'content' => 'required',
         ];
     }
 }

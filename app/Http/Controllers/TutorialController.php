@@ -95,13 +95,13 @@ class TutorialController extends Controller
         $tutorial = new Tutorials;
         $tutorial->user_id = Auth::user()->id;
         $tutorial->title = $title;
-        $tutorial->content = $request->message;
+        $tutorial->content = $request->content;
         $tutorial->tags = $tags;
         $tutorial->rate = 0;
         $tutorial->date = date("Y-m-d H:i:s");
         $tutorial->save();
 
-        return $this->index();
+        return redirect()->route('tutorial.index');
     }
 
     /**
@@ -125,7 +125,8 @@ class TutorialController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tutorial = Tutorials::findorfail($id);
+        return view('tutorial.edit')->with('oldTutorial',$tutorial);
     }
 
     /**
@@ -137,7 +138,19 @@ class TutorialController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tags = str_replace(" ", "", $request["tags"]);
+        $tags = mb_strtolower($tags);
+        $title = mb_strtoupper($request["title"]);
+
+        $tutorial = Tutorials::findorfail($id);
+
+        $tutorial->title = $title;
+        $tutorial->content = $request->content;
+        $tutorial->tags = $tags;
+        $tutorial->save();
+
+
+        return redirect()->route('tutorial.index');
     }
 
     /**
@@ -148,7 +161,13 @@ class TutorialController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tutorial = Tutorials::findorfail($id);
+
+        $tutorial->delete();
+
+
+
+        return redirect()->route('tutorial.index');
     }
 
 }

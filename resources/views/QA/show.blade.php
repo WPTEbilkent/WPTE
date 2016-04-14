@@ -15,6 +15,7 @@
                 url = "{!! url('/vote') !!}" + "?content_id=" + qa_id + "&content=" + content + "&vote=" + vote;
         ajax(url);
     }
+
     function ajax(url) {
         $.get(url, function (response) {
             if (response[0]["message"]) {
@@ -43,11 +44,13 @@
                                 <input type="button" title="Down" class="down"
                                        onClick="addVote('{!! $question->id !!}', 'question', '-1' )"/>
                             </div>
+                            @if(Auth::user()->isAdmin() || Auth::user()->id == $question->user_id)
                             <a href="{{ route('QA.edit', $question->id) }}">edit</a>
 
                             {!! Form::open([ 'method' => 'DELETE','route' => ['QA.destroy', $question->id]]) !!}
                             {!! Form::submit('Delete this task?', ['class' => 'btn btn-danger']) !!}
                             {!! Form::close() !!}
+                            @endif
                         </div>
                         <div class="col-md-10">
                             <p class="comment-info">

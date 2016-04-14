@@ -83,10 +83,10 @@
             </div>
             <div class="form-group">
                 {!! Form::label('Sorunuz:') !!}
-                {!! Form::textarea('message', null, array('id' => 'tutorialText', 'required',  'class'=>'form-control',  'placeholder'=>'Mesaj')) !!}
+                {!! Form::textarea('content', null, array('id' => 'tutorialText', 'required',  'class'=>'form-control',  'placeholder'=>'Mesaj')) !!}
             </div>
 
-            <button id="myBtn" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Fotoğraf Yükle</button>
+            <button id="myBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Fotoğraf Yükle</button>
             @if(Session::has('success'))
                 <div class="alert-box success">
                     <h5>{!! Session::get('success') !!}</h5>
