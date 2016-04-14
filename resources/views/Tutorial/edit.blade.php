@@ -94,7 +94,7 @@
             @endif
 
             <div class="form-group">
-                {!! Form::submit('Submit',  array('class'=>'btn btn-primary')) !!}
+                {!! Form::submit('Kaydet',  array('class'=>'btn btn-primary')) !!}
             </div>
             {!! Form::close() !!}
         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use URL;
 
 class RedirectIfAuthenticated
 {
@@ -35,7 +36,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next)
     {
         if ($this->auth->check()) {
-            return redirect('/QA');
+            return redirect()->back();
         }
 
         return $next($request);

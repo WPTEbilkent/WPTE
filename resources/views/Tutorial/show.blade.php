@@ -11,12 +11,14 @@
            href="/tutorial/subscribe/{{$tutorial[0]->user->id}}">{{$tutorial[0]->user->name}} Abone Ol</a>
         <div class="alert alert-info">
             <p>{{$tutorial[0]->tags}}</p>
-            @if(Auth::user()->isAdmin() || Auth::user()->id == $tutorial[0]->user_id)
-            <a href="{{ route('tutorial.edit', $tutorial[0]->id) }}">edit</a>
+            @if(!Auth::guest())
+                @if(Auth::user()->isAdmin() || Auth::user()->id == $tutorial[0]->user_id)
+                    <a href="{{ route('tutorial.edit', $tutorial[0]->id) }}">edit</a>
 
-            {!! Form::open([ 'method' => 'DELETE','route' => ['tutorial.destroy', $tutorial[0]->id]]) !!}
-            {!! Form::submit('Delete this task?', ['class' => 'btn btn-danger']) !!}
-            {!! Form::close() !!}
+                    {!! Form::open([ 'method' => 'DELETE','route' => ['tutorial.destroy', $tutorial[0]->id]]) !!}
+                    {!! Form::submit('Delete this task?', ['class' => 'btn btn-danger']) !!}
+                    {!! Form::close() !!}
+                @endif
             @endif
         </div>
 

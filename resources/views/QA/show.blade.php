@@ -44,12 +44,14 @@
                                 <input type="button" title="Down" class="down"
                                        onClick="addVote('{!! $question->id !!}', 'question', '-1' )"/>
                             </div>
-                            @if(Auth::user()->isAdmin() || Auth::user()->id == $question->user_id)
-                            <a href="{{ route('QA.edit', $question->id) }}">edit</a>
+                            @if(!Auth::guest())
+                                @if(Auth::user()->isAdmin() || Auth::user()->id == $question->user_id)
+                                    <a href="{{ route('QA.edit', $question->id) }}">edit</a>
 
-                            {!! Form::open([ 'method' => 'DELETE','route' => ['QA.destroy', $question->id]]) !!}
-                            {!! Form::submit('Delete this task?', ['class' => 'btn btn-danger']) !!}
-                            {!! Form::close() !!}
+                                    {!! Form::open([ 'method' => 'DELETE','route' => ['QA.destroy', $question->id]]) !!}
+                                    {!! Form::submit('Delete this task?', ['class' => 'btn btn-danger']) !!}
+                                    {!! Form::close() !!}
+                                @endif
                             @endif
                         </div>
                         <div class="col-md-10">

@@ -126,7 +126,10 @@ class TutorialController extends Controller
     public function edit($id)
     {
         $tutorial = Tutorials::findorfail($id);
-        return view('tutorial.edit')->with('oldTutorial',$tutorial);
+        if(Auth::user()->$id == $tutorial->user_id || Auth::user()->isAdmin()){
+            return view('tutorial.edit')->with('oldTutorial',$tutorial);
+        }
+
     }
 
     /**
