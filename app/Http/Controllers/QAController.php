@@ -118,7 +118,7 @@ class QAController extends Controller
         $question->date = date("Y-m-d H:i:s");
         $question->save();
 
-        return view('QA.create')->with("questions", $request);
+        return $this->index();
     }
 
     /**

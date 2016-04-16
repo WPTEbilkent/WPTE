@@ -61,6 +61,16 @@
                 $('#myModal').modal('show');
             });
         });
+        function imgUpload(){
+            var file = document.getElementById('myImage').files[0];
+            var route = "../apply/upload";
+            $.ajax({
+                url: route,
+                type: 'POST',
+                data: {  data1: file , _token: '{!! csrf_token() !!}' },
+                dataType: 'json',
+            });
+        }
     </script>
 
     <ul>
@@ -82,7 +92,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('Sorunuz:') !!}
-                {!! Form::textarea('question', null, array('id' => 'questionText', 'required',  'class'=>'form-control',  'placeholder'=>'Sorunuz')) !!}
+                {!! Form::textarea('question',null , array('id' => 'questionText', 'required',  'class'=>'form-control',  'placeholder'=>'Sorunuz')) !!}
             </div>
 
             <button id="myBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Fotoğraf Yükle </button>
@@ -112,10 +122,11 @@
                         <h4 class="modal-title" id="myModalLabel">Fotoğraf Yükle</h4>
                     </div>
                     <div class="modal-body">
-                        {!! Form::open(array('url'=>'apply/upload','method'=>'POST', 'files'=>true)) !!}
+                        {!! Form::open(array('method' => 'POST', 'files' => true)) !!}
+                        {!! csrf_field() !!}
                         <div class="control-group">
                             <div class="controls">
-                                {!! Form::file('image') !!}
+                                <input id="myImage" type="file" name="image" />
                                 <p class="errors">{!!$errors->first('image')!!}</p>
                                 @if(Session::has('error'))
                                     <p class="errors">{!! Session::get('error') !!}</p>
@@ -123,7 +134,7 @@
                             </div>
                         </div>
                         <div id="success"></div>
-                        {!! Form::submit('Yükle', array('class'=>'send-btn btn btn-primary')) !!}
+                        {!! Form::button('Yükle', array('class'=>'send-btn btn btn-primary', 'onClick' => 'imgUpload()')) !!}
                         {!! Form::close() !!}
                     </div>
                 </div>

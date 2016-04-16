@@ -14,5 +14,8 @@ class Subscription extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+    public function subs(){
+        return $this->hasMany('App\User', 'subscribed_id');
+    }
 
 }
