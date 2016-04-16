@@ -126,8 +126,11 @@ class TutorialController extends Controller
     public function edit($id)
     {
         $tutorial = Tutorials::findorfail($id);
-        if(Auth::user()->$id == $tutorial->user_id || Auth::user()->isAdmin()){
+        if(Auth::user()->id == $tutorial->user_id || Auth::user()->isAdmin()){
             return view('tutorial.edit')->with('oldTutorial',$tutorial);
+        }
+        else{
+            return $this->index();
         }
 
     }

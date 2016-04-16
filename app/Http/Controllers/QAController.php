@@ -174,9 +174,12 @@ class QAController extends Controller
     {
 
         $question = Questions::findorfail($id);
-        if(Auth::user()->$id == $question->user_id || Auth::user()->isAdmin()) {
+        if(Auth::user()->id == $question->user_id || Auth::user()->isAdmin()) {
 
             return view('QA.edit')->with('oldQuestion', $question);
+        }
+        else{
+            return $this->index();
         }
     }
 

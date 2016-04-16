@@ -47,7 +47,6 @@
                             @if(!Auth::guest())
                                 @if(Auth::user()->isAdmin() || Auth::user()->id == $question->user_id)
                                     <a href="{{ route('QA.edit', $question->id) }}">edit</a>
-
                                     {!! Form::open([ 'method' => 'DELETE','route' => ['QA.destroy', $question->id]]) !!}
                                     {!! Form::submit('Delete this task?', ['class' => 'btn btn-danger']) !!}
                                     {!! Form::close() !!}
