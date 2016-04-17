@@ -28,6 +28,10 @@ class FileUploadController extends Controller
 
     public function upload()
     {
+
+        $old_val_title = Input::get('old_val_title');
+        $old_val_tags = Input::get('old_val_tags');
+        $old_val_text = Input::get('old_val_text');
         // getting all of the post data
         $file = array('image' => Input::file('image'));
         // setting up rules
@@ -47,10 +51,16 @@ class FileUploadController extends Controller
                 Input::file('image')->move($destinationPath, $fileName); // uploading file to given path
                 // sending back with message
                 Session::flash('success', ' Yükleme başarılı bir şekilde gerçekleşti. <br> URL: http://localhost:8000/uploads/img/' . $fileName);
+                Session::flash('old_val_text', $old_val_text);
+                Session::flash('old_val_tags', $old_val_tags);
+                Session::flash('old_val_title', $old_val_title);
                 return Redirect::to(URL::previous());
             } else {
                 // sending back with error message.
                 Session::flash('error', 'uploaded file is not valid');
+                Session::flash('old_val_text', $old_val_text);
+                Session::flash('old_val_tags', $old_val_tags);
+                Session::flash('old_val_title', $old_val_title);
                 return Redirect::to(URL::previous());
             }
         }

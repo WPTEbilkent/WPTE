@@ -58,19 +58,23 @@
         $(document).ready(function () {
 
             $("#myBtn").click(function () {
+                var old_text = $('#questionText').val();
+                var old_title = $('#title').val();
+                var old_tags = $('#tags').val();
+                if (old_text) {
+                    $('#old_val_text').val(old_text);
+                }
+                if (old_title) {
+                    $('#old_val_title').val(old_title);
+                }
+                if(old_tags){
+                    $('#old_val_tags').val(old_tags);
+                }
                 $('#myModal').modal('show');
+
             });
         });
-        function imgUpload(){
-            var file = document.getElementById('myImage').files[0];
-            var route = "../apply/upload";
-            $.ajax({
-                url: route,
-                type: 'POST',
-                data: {  data1: file , _token: '{!! csrf_token() !!}' },
-                dataType: 'json',
-            });
-        }
+
     </script>
 
     <ul>
@@ -84,15 +88,31 @@
             {!! Form::open(array('route' => 'QA.store', 'class' => 'form')) !!}
             <div class="form-group" , style="margin-top: 4%">
                 {!! Form::label('Başlık :') !!}
-                {!! Form::text('title', null, array('required', 'class'=>'form-control', 'placeholder'=>'Başlık')) !!}
+                @if(Session::has('old_val_title'))
+                    {!! Form::text('title', Session::get('old_val_title'), array('id' => 'title', 'required', 'class'=>'form-control', 'placeholder'=>'Başlık')) !!}
+                @else
+                    {!! Form::text('title', null, array('id' => 'title', 'required', 'class'=>'form-control', 'placeholder'=>'Başlık')) !!}
+                @endif
+
             </div>
             <div class="form-group">
                 {!! Form::label('Etiket :') !!}
-                {!! Form::text('tags', null, array('id'=>'tags', 'required', 'class'=>'form-control', 'placeholder'=>'Etiket')) !!}
+                @if(Session::has('old_val_tags'))
+                    {!! Form::text('tags', Session::get('old_val_tags'), array('id'=>'tags', 'required', 'class'=>'form-control', 'placeholder'=>'Etiket')) !!}
+                @else
+                    {!! Form::text('tags', null, array('id'=>'tags', 'required', 'class'=>'form-control', 'placeholder'=>'Etiket')) !!}
+                @endif
+
             </div>
             <div class="form-group">
                 {!! Form::label('Sorunuz:') !!}
-                {!! Form::textarea('question',null , array('id' => 'questionText', 'required',  'class'=>'form-control',  'placeholder'=>'Sorunuz')) !!}
+
+                @if(Session::has('old_val_text'))
+                    {!! Form::textarea('question', Session::get('old_val_text'), array('id' => 'questionText', 'required',  'class'=>'form-control',  'placeholder'=>'Sorunuz')) !!}
+                @else
+                    {!! Form::textarea('question', null, array('id' => 'questionText', 'required',  'class'=>'form-control',  'placeholder'=>'Sorunuz')) !!}
+                @endif
+
             </div>
 
             <button id="myBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Fotoğraf Yükle </button>
@@ -112,6 +132,7 @@
             This area is reserved to live title search results
         </div>
 
+
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
@@ -122,11 +143,11 @@
                         <h4 class="modal-title" id="myModalLabel">Fotoğraf Yükle</h4>
                     </div>
                     <div class="modal-body">
-                        {!! Form::open(array('method' => 'POST', 'files' => true)) !!}
+                        {!! Form::open(array('url' => 'apply/upload', 'method' => 'POST', 'files' => true)) !!}
                         {!! csrf_field() !!}
                         <div class="control-group">
                             <div class="controls">
-                                <input id="myImage" type="file" name="image" />
+                                <input id="myImage" type="file" name="image">
                                 <p class="errors">{!!$errors->first('image')!!}</p>
                                 @if(Session::has('error'))
                                     <p class="errors">{!! Session::get('error') !!}</p>
@@ -134,7 +155,10 @@
                             </div>
                         </div>
                         <div id="success"></div>
-                        {!! Form::button('Yükle', array('class'=>'send-btn btn btn-primary', 'onClick' => 'imgUpload()')) !!}
+                        <input type="hidden" id="old_val_text" name="old_val_text" value="" />
+                        <input type="hidden" id="old_val_tags" name="old_val_tags" value="" />
+                        <input type="hidden" id="old_val_title" name="old_val_title" value="" />
+                        {!! Form::submit('Yükle', array('class'=>'send-btn btn btn-primary')) !!}
                         {!! Form::close() !!}
                     </div>
                 </div>
