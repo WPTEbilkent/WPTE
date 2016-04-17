@@ -17,17 +17,6 @@
                     <input type="password" class="form-control" id="inputPassword3" name="password" placeholder="Şifre">
                 </div>
             </div>
-
-            <div class="form-group row">
-                <label class="col-sm-2"></label>
-                <div class="col-sm-10">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="rememberMe"> Beni Hatırla
-                        </label>
-                    </div>
-                </div>
-            </div>
             <div class="form-group row">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-success" >GİRİŞ YAP</button>

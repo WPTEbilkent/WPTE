@@ -71,4 +71,7 @@ Route::resource("/twitch","TwitchController");
 Route::get("/privacy" , function(){
     return View::make('privacy');
 });
+Route::get("/about" , function(){
+    return View::make('about');
+});
 
