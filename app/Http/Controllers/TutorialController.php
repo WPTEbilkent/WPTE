@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 
 use App\Tutorial as Tutorials;
+use App\Tutorial;
+use App\User;
 use Faker\Provider\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -20,18 +22,16 @@ class TutorialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function subscribe($id){
+    public function subscribe($id)
+    {
         if (Auth::guest()) {
             return Redirect::to('/auth/login');
-        }
-        else{
-            $subs = Subscription::where("subscriber_id", $id)->where("subscribed_id",Auth::user()->id)->get();
+        } else {
+            $subs = Subscription::where("subscriber_id", $id)->where("subscribed_id", Auth::user()->id)->get();
 
-            if(!$subs){
+            if (!$subs) {
                 return back();
-            }
-            else {
-
+            } else {
                 $subscription = new Subscription;
                 $subscription->subscriber_id = $id;
                 $subscription->subscribed_id = Auth::user()->id;
@@ -47,10 +47,23 @@ class TutorialController extends Controller
         if ($tag == "null") {
             $view = TutorialController::index();
         } else {
-            $tutorials = Tutorials::where('tag','LIKE',"%$tag%")->orderBy('id','desc')->paginate(10);
-            $tutorials->setPath('Tutorial');
-            $view = view('Tutorial.index')->with('tutorials', $tutorials);
+            // search by user name
+            $tutorials = Tutorials::where('tags', 'LIKE', "%$tag%")->orderBy('id', 'desc')->paginate(10);
+            $content_search = Tutorials::where('content', 'LIKE', "%$tag%")->orderBy('id', 'desc')->paginate(10);
+            $title_search = Tutorials::where('title', 'LIKE', "%$tag%")->orderBy('id', 'desc')->paginate(10);
+
+            $users = User::where('name', 'LIKE', "%$tag%")->get();
+            foreach ($users as $u){
+                $user_search = Tutorials::where('user_id', '=', $u->id)->orderBy('id', 'desc')->paginate(10);
+            }
+
+            $tutorials->setPath('tutorial');
+            if (isset($content_search)) { $content_search->setPath('tutorial'); }
+            if (isset($title_search)) { $title_search->setPath('tutorial'); }
+            if (isset($user_search)) { $user_search->setPath('tutorial'); }
+            $view = view('tutorial.index')->with('tutorials', $tutorials)->with('content_search', $content_search)->with('title_search', $title_search)->with('user_search', $user_search);
         }
+
         $sections = $view->renderSections();
         return $sections['content'];
     }
@@ -59,8 +72,8 @@ class TutorialController extends Controller
     {
 
         $tutorials = Tutorials::orderBy('id', 'desc')->paginate(10);
-        $tutorials->setPath('Tutorial');
-        return view('Tutorial.index', ['tutorials' => $tutorials]);
+        $tutorials->setPath('tutorial');
+        return view('tutorial.index', ['tutorials' => $tutorials]);
 
     }
 
@@ -126,10 +139,9 @@ class TutorialController extends Controller
     public function edit($id)
     {
         $tutorial = Tutorials::findorfail($id);
-        if(Auth::user()->id == $tutorial->user_id || Auth::user()->isAdmin()){
-            return view('tutorial.edit')->with('oldTutorial',$tutorial);
-        }
-        else{
+        if (Auth::user()->id == $tutorial->user_id || Auth::user()->isAdmin()) {
+            return view('tutorial.edit')->with('oldTutorial', $tutorial);
+        } else {
             return $this->index();
         }
 
@@ -170,7 +182,6 @@ class TutorialController extends Controller
         $tutorial = Tutorials::findorfail($id);
 
         $tutorial->delete();
-
 
 
         return redirect()->route('tutorial.index');
