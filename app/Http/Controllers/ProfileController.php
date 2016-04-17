@@ -27,16 +27,11 @@ class ProfileController extends Controller
         if (Auth::guest()) {
             return Redirect::to('/auth/login');
         } else {
+            $subbed_users_name = "";
             $user = User::findorfail($id);
-            $subs = Subs::where('subscriber_id', '=' ,$id)->get();
-            foreach($subs as $sub){
-               $users_subscribed = User::where('id', '=', $sub->subscribed_id)->get();
-            }
-            foreach($users_subscribed as $user_subscribed){
-              //print_r($tutorials = Tutorial::where('user_id', '=', $user_subscribed->id)); ITS CROWDED
-            }
+            $subs = Subs::where('subscriber_id', $id)->get();
 
-            return view('profile')->with('user', $user)->with('subscribers', $users_subscribed)->with('tutorials', $tutorials);
+            return view('profile')->with('user', $user)->with('subs',$subs);
         }
     }
 
