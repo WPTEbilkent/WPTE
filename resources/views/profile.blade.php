@@ -3,10 +3,15 @@
 @section('content')
 
 
-                <?php $user=App\user::find($id); echo print_r($user)?>
+              {{$user->name}}</br>
+              {{$user->email}}</br>
 
-                {{$user->name}}
-    {{$user->id}}
+                @foreach($subscribers as $subscriber)
+                    {{$subscriber->name}}</br>
+                    -------------</br>
+
+
+                @endforeach
 
 
 @endsection

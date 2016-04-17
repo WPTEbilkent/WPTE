@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Subscription;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Auth;
+use App\User as User;
+use App\Subscription as Subs;
+use App\Tutorial as Tutorial;
 
 class ProfileController extends Controller
 {
@@ -23,7 +27,16 @@ class ProfileController extends Controller
         if (Auth::guest()) {
             return Redirect::to('/auth/login');
         } else {
-            return view('profile')->with('id', $id);
+            $user = User::findorfail($id);
+            $subs = Subs::where('subscriber_id', '=' ,$id)->get();
+            foreach($subs as $sub){
+               $users_subscribed = User::where('id', '=', $sub->subscribed_id)->get();
+            }
+            foreach($users_subscribed as $user_subscribed){
+              //print_r($tutorials = Tutorial::where('user_id', '=', $user_subscribed->id)); ITS CROWDED
+            }
+
+            return view('profile')->with('user', $user)->with('subscribers', $users_subscribed)->with('tutorials', $tutorials);
         }
     }
 
