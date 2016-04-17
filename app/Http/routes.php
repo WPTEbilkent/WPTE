@@ -67,3 +67,8 @@ Route::get("/events" , "EventController@index");
 //Twitch routing
 Route::resource("/twitch","TwitchController");
 
+//Other Hardcopy Pages
+Route::get("/privacy" , function(){
+    return View::make('privacy');
+});
+
