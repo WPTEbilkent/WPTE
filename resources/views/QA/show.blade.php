@@ -8,11 +8,11 @@
         $('#ata').ckeditor();
     });
 
-    function addVote(qa_id, content, vote) {
+    function addVote(qa_id, content, vote, creator_id) {
         @if(Auth::guest())
                 window.location = "/auth/login";
         @endif
-                url = "{!! url('/vote') !!}" + "?content_id=" + qa_id + "&content=" + content + "&vote=" + vote;
+                url = "{!! url('/vote') !!}" + "?content_id=" + qa_id + "&content=" + content + "&vote=" + vote + "&creator_id=" + creator_id;
         ajax(url);
     }
 
@@ -38,11 +38,11 @@
                         <div class="col-md-1">
                             <div class="btn-votes">
                                 <input type="button" title="Up" class="up"
-                                       onClick="addVote('{!! $question->id !!}', 'question', '1' )"/>
+                                       onClick="addVote('{!! $question->id !!}', 'question', '1', '{!! $question->user_id !!}' )"/>
                                 <div id="vote_question_{!! $question->id !!}"
                                      class="label-votes">{{$question->vote}}</div>
                                 <input type="button" title="Down" class="down"
-                                       onClick="addVote('{!! $question->id !!}', 'question', '-1' )"/>
+                                       onClick="addVote('{!! $question->id !!}', 'question', '-1', '{!! $question->user_id !!}' )"/>
                             </div>
                             @if(!Auth::guest())
                                 @if(Auth::user()->isAdmin() || Auth::user()->id == $question->user_id)

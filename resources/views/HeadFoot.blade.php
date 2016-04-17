@@ -50,7 +50,7 @@ $url_vendor_ckeditor="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/
         <link rel="stylesheet" href="{{$url_css_js}}css/font-awesome.min.css">
         <link rel="stylesheet" href="{{$url_css_js}}css/animate.css">
         <link rel="stylesheet" href="{{$url_css_js}}css/style.css">
-        <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+        <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -82,11 +82,16 @@ $url_vendor_ckeditor="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/"><span>WPTE</span></a></li>
-                    <li class="active"><a href="{{url("/QA")}}">Soru & Cevap</a></li>
+                    <li><a href="{{url("/QA")}}">Soru & Cevap</a></li>
                     <li><a href="{{url("/tutorial")}}">Eğİtİm</a></li>
                     <li><a href="design-inspiration.html">Etkİnlİkler</a></li>
-                    <li><a href="resources.html">Makaleler</a></li>
-                    <li><a href="resources.html">Gİrİş</a></li>
+                    @if(Auth::guest())
+                    <li><a href="{{url("auth/login")}}">Gİrİş</a></li>
+                    @else
+                        <li><a href="{{url("/profile")}}/{{Auth::user()->id}}">{{Auth::user()->name}}</a></li>
+                        <li><a href="{{url("/auth/logout")}}">Çıkış</a></li>
+                    @endif
+
                 </ul>
 
             </div><!-- end of /.navbar-collapse -->

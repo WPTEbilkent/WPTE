@@ -20,6 +20,12 @@ class VoteController extends Controller
         $content_id = Input::get('content_id');
         $content = Input::get('content');
         $vote = Input::get('vote');
+        $creator_id = Input::get('creator_id');
+        if($creator_id == $user_id){
+            $results[] = ['message' => "Kendinize oy veremezsiniz!", 'vote' => null, 'div_id' => null];
+            return Response::json($results);
+        }
+
 
         if (!($vote == 1 || $vote == -1)) {
             return back();
