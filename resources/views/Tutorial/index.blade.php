@@ -32,7 +32,7 @@
 
     </script>
 
-    <div id="QAContent">
+    <div id="TutorialContent">
         <div class="row row-no-padding-hor theme-gray ui-light">
             <div class="col-12">
                 <div class="fixed">
@@ -93,7 +93,7 @@
                                 <div class="sp10"></div>
                                 <a class="question-link ease-color" href="#"><?php
                                     //title and the destination with parameters
-                                    echo link_to_action('QAController@show', $title = $item->title, $parameters = array('pid' => $item->id), $attributes = array('class' => 'question-link ease-color'));
+                                    echo link_to_action('TutorialController@show', $title = $item->title, $parameters = array('pid' => $item->id), $attributes = array('class' => 'question-link ease-color'));
                                     ?></a>
                             </div>
                             <div class="content-side padding-15 theme-gray ui-x-light">
@@ -125,7 +125,7 @@
                                 <div class="sp10"></div>
                                 <a class="question-link ease-color" href="#"><?php
                                     //title and the destination with parameters
-                                    echo link_to_action('QAController@show', $title = $item->title, $parameters = array('pid' => $item->id), $attributes = array('class' => 'question-link ease-color'));
+                                    echo link_to_action('TutorialController@show', $title = $item->title, $parameters = array('pid' => $item->id), $attributes = array('class' => 'question-link ease-color'));
                                     ?></a>
                             </div>
                             <div class="content-side padding-15 theme-gray ui-x-light">
@@ -157,7 +157,7 @@
                                 <div class="sp10"></div>
                                 <a class="question-link ease-color" href="#"><?php
                                     //title and the destination with parameters
-                                    echo link_to_action('QAController@show', $title = $item->title, $parameters = array('pid' => $item->id), $attributes = array('class' => 'question-link ease-color'));
+                                    echo link_to_action('TutorialController@show', $title = $item->title, $parameters = array('pid' => $item->id), $attributes = array('class' => 'question-link ease-color'));
                                     ?></a>
                             </div>
                             <div class="content-side padding-15 theme-gray ui-x-light">

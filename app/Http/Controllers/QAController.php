@@ -65,15 +65,19 @@ class QAController extends Controller
 
             // Search in user name
             $users = User::select('id')->where('name', 'LIKE', "%$tag%")->get();
-            foreach ($users as $u) {
-                $user_ids[] = $u->id;
+            if(!$users->isEmpty()) {
+                foreach ($users as $u) {
+                    $user_ids[] = $u->id;
+                }
             }
             if(!$users->isEmpty()) {
                 $user_search = Questions::whereIn('user_id', $user_ids)->orderBy('id', 'desc')->paginate(10);
                 $user_search->setPath('QA');
             }
-            dd($user_search);
-            exit;
+            else{
+                $user_search = null;
+            }
+
 
             if ($questions->isEmpty() && $content_search->isEmpty() && $title_search->isEmpty()) {
                 $view = QAController::index();
