@@ -1,108 +1,97 @@
 <?php
-$url_css_js="http://localhost/laravel/resources/assets/";
+$url_css_js="http://localhost/laravel/resources/assets/newDesign";
 $url_vendor_ckeditor="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/";
 ?>
 
 @section('footer')
-    <div class="container">
-        <div class="row">
-            <!-- copyright -->
-            <div class="col-md-4 col-sm-4">
-                copyright &copy; 2015 <a href="http://www.havelsan.com.tr" target="_blank" style="margin-left: 4px;">Havelsan A.Ş.</a>
-                <br>
-            </div>
-
-            <!-- footer share button -->
-            <div class="col-md-4 col-sm-4">
-                <ul class="social-share text-center">
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                </ul> <!-- /.social-share -->
-            </div>
-
-            <!-- footer-nav -->
-            <div class="col-md-4 col-sm-4">
-                <ul class="footer-nav">
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="privacy.html">Privacy</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul> <!-- /.footer-nav -->
+    <footer class="container padding-30-v theme-gray ui-light">
+        <div class="fixed">
+            <div class="row">
+                <div class="col-8 small md-align-center">
+                    <div class="footer-links">
+                        <a class="link-default ease-link" href="index.php">WPTE</a>
+                        <a class="link-default ease-link" href="#">SORU &amp; CEVAP</a>
+                        <a class="link-default ease-link" href="#">EĞİTİM</a>
+                        <a class="link-default ease-link" href="#">ETKİNLİKLER</a>
+                        <a class="link-default ease-link" href="#">MAKALELER</a>
+                        <a class="link-default ease-link" href="#">GİRİŞ</a>
+                        <a class="link-default ease-link" href="#">ABOUT</a>
+                        <a class="link-default ease-link" href="#">PRIVACY</a>
+                        <a class="link-default ease-link" href="#">CONTACT</a>
+                    </div>
+                    <div class="dark">
+                        copyright &copy; 2016. <a class="link-default ease-link" href="www.youtestify.com">youtestify.com</a>
+                    </div>
+                </div>
+                <div class="col-4 align-right md-align-center">
+                    <div class="footer-social">
+                        <a class="btn btn-lg circle theme-youtestify ui-dark ease-bg" href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a class="btn btn-lg circle theme-youtestify ui-dark ease-bg" href="#" target="_blank"><i class="fa fa-google-plus"></i></a>
+                        <a class="btn btn-lg circle theme-youtestify ui-dark ease-bg" href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a class="btn btn-lg circle theme-youtestify ui-dark ease-bg" href="#" target="_blank"><i class="fa fa-pinterest"></i></a>
+                        <a class="btn btn-lg circle theme-youtestify ui-dark ease-bg" href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </footer>
+
 
 @stop
 @section('header')
-    <head>
-
-        <!-- meta -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-        <title>Welcome to YouTestify!</title>
-
-        <!-- stylesheets -->
-        <link rel="stylesheet" href="{{$url_css_js}}css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{$url_css_js}}css/font-awesome.min.css">
-        <link rel="stylesheet" href="{{$url_css_js}}css/animate.css">
-        <link rel="stylesheet" href="{{$url_css_js}}css/style.css">
-        <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-        <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-        <script src="{{$url_vendor_ckeditor}}ckeditor.js"></script>
-        <script src="{{$url_vendor_ckeditor}}adapters/jquery.js"></script>
-
-    </head>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a style="padding-left:5%" class="navbar-brand" href="/">
-                    <span>"Site logo will come here"</span>
-                  <!--  <img src="{{$url_css_js}}img/WPTELogo.jpg" alt="Site Logo"> -->
-                </a>
+        <!-- header -->
+    <header class="container theme-night ui-dark">
+        <div class="fixed">
+            <div class="row">
+                <div class="col-static">
+                    <div class="static-184 md-align-center">
+                        <a class="youtestify-logo" href="index.php"><img class="retina" src="{{$url_css_js}}/img/logo.png" alt="Youtestify"></a>
+                    </div>
+                    <div class="row row-no-padding">
+                        <div class="col-12">
+                            <nav class="header-nav">
+                                <button class="ease-bg"><i class="fa fa-2x fa-bars ease-color"></i></button>
+                                <ul class="list-custom theme-night ui-dark ease-opacity">
+                                    <li class="selected"><a class="ease-link" href="index.php"><span class="ease-color">WPTE</span></a></li> <!-- seçili olan sayfaya li.selected ekleyiniz -->
+                                    <li><a class="ease-link" href="#"><span class="ease-color">SORU &amp; CEVAP<span></a></li>
+                                    <li><a class="ease-link" href="#"><span class="ease-color">EĞİTİM<span></a></li>
+                                    <li><a class="ease-link" href="#"><span class="ease-color">ETKİNLİKLER<span></a></li>
+                                    <li><a class="ease-link" href="#"><span class="ease-color">MAKALELER<span></a></li>
+                                    @if(Auth::guest())
+                                        <li><a class="ease-link" href="{{url("/auth/login")}}"><span class="ease-color">GİRİŞ<span></a></li>
+                                    @else
+                                        <li><a class="ease-link" href="{{url("/profile")}}/{{Auth::user()->id}}"><span class="ease-color">{{Auth::user()->name}}<span></a></li>
+                                        <li><a class="ease-link" href="{{url("/auth/logout")}}"><span class="ease-color">ÇIKIŞ</span></a></li>
+                                    @endif
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/"><span>WPTE</span></a></li>
-                    <li><a href="{{url("/QA")}}">Soru & Cevap</a></li>
-                    <li><a href="{{url("/tutorial")}}">Eğİtİm</a></li>
-                    <li><a href="design-inspiration.html">Etkİnlİkler</a></li>
-                    @if(Auth::guest())
-                    <li><a href="{{url("auth/login")}}">Gİrİş</a></li>
-                    @else
-                        <li><a href="{{url("/profile")}}/{{Auth::user()->id}}">{{Auth::user()->name}}</a></li>
-                        <li><a href="{{url("/auth/logout")}}">Çıkış</a></li>
-                    @endif
-
-                </ul>
-
-            </div><!-- end of /.navbar-collapse -->
-        </div><!-- end of /.container -->
-    </nav>
-
+        </div>
+    </header>
 @stop
 @section('scripts')
-    <script type="text/javascript" src="{{$url_css_js}}js/jquery-2.1.3.min.js"></script>
-    <script type="text/javascript" src="{{$url_css_js}}js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="{{$url_css_js}}js/jQuery.scrollSpeed.js"></script>
+    <meta name="description" content="A unique web platform for test engineers." />
+    <meta name="keywords" content="youtestify, articles, tutorials, qusetions, answers, track events, web platform, test engineers"/>
+    <meta name="author" content="Youtestify.com"/>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <!--[if IE]><meta https-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
+    <!--[if lt IE 9]><script>window.navigate('http://outdatedbrowser.com/tr');</script><![endif]-->
+
+    <link rel="icon" href="img/favicon.ico" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+
+    <link rel="stylesheet" href="{{$url_css_js}}/css/frogframework.css" />
+    <link rel="stylesheet" href="{{$url_css_js}}/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="{{$url_css_js}}/css/frontend.css" />
+
+    <script src="{{$url_css_js}}/js/jquery.min.js"></script>
+    <script src="{{$url_css_js}}/js/frogframework.js"></script>
+    <script src="{{$url_css_js}}/js/frontend.js"></script>
 @stop
 @section('smooth-scripts')
     <script>
@@ -113,56 +102,17 @@ $url_vendor_ckeditor="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/
 @stop
 @section('sidebar')
         <!-- sidebar -->
-    <aside class="col-md-4 col-sm-8 col-xs-8">
-        <div class="sidebar">
-
-            <!-- search option -->
-            <div class="search-widget">
-                <div class="input-group margin-bottom-sm">
-                    <input id="searchText" class="form-control" type="text" placeholder="Etiket Ara">
-                    <a href="#" class="input-group-addon" id="searchButton">
-                        <i class="fa fa-search fa-fw"></i>
-                    </a>
-                </div>
-            </div>
-
-            <a href="http://themewagon.com/" class="template-images">
-                <img class="img-responsive" src="{{$url_css_js}}img/store1.png" alt="Template Store">
-
-                <div class="overlay"><span style="color: red; font-size: 26pt">This area is reserved for event getter</span></div>
-            </a>
-
-            <!-- subscribe form -->
-            <div class="subscribe-widget">
-
-                <!-- TODO ->
-                <!-- silinecek ->
-                <h4 class="text-capitalize text-center">
-                    get recent update by email
-                </h4>
-
-                <div class="input-group margin-bottom-sm">
-                    <input class="form-control" type="text" placeholder="Your Email">
-                    <a href="#" class="input-group-addon">
-                        <i class="fa fa-paper-plane fa-fw"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- sidebar share button -->
-            <div class="share-widget hidden-xs hidden-sm">
-                <ul class="social-share text-center">
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                </ul> <!-- /.sidebar-share-button -->
-            </div> <!-- /.share-widget -->
-
+    <div class="col-4">
+        <div class="text text-icon rounded bordered light-bordered ease-form">
+            <input id="searchText" type="text" placeholder="Etiket Ara">
+            <button id="searchButton" class="icon fa fa-search ease-opacity" type="button"></button>
         </div>
-    </aside>
-    <!-- end of sidebar -->
+        <div class="portlet padding-15 margin-20-t rounded bordered light-bordered theme-gray ui-x-light">
+            <a href="#" target="_blank"><img class="img-responsive"
+                                             src="http://localhost/laravel/resources/assets/newDesign/dummy/demo-banner.jpg"
+                                             alt="Demo Banner"></a>
+        </div>
+    </div>
 
 
 @stop

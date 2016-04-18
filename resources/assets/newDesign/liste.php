@@ -6,14 +6,14 @@
 <head>
 
     <title>YouTestify - A unique web platform for test engineers</title>
-    <?php include ('meta-tags.php'); ?>
+    <?php include('meta-tags.php'); ?>
 
 </head>
 
 <body>
 
     <!-- header -->
-    <?php include ('header.php'); ?>
+    <?php include('header.php'); ?>
 
     <!-- main -->
     <main role="main" class="container">
@@ -26,7 +26,7 @@
                             <h4 class="align-left xs-align-center theme-night ui-text margin-5-v">Soru &amp; Cevap</h4>
                         </div>
                         <div class="col-4 xs-responsive align-right">
-                            <a class="btn btn-responsive rounded theme-youtestify ui-dark ease-bg" href="soru-sor.php">CREATE A NEW TURORIAL</a>
+                            <a class="btn btn-responsive rounded theme-youtestify ui-dark ease-bg" href="soru-sor.php">ASK A QUESTION!</a>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
 
                     <div class="portlet rounded bordered light-bordered">
                         <div class="content-side padding-15">
-                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
+                            <span class="dark x-large">By:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
                             <div class="sp10"></div>
                             <a class="question-link ease-color" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed maximus tellus. Morbi at sodales libero. In mollis mi ut ipsum hendrerit congue. Fusce gravida, mauris nec dignissim dictum, sem nisi euismod elit, sit amet ornare augue metus vel ipsum. Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
                         </div>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="portlet rounded bordered light-bordered">
                         <div class="content-side padding-15">
-                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
+                            <span class="dark x-large">By:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
                             <div class="sp10"></div>
                             <a class="question-link ease-color" href="#">Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
                         </div>
@@ -79,7 +79,7 @@
                     </div>
                     <div class="portlet rounded bordered light-bordered">
                         <div class="content-side padding-15">
-                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
+                            <span class="dark x-large">By:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
                             <div class="sp10"></div>
                             <a class="question-link ease-color" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed maximus tellus. Morbi at sodales libero. In mollis mi ut ipsum hendrerit congue. Fusce gravida, mauris nec dignissim dictum, sem nisi euismod elit, sit amet ornare augue metus vel ipsum. Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
                         </div>
@@ -99,7 +99,7 @@
                     </div>
                     <div class="portlet rounded bordered light-bordered">
                         <div class="content-side padding-15">
-                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
+                            <span class="dark x-large">By:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
                             <div class="sp10"></div>
                             <a class="question-link ease-color" href="#">Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
                         </div>
@@ -119,7 +119,7 @@
                     </div>
                     <div class="portlet rounded bordered light-bordered">
                         <div class="content-side padding-15">
-                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
+                            <span class="dark x-large">By:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
                             <div class="sp10"></div>
                             <a class="question-link ease-color" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed maximus tellus. Morbi at sodales libero. In mollis mi ut ipsum hendrerit congue. Fusce gravida, mauris nec dignissim dictum, sem nisi euismod elit, sit amet ornare augue metus vel ipsum. Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
                         </div>
@@ -139,7 +139,7 @@
                     </div>
                     <div class="portlet rounded bordered light-bordered">
                         <div class="content-side padding-15">
-                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
+                            <span class="dark x-large">By:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
                             <div class="sp10"></div>
                             <a class="question-link ease-color" href="#">Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
                         </div>
@@ -159,7 +159,7 @@
                     </div>
                     <div class="portlet rounded bordered light-bordered">
                         <div class="content-side padding-15">
-                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
+                            <span class="dark x-large">By:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
                             <div class="sp10"></div>
                             <a class="question-link ease-color" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed maximus tellus. Morbi at sodales libero. In mollis mi ut ipsum hendrerit congue. Fusce gravida, mauris nec dignissim dictum, sem nisi euismod elit, sit amet ornare augue metus vel ipsum. Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
                         </div>
@@ -179,7 +179,7 @@
                     </div>
                     <div class="portlet rounded bordered light-bordered">
                         <div class="content-side padding-15">
-                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
+                            <span class="dark x-large">By:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
                             <div class="sp10"></div>
                             <a class="question-link ease-color" href="#">Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
                         </div>
@@ -199,7 +199,7 @@
                     </div>
                     <div class="portlet rounded bordered light-bordered">
                         <div class="content-side padding-15">
-                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
+                            <span class="dark x-large">By:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
                             <div class="sp10"></div>
                             <a class="question-link ease-color" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed maximus tellus. Morbi at sodales libero. In mollis mi ut ipsum hendrerit congue. Fusce gravida, mauris nec dignissim dictum, sem nisi euismod elit, sit amet ornare augue metus vel ipsum. Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
                         </div>
@@ -219,7 +219,7 @@
                     </div>
                     <div class="portlet rounded bordered light-bordered">
                         <div class="content-side padding-15">
-                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
+                            <span class="dark x-large">By:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
                             <div class="sp10"></div>
                             <a class="question-link ease-color" href="#">Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
                         </div>
@@ -269,7 +269,7 @@
     </main>
 
     <!-- footer -->
-    <?php include ('footer.php'); ?>
+    <?php include('footer.php'); ?>
 
 </body>
 </html>

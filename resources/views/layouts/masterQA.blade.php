@@ -1,34 +1,19 @@
+<?php header('Content-Type: text/html; charset=utf-8'); ?>
 <!DOCTYPE html>
+<html dir="ltr" lang="tr">
+
+<head>
+    <title>YouTestify - A unique web platform for test engineers</title>
 <!--  Necessary scripts  -->
 @yield('scripts')
-
-        <!-- smooth-scroll -->
-@yield('smooth-script')
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-
-<html class="no-js"> <!--<![endif]-->
-
-
+</head>
 <body>
-
-
-
-
 @yield('header')
-
-<main>
-    <div class="container" id="qcontent">
-        <div class="row">
+<main role="main" class="container">
             @yield('content')
             @yield('sidebar')
-        </div>
-    </div> <!-- end of container -->
+            </div>
+    </div>
 
 </main>
 
