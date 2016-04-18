@@ -1,5 +1,6 @@
 @extends('layouts.masterQAPage')
 @extends('HeadFoot')
+
 @section('content')
 
         <!-- blog-contents -->
@@ -27,134 +28,154 @@
         });
     }
 </script>
-
-<section class="col-md-11">
-    <div class="feedback">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>{{$question->title}}</h1>
-                <div class="well">
-                    <div class="row">
-                        <div class="col-md-1">
-                            <div class="btn-votes">
-                                <input type="button" title="Up" class="up"
-                                       onClick="addVote('{!! $question->id !!}', 'question', '1', '{!! $question->user_id !!}' )"/>
-                                <div id="vote_question_{!! $question->id !!}"
-                                     class="label-votes">{{$question->vote}}</div>
-                                <input type="button" title="Down" class="down"
-                                       onClick="addVote('{!! $question->id !!}', 'question', '-1', '{!! $question->user_id !!}' )"/>
-                            </div>
-                            @if(!Auth::guest())
-                                @if(Auth::user()->isAdmin() || Auth::user()->id == $question->user_id)
-                                    <a href="{{ route('QA.edit', $question->id) }}">edit</a>
-                                    {!! Form::open([ 'method' => 'DELETE','route' => ['QA.destroy', $question->id]]) !!}
-                                    {!! Form::submit('Delete this task?', ['class' => 'btn btn-danger']) !!}
-                                    {!! Form::close() !!}
-                                @endif
-                            @endif
-                        </div>
-                        <div class="col-md-10">
-                            <p class="comment-info">
-                                <strong>
-                                    {{$user= $question->user->name}}
-                                </strong>
-                                <span>{{$question->date}}</span>
-                            </p>
-                            {!! $question->question !!}
-                        </div>
-                    </div>
-                    <?php
-                    $tags = explode(",", $question->tags);
-                    ?>
-                    <h3 style="margin-left: 17%">
-                        @foreach($tags as $tag)
-                            <span class="label label-default">{{$tag}}</span>
-                        @endforeach
-                    </h3>
+<div class="row row-no-padding-hor theme-gray ui-light">
+    <div class="col-12">
+        <div class="fixed">
+            <div class="row row-no-padding-ver">
+                <div class="col-12 xs-responsive">
+                    <h4 class="align-left xs-align-center theme-night ui-text margin-5-v">{{$question->title}}</h4>
                 </div>
             </div>
         </div>
-        <br><br>
+    </div>
+</div>
+
+<div class="fixed padding-20-v">
+    <div class="row">
+        <div class="portlet rounded bordered light-bordered">
+            <div class="col-static no-responsive ">
+                <div class="static-100 padding-10 right-bordered light-bordered theme-gray ui-x-light">
+                    <div class="rate">
+                        <button class="btn xx-large rounded bordered shadow theme-white ui-light ease-bg" type="button"
+                                title="Up"
+                                onClick="addVote('{!! $question->id !!}', 'question', '1', '{!! $question->user_id !!}' )">
+                            <i
+                                    class="dark fa fa-angle-up"></i></button>
+                        <span id="vote_question_{!! $question->id !!}" class="dark xx-large">{{$question->vote}}</span>
+                        <button class="btn xx-large rounded bordered shadow theme-white ui-light ease-bg" type="button"
+                                title="Down"
+                                onClick="addVote('{!! $question->id !!}', 'question', '-1', '{!! $question->user_id !!}' )">
+                            <i
+                                    class="dark fa fa-angle-down"></i></button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 padding-15">
+
+                        <span class="dark x-large">By:</span> <a class="x-large link-default ease-link"
+                                                                 href="#"> {{$user= $question->user->name}}</a>
+                        <div class="sp10"></div>
+                        {!! $question->question !!}
+                        <div class="row row-no-padding-ver">
+                            <div class="col-6 xs-align-center xs-responsive">
+                                <?php
+                                $tags = explode(",", $question->tags);
+                                ?>
+                                @foreach($tags as $tag)
+                                    <span class="btn btn-xs padding-10-h margin-5-b circle ease-bg">{{$tag}}</span>
+                                @endforeach
+                            </div>
+                            <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
+                                <i class="fa fa-calendar-o margin-5-r"></i> {{$question->date}}
+                            </div>
+                        </div>
+                    </div>
+                    @if(!Auth::guest())
+                        @if(Auth::user()->isAdmin() || Auth::user()->id == $question->user_id)
+                            <a href="{{ route('QA.edit', $question->id) }}">edit</a>
+                            {!! Form::open([ 'method' => 'DELETE','route' => ['QA.destroy', $question->id]]) !!}
+                            {!! Form::submit('Delete this task?', ['class' => 'btn btn-danger']) !!}
+                            {!! Form::close() !!}
+                        @endif
+                    @endif
+                </div>
+            </div>
+        </div>
         @foreach($answers as $answer)
             <?php
             $comments = $answer->comments;
             ?>
-            <div class="well">
-                <div class="row">
-                    <div class="col-md-1">
-                        <div class="btn-votes">
-                            <input type="button" title="Up" class="up"
-                                   onClick="addVote('{!! $answer->id !!}', 'q_answer', '1' )"/>
-                            <div id="vote_q_answer_{!! $answer->id !!}" class="label-votes">{{$answer->vote}}</div>
-                            <input type="button" title="Down" class="down"
-                                   onClick="addVote('{!! $answer->id !!}', 'q_answer', '-1' )"/>
+            <div class="portlet rounded bordered light-bordered">
+                <div class="col-static no-responsive ">
+                    <div class="static-100 padding-10 right-bordered light-bordered theme-gray ui-x-light">
+                        <div class="rate">
+                            <button class="btn xx-large rounded bordered shadow theme-white ui-light ease-bg"
+                                    type="button"
+                                    title="Up" onClick="addVote('{!! $answer->id !!}', 'q_answer', '1' )"><i
+                                        class="dark fa fa-angle-up"></i></button>
+                            <span class="dark xx-large" id="vote_q_answer_{!! $answer->id !!}">{{$answer->vote}}</span>
+                            <button class="btn xx-large rounded bordered shadow theme-white ui-light ease-bg"
+                                    type="button"
+                                    title="Down" onClick="addVote('{!! $answer->id !!}', 'q_answer', '-1' )"><i
+                                        class="dark fa fa-angle-down"></i></button>
                         </div>
                     </div>
-                    {{--<div class="col-md-2">--}}
-                    {{--{{$answer->rate}}--}}
-                    {{--</div>--}}
-                    <div class="col-md-10">
-                        <div id="reply" class="cmnt-clipboard"><span class="btn-clipboard">Yorum</span></div>
-                        <p class="comment-info">
-                            <strong>{{$answer->user->name}}</strong> <span>{{$answer->date}}</span>
-                        </p>
-                        {!! $answer->answer !!}
-                    </div>
-                </div>
-                <div class="well">
                     <div class="row">
-                        <div class="col-md-offset-1">
-                            <?php
-                            if ($comments) {
-                                foreach ($comments as $comment) {
-                                    echo "<div class='col-md-10'>";
-                                    echo "<p class=comment-info>";
-                                    echo "'<strong>";
-                                    echo $comment->user->name;
-                                    echo "</strong><span>'.$comment->date.'</span>'";
-                                    echo "</p>";
-                                    echo $comment->comment;
-                                    echo "</div>";
-                                }
-                            }
-                            ?>
+                        <div class="col-12 padding-15">
+
+                            <span class="dark x-large">By:</span> <a class="x-large link-default ease-link"
+                                                                     href="#">{{$answer->user->name}}</a>
+                            <div class="sp10"></div>
+                            {{$answer->answer}}
+                            <div class="row row-no-padding-ver">
+                                <div class="col-6 xs-align-center xs-responsive"></div>
+                                <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
+                                    <i class="fa fa-calendar-o margin-5-r"></i> {{$answer->date}}
+                                </div>
+                            </div>
+
+                            <div class="portlet padding-10 margin-15-t rounded theme-gray ui-x-light">
+                                {!! Form::open(array('action' => 'QAController@newComment' , 'class' => 'form')) !!}
+                                <div class="textarea margin-15-b rounded bordered light-bordered ease-form"
+                                     data-counter="2000">
+                                    {!! Form::hidden('a_id', $answer->id)!!}
+                                    {!! Form::textarea('comment', null, array('id' => 'cmnt', 'required',  'class'=>'form-control',  'placeholder'=>'Yorum Yazın')) !!}
+                                </div>
+
+                                <div class="content-side padding-10-b">
+                                    <div class="row row-no-padding">
+                                        <div class="col-6 padding-5-v md-align-center">
+                                            <strong>Yorumlar</strong>
+                                        </div>
+                                        <div class="col-6 align-right md-align-center">
+                                            {!! Form::submit('Yorum Ekleyin',  array('class'=>'btn btn-sm btn-responsive rounded theme-night ui-dark ease-bg')) !!}
+                                            {!! Form::close() !!}
+                                        </div>
+                                    </div>
+                                </div>
+                                @if(!$comments->isEmpty())
+                                    @foreach($comments as $comment)
+                                        <blockquote>
+                                            <p>{{$comment->comment}}</p>
+                                            <footer><span class="dark">By:</span> <a class="dark link-default ease-link"
+                                                                                     href="#">{{$comment->user->name}}</a>
+                                                <cite
+                                                        title="Source Title">{{$comment->date}}</cite></footer>
+                                        </blockquote>
+                                    @endforeach
+                                @else
+                                    <blockquote>
+                                        <cite>Henüz yorum yapılmamış</cite>
+                                    </blockquote>
+                                @endif
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-offset-1">
-                {!! Form::open(array('action' => 'QAController@newComment' , 'class' => 'form')) !!}
-                <div class="form-group">
-                    {!! Form::hidden('a_id', $answer->id) !!}
-                    {!! Form::text('comment', null, array('id' => 'cmnt', 'required',  'class'=>'form-control',  'placeholder'=>'Yorum Yazın')) !!}
-                </div>
-                <div class="form-group col-md-offset-11">
-                    {!! Form::submit('Submit',  array('class'=>'btn btn-primary')) !!}
-                </div>
-                {!! Form::close() !!}
             </div>
         @endforeach
-    </div>
-    <br><br>
-    <div class="col-md-12">
-        {!! Form::open(array('action' => 'QAController@newAnswer' , 'class' => 'form')) !!}
-        <div class="form-group">
-            {!! Form::hidden('q_id', $question->id) !!}
-            {!! Form::textarea('message', null, array('id' => 'ata', 'required',  'class'=>'form-control',  'placeholder'=>'Cevap Yazin')) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::submit('Submit',  array('class'=>'btn btn-primary')) !!}
-        </div>
-        {!! Form::close() !!}
-    </div>
 
-    <div class="related-articles">
-        <h4>Related Question titles will be placed here</h4>
-        <div class="alert alert-info">
-            <a href="related question link will come here"> This area will be populated for related question links with
-                a maximum row count of 5 </a>
+        <div class="xx-large margin-15-b">Cevabınız</div>
+        <div class="textarea margin-15-b rounded bordered light-bordered dual-bordered ease-form">
+            {!! Form::open(array('action' => 'QAController@newAnswer' , 'class' => 'form')) !!}
+            {!! Form::hidden('q_id', $question->id) !!}
+            {!! Form::textarea('message', null, array('id' => 'ata', 'required',  'class'=>'',  'placeholder'=>'Cevap Yazin')) !!}
+        </div>
+        <div class="md-align-center">
+            {!! Form::submit('Cevabınızı Kaydedin',  array('class'=>'btn btn-responsive rounded theme-youtestify ui-dark ease-bg')) !!}
+            {!! Form::close() !!}
         </div>
     </div>
-</section>
-<!-- end of blog-contents -->
+</div>
 @endsection

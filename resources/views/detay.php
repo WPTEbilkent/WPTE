@@ -33,7 +33,6 @@
         <div class="fixed padding-20-v">
             <div class="row">
                 <div class="col-12">
-
                     <div class="portlet rounded bordered light-bordered">
                         <div class="col-static no-responsive ">
                             <div class="static-100 padding-10 right-bordered light-bordered theme-gray ui-x-light">
