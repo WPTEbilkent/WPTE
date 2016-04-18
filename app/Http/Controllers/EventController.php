@@ -6,9 +6,42 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Events as Events;
 
 class EventController extends Controller
 {
+
+    public function searchTag($tag)
+    {
+        if ($tag == "null") {
+            $view = EventController::index();
+        } else {
+            $events = Events::where('location', 'LIKE', "%$tag%")->orderBy('id', 'desc')->paginate(10);
+            $header = Events::where('header', 'LIKE', "%$tag%")->orderBy('id', 'desc')->paginate(10);
+            $source = Events::where('source', 'LIKE', "%$tag%")->orderBy('id', 'desc')->paginate(10);
+
+
+            if ($events->isEmpty() && $header->isEmpty() && $source->isEmpty()) {
+                $view = EventController::index();
+            } else {
+                $events->setPath('events');
+                if (isset($header)) {
+                    $header->setPath('events');
+                }
+                if (isset($source)) {
+                    $source->setPath('events');
+                }
+
+
+                $view = view('EventGetter.index')->with('events', $events)->with('header', $header)->with('source', $source);
+            }
+
+        }
+
+        // renders section in view and for ajax setting the related section(content).
+        $sections = $view->renderSections();
+        return $sections['content'];
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,72 +49,10 @@ class EventController extends Controller
      */
     public function index()
     {
-        return view("EventGetter.index");
+        $events = Events::orderBy('id', 'desc')->paginate(10);
+        $events->setPath('events');
+        return view("EventGetter.index")->with('events',$events);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

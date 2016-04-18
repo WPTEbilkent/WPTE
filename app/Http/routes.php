@@ -64,6 +64,7 @@ Route::resource("/articles","ArticleController");
 
 //Event routing
 Route::get("/events" , "EventController@index");
+Route::get('/events/search/{tag}',"EventController@searchTag");
 
 //Twitch routing
 Route::resource("/twitch","TwitchController");

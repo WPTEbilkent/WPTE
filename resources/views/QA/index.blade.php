@@ -1,8 +1,6 @@
 @extends('layouts.masterQA')
 @extends('HeadFoot')
 @section('content')
-
-
     <div id="QAContent">
                 <div class="col-8">
                     @foreach($questions as $item)
