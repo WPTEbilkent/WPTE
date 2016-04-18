@@ -55,7 +55,7 @@ $url_css_js = "http://localhost/laravel/resources/assets/";
     <section class="navigation">
         <header>
             <div class="header-content">
-                <div class="logo"><a href="#"><img height="19" src="{{$url_css_js}}img/youtestify_small.png" alt="YouTestify Logo"></a>
+                <div class="logo"><a href="#top"><img height="19" src="{{$url_css_js}}img/youtestify_small.png" alt="YouTestify Logo"></a>
                 </div>
                 <div class="header-nav">
                     <nav>

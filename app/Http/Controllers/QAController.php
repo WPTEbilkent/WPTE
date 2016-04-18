@@ -93,7 +93,7 @@ class QAController extends Controller
 //                    $user_search->setPath('QA');
 //                }
 
-                $view = view('QA.index')->with('questions', $questions)->with('content_search', $content_search)->with('title_search', $title_search)->with('user_search', $user_search);
+               $view = view('QA.index')->with('questions', $questions)->with('content_search', $content_search)->with('title_search', $title_search)->with('user_search', $user_search);
             }
 
 //            //Gathers Questions where the tags are alike with the tags given.

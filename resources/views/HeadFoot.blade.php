@@ -9,15 +9,12 @@ $url_vendor_ckeditor="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/
             <div class="row">
                 <div class="col-8 small md-align-center">
                     <div class="footer-links">
-                        <a class="link-default ease-link" href="index.php">WPTE</a>
-                        <a class="link-default ease-link" href="#">SORU &amp; CEVAP</a>
-                        <a class="link-default ease-link" href="#">EĞİTİM</a>
+                        <a class="link-default ease-link" href="{{url("/")}}">WPTE</a>
+                        <a class="link-default ease-link" href="{{url("/QA")}}">SORU &amp; CEVAP</a>
+                        <a class="link-default ease-link" href="{{url("/tutorial")}}">EĞİTİM</a>
                         <a class="link-default ease-link" href="#">ETKİNLİKLER</a>
-                        <a class="link-default ease-link" href="#">MAKALELER</a>
-                        <a class="link-default ease-link" href="#">GİRİŞ</a>
-                        <a class="link-default ease-link" href="#">ABOUT</a>
-                        <a class="link-default ease-link" href="#">PRIVACY</a>
-                        <a class="link-default ease-link" href="#">CONTACT</a>
+                        <a class="link-default ease-link" href="{{url("/about")}}">HAKKIMIZDA</a>
+                        <a class="link-default ease-link" href="{{url("/privacy")}}">GİZLİLİK</a>
                     </div>
                     <div class="dark">
                         copyright &copy; 2016. <a class="link-default ease-link" href="www.youtestify.com">youtestify.com</a>
@@ -45,22 +42,21 @@ $url_vendor_ckeditor="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/
             <div class="row">
                 <div class="col-static">
                     <div class="static-184 md-align-center">
-                        <a class="youtestify-logo" href="index.php"><img class="retina" src="{{$url_css_js}}/img/logo.png" alt="Youtestify"></a>
+                        <a class="youtestify-logo" href="{{url("/")}}"><img class="retina" src="{{$url_css_js}}/img/logo.png" alt="Youtestify"></a>
                     </div>
                     <div class="row row-no-padding">
                         <div class="col-12">
                             <nav class="header-nav">
                                 <button class="ease-bg"><i class="fa fa-2x fa-bars ease-color"></i></button>
                                 <ul class="list-custom theme-night ui-dark ease-opacity">
-                                    <li class="selected"><a class="ease-link" href="index.php"><span class="ease-color">WPTE</span></a></li> <!-- seçili olan sayfaya li.selected ekleyiniz -->
-                                    <li><a class="ease-link" href="#"><span class="ease-color">SORU &amp; CEVAP<span></a></li>
-                                    <li><a class="ease-link" href="#"><span class="ease-color">EĞİTİM<span></a></li>
-                                    <li><a class="ease-link" href="#"><span class="ease-color">ETKİNLİKLER<span></a></li>
-                                    <li><a class="ease-link" href="#"><span class="ease-color">MAKALELER<span></a></li>
+                                    <li><a class="ease-link" href="{{url("/")}}"><span class="ease-color">WPTE</span></a></li> <!-- seçili olan sayfaya li.selected ekleyiniz -->
+                                    <li><a class="ease-link" href="{{url("/QA")}}"><span class="ease-color">SORU &amp; CEVAP</span></a></li>
+                                    <li><a class="ease-link" href="{{url("/tutorial")}}"><span class="ease-color">EĞİTİM</span></a></li>
+                                    <li><a class="ease-link" href="#"><span class="ease-color">ETKİNLİKLER</span></a></li>
                                     @if(Auth::guest())
-                                        <li><a class="ease-link" href="{{url("/auth/login")}}"><span class="ease-color">GİRİŞ<span></a></li>
+                                        <li><a class="ease-link" href="{{url("/auth/login")}}"><span class="ease-color">GİRİŞ</span></a></li>
                                     @else
-                                        <li><a class="ease-link" href="{{url("/profile")}}/{{Auth::user()->id}}"><span class="ease-color">{{Auth::user()->name}}<span></a></li>
+                                        <li><a class="ease-link" href="{{url("/profile")}}/{{Auth::user()->id}}"><span class="ease-color">{{Auth::user()->name}}</span></a></li>
                                         <li><a class="ease-link" href="{{url("/auth/logout")}}"><span class="ease-color">ÇIKIŞ</span></a></li>
                                     @endif
                                 </ul>
@@ -92,6 +88,7 @@ $url_vendor_ckeditor="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/
     <script src="{{$url_css_js}}/js/jquery.min.js"></script>
     <script src="{{$url_css_js}}/js/frogframework.js"></script>
     <script src="{{$url_css_js}}/js/frontend.js"></script>
+
 @stop
 @section('smooth-scripts')
     <script>
@@ -104,7 +101,7 @@ $url_vendor_ckeditor="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/
         <!-- sidebar -->
     <div class="col-4">
         <div class="text text-icon rounded bordered light-bordered ease-form">
-            <input id="searchText" type="text" placeholder="Etiket Ara">
+            <input id="searchText" type="text" placeholder="Ara">
             <button id="searchButton" class="icon fa fa-search ease-opacity" type="button"></button>
         </div>
         <div class="portlet padding-15 margin-20-t rounded bordered light-bordered theme-gray ui-x-light">
