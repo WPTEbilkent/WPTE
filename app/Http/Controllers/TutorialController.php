@@ -47,23 +47,39 @@ class TutorialController extends Controller
         if ($tag == "null") {
             $view = TutorialController::index();
         } else {
-            // search by user name
             $tutorials = Tutorials::where('tags', 'LIKE', "%$tag%")->orderBy('id', 'desc')->paginate(10);
             $content_search = Tutorials::where('content', 'LIKE', "%$tag%")->orderBy('id', 'desc')->paginate(10);
             $title_search = Tutorials::where('title', 'LIKE', "%$tag%")->orderBy('id', 'desc')->paginate(10);
 
-            $users = User::where('name', 'LIKE', "%$tag%")->get();
-            foreach ($users as $u){
-                $user_search = Tutorials::where('user_id', '=', $u->id)->orderBy('id', 'desc')->paginate(10);
+            // Search in user name
+            $users = User::select('id')->where('name', 'LIKE', "%$tag%")->get();
+            foreach ($users as $u) {
+                $user_ids[] = $u->id;
+            }
+            if(!$users->isEmpty()) {
+                $user_search = Tutorials::whereIn('user_id', $user_ids)->orderBy('id', 'desc')->paginate(10);
+                $user_search->setPath('tutorial');
             }
 
-            $tutorials->setPath('tutorial');
-            if (isset($content_search)) { $content_search->setPath('tutorial'); }
-            if (isset($title_search)) { $title_search->setPath('tutorial'); }
-            if (isset($user_search)) { $user_search->setPath('tutorial'); }
-            $view = view('tutorial.index')->with('tutorials', $tutorials)->with('content_search', $content_search)->with('title_search', $title_search)->with('user_search', $user_search);
+            if ($tutorials->isEmpty() && $content_search->isEmpty() && $title_search->isEmpty()) {
+                $view = TutorialController::index();
+            } else {
+                $tutorials->setPath('tutorial');
+                if (isset($content_search)) {
+                    $content_search->setPath('tutorial');
+                }
+                if (isset($title_search)) {
+                    $title_search->setPath('tutorial');
+                }
+//                if (isset($user_search)) {
+//                    $user_search->setPath('tutorial');
+//                }
+
+                $view = view('tutorial.index')->with('tutorials', $tutorials)->with('content_search', $content_search)->with('title_search', $title_search)->with('user_search', $user_search);
+            }
         }
 
+        // renders section in view and for ajax setting the related section(content).
         $sections = $view->renderSections();
         return $sections['content'];
     }

@@ -6,6 +6,7 @@ use App\Questions as Questions;
 use App\Answers as Answers;
 use App\Comments as Comments;
 use App\Vote;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -58,13 +59,47 @@ class QAController extends Controller
         if ($tag == "null") {
             $view = QAController::index();
         } else {
-            //Gathers Questions where the tags are alike with the tags given.
             $questions = Questions::where('tags', 'LIKE', "%$tag%")->orderBy('id', 'desc')->paginate(10);
-            $questions->setPath('QA');
-            //creating view accordingly attaching questions that we have gathered with.
-            $view = view('QA.index')->with('questions', $questions);
+            $content_search = Questions::where('question', 'LIKE', "%$tag%")->orderBy('id', 'desc')->paginate(10);
+            $title_search = Questions::where('title', 'LIKE', "%$tag%")->orderBy('id', 'desc')->paginate(10);
+
+            // Search in user name
+            $users = User::select('id')->where('name', 'LIKE', "%$tag%")->get();
+            foreach ($users as $u) {
+                $user_ids[] = $u->id;
+            }
+            if(!$users->isEmpty()) {
+                $user_search = Questions::whereIn('user_id', $user_ids)->orderBy('id', 'desc')->paginate(10);
+                $user_search->setPath('QA');
+            }
+            dd($user_search);
+            exit;
+
+            if ($questions->isEmpty() && $content_search->isEmpty() && $title_search->isEmpty()) {
+                $view = QAController::index();
+            } else {
+                $questions->setPath('QA');
+                if (isset($content_search)) {
+                    $content_search->setPath('QA');
+                }
+                if (isset($title_search)) {
+                    $title_search->setPath('QA');
+                }
+//                if (isset($user_search)) {
+//                    $user_search->setPath('QA');
+//                }
+
+                $view = view('QA.index')->with('questions', $questions)->with('content_search', $content_search)->with('title_search', $title_search)->with('user_search', $user_search);
+            }
+
+//            //Gathers Questions where the tags are alike with the tags given.
+//            $questions = Questions::where('tags', 'LIKE', "%$tag%")->orderBy('id', 'desc')->paginate(10);
+//            $questions->setPath('QA');
+//            //creating view accordingly attaching questions that we have gathered with.
+//            $view = view('QA.index')->with('questions', $questions);
         }
-        //renders section in view and for ajax setting the related section(content).
+
+        // renders section in view and for ajax setting the related section(content).
         $sections = $view->renderSections();
         return $sections['content'];
     }
@@ -138,7 +173,6 @@ class QAController extends Controller
             foreach ($votes as $vote_t) {
                 $vote += $vote_t['vote'];
             }
-
             $question['vote'] = $vote;
         } else {
             $question['vote'] = 0;
