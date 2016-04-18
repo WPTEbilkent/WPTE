@@ -27,18 +27,30 @@ class TutorialController extends Controller
         if (Auth::guest()) {
             return Redirect::to('/auth/login');
         } else {
-            $subs = Subscription::where("subscriber_id", $id)->where("subscribed_id", Auth::user()->id)->get();
+            $subs = Subscription::where("subscriber_id", Auth::user()->id)->where("subscribed_id", $id)->get();
 
-            if (!$subs) {
+            if (!$subs->isEmpty() || ($id == Auth::user()->id)) {
                 return back();
             } else {
                 $subscription = new Subscription;
-                $subscription->subscriber_id = $id;
-                $subscription->subscribed_id = Auth::user()->id;
+                $subscription->subscriber_id = Auth::user()->id;
+                $subscription->subscribed_id = $id;
                 $subscription->save();
                 return back();
             }
         }
+
+    }
+    public function unsubscribe($id)
+    {
+        if (Auth::guest()) {
+            return Redirect::to('/auth/login');
+        } else {
+            $subs = Subscription::where("subscriber_id", Auth::user()->id)->where("subscribed_id", $id)->get();
+            $subs[0]->delete();
+        }
+        return back();
+
 
     }
 

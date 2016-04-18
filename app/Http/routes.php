@@ -41,6 +41,7 @@ Route::get('vote', 'VoteController@changeVote');
 //TurorialPages routing
 Route::get('/tutorial/search/{tag}',"TutorialController@searchTag");
 Route::get('/tutorial/subscribe/{id}',"TutorialController@subscribe");
+Route::get('/tutorial/unsubscribe/{id}',"TutorialController@unsubscribe");
 Route::resource('/tutorial','TutorialController');
 
 //PageLoaderController

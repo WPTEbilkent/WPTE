@@ -7,9 +7,20 @@
     <article class="single-blog-item">
 
         <p>{{$tutorial[0]->user->name}},{{$tutorial[0]->date}}</p>
-
-        <a class="btn btn-large btn-success"
-           href="/tutorial/subscribe/{{$tutorial[0]->user->id}}">{{$tutorial[0]->user->name}} Abone Ol</a>
+        @if(Auth::guest())
+            <a class="btn btn-large btn-success"
+               href="/tutorial/subscribe/{{$tutorial[0]->user->id}}">{{$tutorial[0]->user->name}} -> Abone Ol</a>
+        @else
+            @if((\App\Subscription::where("subscriber_id", Auth::user()->id)->where("subscribed_id", $tutorial[0]->user->id)->get()->isEmpty()))
+                <a class="btn btn-large btn-success"
+                   href="/tutorial/subscribe/{{$tutorial[0]->user->id}}">{{$tutorial[0]->user->name}} -> Abone Ol</a>
+            @elseif($tutorial[0]->user->id == Auth::user()->id)
+            @else
+                <a class="btn btn-large btn-danger"
+                   href="/tutorial/unsubscribe/{{$tutorial[0]->user->id}}">{{$tutorial[0]->user->name}} -> Abone
+                    Olmaktan Çık</a>
+            @endif
+        @endif
         <div class="alert alert-info">
             <p>{{$tutorial[0]->tags}}</p>
             @if(!Auth::guest())
