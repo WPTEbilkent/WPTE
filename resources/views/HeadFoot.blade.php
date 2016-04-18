@@ -1,6 +1,8 @@
 <?php
-$url_css_js="http://localhost/laravel/resources/assets/newDesign";
-$url_vendor_ckeditor="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/";
+//$url_css_js="http://localhost/laravel/resources/assets/newDesign";
+//$url_vendor_ckeditor="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/";
+$url_css_js="http://localhost/bitirme/WPTE_v1/resources/assets/newDesign";
+$url_vendor_ckeditor="http://localhost/bitirme/WPTE_v1/vendor/unisharp/laravel-ckeditor/";
 ?>
 
 @section('footer')

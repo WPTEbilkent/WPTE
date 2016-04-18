@@ -1,5 +1,6 @@
 <?php
-$url_css_js = "http://localhost/laravel/resources/assets/";
+//$url_css_js = "http://localhost/laravel/resources/assets/";
+$url_css_js = "http://localhost/bitirme/WPTE_v1/resources/assets/";
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
