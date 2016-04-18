@@ -51,7 +51,7 @@
                     </div>
                     <div class="col-4 xs-responsive align-right">
                         <a class="btn btn-responsive rounded theme-youtestify ui-dark ease-bg"
-                           href="{{ URL::to('/Tutorial/create') }}">Yeni Bir Yazı Yazın</a>
+                           href="{{ URL::to('/tutorial/create') }}">Yeni Bir Yazı Yazın</a>
                     </div>
                 </div>
             </div>
