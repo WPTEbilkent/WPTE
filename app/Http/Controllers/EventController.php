@@ -10,7 +10,6 @@ use App\Events as Events;
 
 class EventController extends Controller
 {
-
     public function searchTag($tag)
     {
         if ($tag == "null") {
@@ -31,17 +30,15 @@ class EventController extends Controller
                 if (isset($source)) {
                     $source->setPath('events');
                 }
-
-
                 $view = view('EventGetter.index')->with('events', $events)->with('header', $header)->with('source', $source);
             }
-
         }
 
         // renders section in view and for ajax setting the related section(content).
         $sections = $view->renderSections();
         return $sections['content'];
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -51,8 +48,12 @@ class EventController extends Controller
     {
         $events = Events::orderBy('id', 'desc')->paginate(10);
         $events->setPath('events');
-        return view("EventGetter.index")->with('events',$events);
+        return view("EventGetter.index")->with('events', $events);
     }
 
-
+    public function getNewEvents()
+    {
+        $newEvents = Events::where('status', '=', '0')->orderBy('insert_date');
+        print_r($newEvents);
+    }
 }

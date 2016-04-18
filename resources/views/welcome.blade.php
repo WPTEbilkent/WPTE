@@ -317,8 +317,8 @@ $url_css_js = "http://localhost/bitirme/WPTE_v1/resources/assets/";
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <h3>Get started with Sedna, absolutely free</h3>
-                <p>Grab your copy today, exclusively from Codrops</p>
+                <h3>YouTestify'a Giriş Ekranı</h3>
+                <p>Test mühendisliği dünyasına buradan giriş yapabilirsiniz</p>
                 <form class="signup-form" action="auth/login" method="POST" role="form">
                         {{ csrf_field() }}
                     <div class="form-input-group">
