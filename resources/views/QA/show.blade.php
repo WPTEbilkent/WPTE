@@ -101,12 +101,12 @@
                         <div class="rate">
                             <button class="btn xx-large rounded bordered shadow theme-white ui-light ease-bg"
                                     type="button"
-                                    title="Up" onClick="addVote('{!! $answer->id !!}', 'q_answer', '1' )"><i
+                                    title="Up" onClick="addVote('{!! $answer->id !!}', 'q_answer', '1',  '{!! $answer->user_id !!}'  )"><i
                                         class="dark fa fa-angle-up"></i></button>
                             <span class="dark xx-large" id="vote_q_answer_{!! $answer->id !!}">{{$answer->vote}}</span>
                             <button class="btn xx-large rounded bordered shadow theme-white ui-light ease-bg"
                                     type="button"
-                                    title="Down" onClick="addVote('{!! $answer->id !!}', 'q_answer', '-1' )"><i
+                                    title="Down" onClick="addVote('{!! $answer->id !!}', 'q_answer', '-1',  '{!! $answer->user_id !!}'  )"><i
                                         class="dark fa fa-angle-down"></i></button>
                         </div>
                     </div>
