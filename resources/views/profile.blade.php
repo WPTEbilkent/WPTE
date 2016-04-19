@@ -13,7 +13,14 @@
         @foreach($tutorials as $tutorial)
             {{$tutorial->title}}<br>
         @endforeach
+
         <br>
+        <?php
+            if($newEventsCount > 0){
+                echo'<a class="btn btn-responsive rounded theme-youtestify ui-dark ease-bg" href="http://localhost:8000/events/show">'.$newEventsCount.'Yeni Etkinlik</a>';
+            }
+        ?>
+
     @endforeach
 
 

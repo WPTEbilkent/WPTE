@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="439f0512-6dec-4005-8aa6-489bcb7907d9" name="key_hollanda" url="http://185.25.84.147">
+        <fileTransfer host="185.25.84.147" port="22" rootFolder="/home/key1/www/omer" accessType="SFTP" password="dfcbdfcedfe7dff8dfc8dff8dfcbdfc4dfcddfec" username="key1">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="57aafada-e6cb-447a-b2bc-715472a2e4c4" name="youtestify" url="http://185.122.201.160">
+        <fileTransfer host="185.122.201.160" port="22" rootFolder="/var/www/WPTE" accessType="SFTP" password="dfd3df9bdf93df9cdf93dfe7dfcfdfd8df8b" username="root">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

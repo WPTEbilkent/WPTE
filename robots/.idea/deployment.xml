@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="youtestify">
+    <serverData>
+      <paths name="key_hollanda">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/proce" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="youtestify">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/robots" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
