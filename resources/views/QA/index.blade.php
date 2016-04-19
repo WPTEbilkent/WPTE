@@ -22,8 +22,7 @@
                             <div class="col-6 xs-align-center xs-responsive">
                                 @foreach($tags as $tag)
                                     @if($tag)
-                                        <a class="btn btn-xs padding-10-h circle ease-bg searchTag"
-                                           href="#">{{$tag}}</a>
+                                        <span class="btn btn-xs padding-10-h circle ease-bg searchTag">{{$tag}}</span>
                                     @endif
                                 @endforeach
                             </div>
@@ -54,8 +53,10 @@
                         <div class="row row-no-padding">
                             <div class="col-6 xs-align-center xs-responsive">
                                 @foreach($tags as $tag)
-                                    <a class="btn btn-xs padding-10-h circle ease-bg searchTag"
-                                       href="#">{{$tag}}</a>
+                                    @if($tag)
+                                        <a class="btn btn-xs padding-10-h circle ease-bg searchTag"
+                                           href="#">{{$tag}}</a>
+                                    @endif
                                 @endforeach
                             </div>
                             <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
@@ -86,8 +87,10 @@
                         <div class="row row-no-padding">
                             <div class="col-6 xs-align-center xs-responsive">
                                 @foreach($tags as $tag)
-                                    <a class="btn btn-xs padding-10-h circle ease-bg searchTag"
-                                       href="#">{{$tag}}</a>
+                                    @if($tag)
+                                        <a class="btn btn-xs padding-10-h circle ease-bg searchTag"
+                                           href="#">{{$tag}}</a>
+                                    @endif
                                 @endforeach
                             </div>
                             <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
@@ -118,8 +121,9 @@
                         <div class="row row-no-padding">
                             <div class="col-6 xs-align-center xs-responsive">
                                 @foreach($tags as $tag)
-                                    <a class="btn btn-xs padding-10-h circle ease-bg searchTag"
-                                       href="#">{{$tag}}</a>
+                                    @if($tag)
+                                        <span class="btn btn-xs padding-10-h circle ease-bg searchTag">{{$tag}}</span>
+                                    @endif
                                 @endforeach
                             </div>
                             <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">

@@ -71,7 +71,9 @@
                                 $tags = explode(",", $question->tags);
                                 ?>
                                 @foreach($tags as $tag)
-                                    <span class="btn btn-xs padding-10-h margin-5-b circle ease-bg">{{$tag}}</span>
+                                        @if($tag)
+                                            <spam class="btn btn-xs padding-10-h margin-5-b circle ease-bg">{{$tag}}</spam>
+                                        @endif
                                 @endforeach
                             </div>
                             <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">

@@ -22,7 +22,7 @@
                     <div class="col-static no-responsive ">
                         <div class="row">
                             <div class="col-12 padding-15">
-                                <span class="dark x-large">By:</span> <a class="x-large link-default ease-link" href="#">{{$tutorial[0]->user->name}}</a>
+                                <span class="dark x-large">Yazar:</span> <a class="x-large link-default ease-link" href="#">{{$tutorial[0]->user->name}}</a>
                                 @if(Auth::guest())
                                 @else
                                     @if((\App\Subscription::where("subscriber_id", Auth::user()->id)->where("subscribed_id", $tutorial[0]->user->id)->get()->isEmpty()))
@@ -39,7 +39,15 @@
 
                                 <div class="row row-no-padding-ver">
                                     <div class="col-6 xs-align-center xs-responsive">
-                                        <spam class="btn btn-xs padding-10-h margin-5-b circle ease-bg">{{$tutorial[0]->tags}}</spam>
+                                        <?php
+                                        $tags = explode(',', $item->tags);
+                                        ?>
+                                        @foreach($tags as $tag)
+                                                @if($tag)
+                                                    <spam class="btn btn-xs padding-10-h margin-5-b circle ease-bg">{{$tag}}</spam>
+                                                @endif
+                                        @endforeach
+
                                     </div>
                                     <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
                                         <i class="fa fa-calendar-o margin-5-r"></i> {{$tutorial[0]->date}}
