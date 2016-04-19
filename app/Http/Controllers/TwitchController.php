@@ -19,17 +19,11 @@ class TwitchController extends Controller
      */
     public function index()
     {
-        /*if (Auth::guest()) {
-            return Redirect::to('/auth/login');
-        } else {
-            $twitch = DB::table('twitch')->orderBy('id', 'desc')->paginate(10);
-            $twitch->setPath('twitch');
-            return view('Twitch.index', ['twitches' => $twitch]);
-        }*/
+
         if(Auth::user()->isAdmin()){
             $twitch = DB::table('twitch')->orderBy('id', 'desc')->paginate(10);
             $twitch->setPath('twitch');
-            return view('Twitch.index', ['twitches' => $twitch]);
+            return view('Twitch.index')->with('twitches',$twitch);
         }
         else{
             return Redirect::to('/');
@@ -67,7 +61,7 @@ class TwitchController extends Controller
             DB::table('twitch')->insert([
                 'url' => $url_arr[1],
             ]);
-            return view("Twitch.index");
+            return back();
         }
     }
 

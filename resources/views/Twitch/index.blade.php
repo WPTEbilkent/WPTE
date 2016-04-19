@@ -22,7 +22,7 @@
     {!! Form::close() !!}
 
     <section class="col-md-8" id="">
-        @foreach($twitches->all() as $twitch)
+        @foreach($twitches as $twitch)
         <div class="single-blog-item">
             <span>
                <?php
@@ -34,19 +34,6 @@
             </span>
         </div>
         @endforeach
-
-
-        <iframe
-                src="http://player.twitch.tv/?channel=esl_csgo"
-                height="720"
-                width="1280"
-                frameborder="0"
-                scrolling="no"
-                allowfullscreen="true">
-        </iframe>
-
-        <!-- blog-contents -->
-
 
     </section>
     <!-- end of blog -->

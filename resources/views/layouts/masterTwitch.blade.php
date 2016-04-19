@@ -21,8 +21,8 @@
     <div class="container" id="">
         <div class="row">
             @yield('content')
-            @yield('sidebar')
-            <h1>dil</h1>
+
+
         </div>
     </div> <!-- end of container -->
 
