@@ -2,80 +2,82 @@
 @extends('HeadFoot')
 @section('content')
 
-    <script type="text/javascript">
-        $(function () {
-            $('#questionText').ckeditor();
 
-            function split(val) {
-                return val.split(/,\s*/);
+<script type="text/javascript">
+    $(function () {
+        $('#questionText').ckeditor();
+
+        function split(val) {
+            return val.split(/,\s*/);
+        }
+
+        $("#tags")
+                .bind("keydown", function (event) {
+                    if (event.keyCode === $.ui.keyCode.TAB &&
+                            $(this).autocomplete("instance").menu.active) {
+                        event.preventDefault();
+                    }
+                })
+                .autocomplete({
+                    focus: function () {
+                        // prevent value inserted on focus
+                        return false;
+                    },
+                    source: function (request, response) {
+                        var terms = $.trim(request.term).split(',');
+                        if (terms.length == 0)
+                            return;
+                        var searchTerm = $.trim(terms[terms.length - 1]);
+                        if (searchTerm.length == 0)
+                            return;
+                        $.getJSON("/tags?term=" + searchTerm, function (data) {
+                            response($.map(data, function (value, key) {
+                                return {
+                                    label: value.name,
+                                    value: value.name
+                                };
+                            }));
+                        });
+                    },
+                    autoFocus: false,
+                    minLength: 1,
+                    select: function (event, ui) {
+                        debugger;
+                        var terms = split(this.value);
+                        // remove the current input
+                        terms.pop();
+                        // add the selected item
+                        terms.push(ui.item.value);
+                        // add placeholder to get the comma-and-space at the end
+                        terms.push("");
+                        this.value = terms.join(", ");
+                        return false;
+                    }
+                });
+    });
+
+    $(document).ready(function () {
+
+        $("#myBtn").click(function () {
+            alert("asdfas");
+            var old_text = $('#questionText').val();
+            var old_title = $('#title').val();
+            var old_tags = $('#tags').val();
+            if (old_text) {
+                $('#old_val_text').val(old_text);
             }
-
-            $("#tags")
-                    .bind("keydown", function (event) {
-                        if (event.keyCode === $.ui.keyCode.TAB &&
-                                $(this).autocomplete("instance").menu.active) {
-                            event.preventDefault();
-                        }
-                    })
-                    .autocomplete({
-                        focus: function () {
-                            // prevent value inserted on focus
-                            return false;
-                        },
-                        source: function (request, response) {
-                            var terms = $.trim(request.term).split(',');
-                            if (terms.length == 0)
-                                return;
-                            var searchTerm = $.trim(terms[terms.length - 1]);
-                            if (searchTerm.length == 0)
-                                return;
-                            $.getJSON("/tags?term=" + searchTerm, function (data) {
-                                response($.map(data, function (value, key) {
-                                    return {
-                                        label: value.name,
-                                        value: value.name
-                                    };
-                                }));
-                            });
-                        },
-                        autoFocus: false,
-                        minLength: 3,
-                        select: function (event, ui) {
-                            debugger;
-                            var terms = split(this.value);
-                            // remove the current input
-                            terms.pop();
-                            // add the selected item
-                            terms.push(ui.item.value);
-                            // add placeholder to get the comma-and-space at the end
-                            terms.push("");
-                            this.value = terms.join(", ");
-                            return false;
-                        }
-                    });
+            if (old_title) {
+                $('#old_val_title').val(old_title);
+            }
+            if (old_tags) {
+                $('#old_val_tags').val(old_tags);
+            }
+            $('#myModal').modal('show');
         });
+    });
 
-        $(document).ready(function () {
+</script>
 
-            $("#myBtn").click(function () {
-                var old_text = $('#questionText').val();
-                var old_title = $('#title').val();
-                var old_tags = $('#tags').val();
-                if (old_text) {
-                    $('#old_val_text').val(old_text);
-                }
-                if (old_title) {
-                    $('#old_val_title').val(old_title);
-                }
-                if(old_tags){
-                    $('#old_val_tags').val(old_tags);
-                }
-                $('#myModal').modal('show');
-
-            });
-        });
-
-    </script>
     <ul>
         @foreach($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -114,7 +116,9 @@
 
             </div>
 
-            <button id="myBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Fotoğraf Yükle </button>
+            <button id="myBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Fotoğraf
+                Yükle
+            </button>
             @if(Session::has('success'))
                 <div class="alert-box success">
                     <h5>{!! Session::get('success') !!}</h5>
@@ -130,7 +134,6 @@
         <div class="col-md-4" style="border: 1px solid red">
             This area is reserved to live title search results
         </div>
-
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -154,9 +157,9 @@
                             </div>
                         </div>
                         <div id="success"></div>
-                        <input type="hidden" id="old_val_text" name="old_val_text" value="" />
-                        <input type="hidden" id="old_val_tags" name="old_val_tags" value="" />
-                        <input type="hidden" id="old_val_title" name="old_val_title" value="" />
+                        <input type="hidden" id="old_val_text" name="old_val_text" value=""/>
+                        <input type="hidden" id="old_val_tags" name="old_val_tags" value=""/>
+                        <input type="hidden" id="old_val_title" name="old_val_title" value=""/>
                         {!! Form::submit('Yükle', array('class'=>'send-btn btn btn-primary')) !!}
                         {!! Form::close() !!}
                     </div>

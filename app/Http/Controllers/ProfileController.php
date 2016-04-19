@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Auth;
+use App\Events;
 use App\User as User;
 use App\Subscription as Subs;
 use App\Tutorial as Tutorial;
@@ -20,8 +21,6 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-
     public function getUser($id)
     {
         if (Auth::guest()) {
@@ -31,10 +30,13 @@ class ProfileController extends Controller
             $user = User::findorfail($id);
             $subs = Subs::where('subscriber_id', $id)->get();
 
-            return view('profile')->with('user', $user)->with('subs',$subs);
+            if(Auth::user()->isAdmin()){
+                $newEventsCount = Events::where('status', '=', '0')->orderBy('insert_date')->count();
+            }
+
+            return view('profile')->with('user', $user)->with('subs',$subs)->with('newEventsCount',$newEventsCount);
         }
     }
-
 
     /**
      * Show the form for creating a new resource.

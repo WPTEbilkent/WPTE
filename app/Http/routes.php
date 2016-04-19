@@ -63,8 +63,11 @@ Route::get('/tags', "TagController@autocomplete");
 Route::resource("/articles","ArticleController");
 
 //Event routing
-Route::get("/events" , "EventController@index");
+
+Route::get("/events/show" , "EventController@showEvents");
+Route::get("/events/edit/{id}" , "EventController@editEvents");
 Route::get('/events/search/{tag}',"EventController@searchTag");
+Route::resource("/events","EventController");
 
 //Twitch routing
 Route::resource("/twitch","TwitchController");

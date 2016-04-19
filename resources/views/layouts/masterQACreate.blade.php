@@ -6,7 +6,6 @@
     <title>YouTestify - A unique web platform for test engineers</title>
     <!--  Necessary scripts  -->
     @yield('scripts')
-
     <script type="text/javascript">
         $(document).ready(function () {
             var input = "";
@@ -18,26 +17,23 @@
                 if (!input.length > 0) {
                     input = "null";
                 }
-                url = "{!! url('/tutorial/search') !!}" + "/" + input;
+                url = "{!! url('/QA/search') !!}" + "/" + input;
                 ajax(url);
             });
             $('.searchTag').click(function () {
                 input = "";
                 url = "";
                 input = $(this).html();
-                url = "{!! url('/tutorial/search') !!}" + "/" + input;
+                url = "{!! url('/QA/search') !!}" + "/" + input;
                 ajax(url);
             });
         });
         function ajax(url) {
-            $.get(url, function (tutorials) {
-                $("#TutorialContent").html(tutorials);
+            $.get(url, function (question) {
+                $("#QAContent").html(question);
             });
         }
-
     </script>
-
-
 </head>
 <body>
 @yield('header')
@@ -47,11 +43,11 @@
             <div class="fixed">
                 <div class="row row-no-padding-ver">
                     <div class="col-8 xs-responsive">
-                        <h4 class="align-left xs-align-center theme-night ui-text margin-5-v">Eğitim</h4>
+                        <h4 class="align-left xs-align-center theme-night ui-text margin-5-v">Soru &amp; Cevap</h4>
                     </div>
                     <div class="col-4 xs-responsive align-right">
                         <a class="btn btn-responsive rounded theme-youtestify ui-dark ease-bg"
-                           href="{{ URL::to('/tutorial/create') }}">Yeni Bir Yazı Yazın</a>
+                           href="{{ URL::to('/QA/create') }}">Yeni Bir Soru Sorun</a>
                     </div>
                 </div>
             </div>
@@ -60,7 +56,9 @@
 
     <div class="fixed padding-20-v">
         <div class="row">
-            @yield('content')
+            <div id="QAContent">
+                @yield('content')
+            </div>
             @yield('sidebar')
         </div>
     </div>
@@ -70,6 +68,7 @@
 <footer>
     @yield('footer')
 </footer>
+
 
 </body>
 </html>
