@@ -1,4 +1,4 @@
-@extends('layouts.masterTutorial')
+git@extends('layouts.masterTutorial')
 @extends('HeadFoot')
 @section('content')
     <div id="TutorialContent">

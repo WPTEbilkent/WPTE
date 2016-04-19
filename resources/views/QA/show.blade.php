@@ -61,8 +61,8 @@
                 <div class="row">
                     <div class="col-12 padding-15">
 
-                        <span class="dark x-large">By:</span> <a class="x-large link-default ease-link"
-                                                                 href="#"> {{$user= $question->user->name}}</a>
+                        <span class="dark x-large">Soruyu Soran:</span> <a class="x-large link-default ease-link"
+                                                                 href="{{url('/profile')}}/{{$question->user_id}}"> {{$user= $question->user->name}}</a>
                         <div class="sp10"></div>
                         {!! $question->question !!}
                         <div class="row row-no-padding-ver">
@@ -115,7 +115,7 @@
                             <span class="dark x-large">By:</span> <a class="x-large link-default ease-link"
                                                                      href="#">{{$answer->user->name}}</a>
                             <div class="sp10"></div>
-                            {{$answer->answer}}
+                            {!! $answer->answer !!}
                             <div class="row row-no-padding-ver">
                                 <div class="col-6 xs-align-center xs-responsive"></div>
                                 <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
