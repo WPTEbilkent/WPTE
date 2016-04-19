@@ -13,13 +13,13 @@ $url_vendor_ckeditor="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/
                     <div class="footer-links">
                         <a class="link-default ease-link" href="{{url("/")}}">WPTE</a>
                         <a class="link-default ease-link" href="{{url("/QA")}}">SORU &amp; CEVAP</a>
-                        <a class="link-default ease-link" href="{{url("/tutorial")}}">EĞİTİM</a>
+                        <a class="link-default ease-link" href="{{url("/tutorial")}}">EĞİTİM &amp; MAKALELER</a>
                         <a class="link-default ease-link" href="{{url("/events")}}">ETKİNLİKLER</a>
                         <a class="link-default ease-link" href="{{url("/about")}}">HAKKIMIZDA</a>
                         <a class="link-default ease-link" href="{{url("/privacy")}}">GİZLİLİK</a>
                     </div>
                     <div class="dark">
-                        copyright &copy; 2016. <a class="link-default ease-link" href="www.youtestify.com">youtestify.com</a>
+                        Copyright © 2015 <a href="http://www.havelsan.com.tr" target="_blank">Havelsan A.Ş.</a>
                     </div>
                 </div>
                 <div class="col-4 align-right md-align-center">
@@ -27,13 +27,7 @@ $url_vendor_ckeditor="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/
                         <a class="btn btn-lg circle theme-youtestify ui-dark ease-bg" href="#" target="_blank"><i
                                     class="fa fa-twitter"></i></a>
                         <a class="btn btn-lg circle theme-youtestify ui-dark ease-bg" href="#" target="_blank"><i
-                                    class="fa fa-google-plus"></i></a>
-                        <a class="btn btn-lg circle theme-youtestify ui-dark ease-bg" href="#" target="_blank"><i
                                     class="fa fa-facebook"></i></a>
-                        <a class="btn btn-lg circle theme-youtestify ui-dark ease-bg" href="#" target="_blank"><i
-                                    class="fa fa-pinterest"></i></a>
-                        <a class="btn btn-lg circle theme-youtestify ui-dark ease-bg" href="#" target="_blank"><i
-                                    class="fa fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -60,12 +54,9 @@ $url_vendor_ckeditor="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/
                                     <li><a class="ease-link" href="{{url("/")}}"><span
                                                     class="ease-color">WPTE</span></a></li>
                                     <!-- seçili olan sayfaya li.selected ekleyiniz -->
-                                    <li><a class="ease-link" href="{{url("/QA")}}"><span class="ease-color">SORU &amp; CEVAP</span></a>
-                                    </li>
-                                    <li><a class="ease-link" href="{{url("/tutorial")}}"><span
-                                                    class="ease-color">EĞİTİM</span></a></li>
-                                    <li><a class="ease-link" href="{{url("/events")}}"><span class="ease-color">ETKİNLİKLER</span></a>
-                                    </li>
+                                    <li><a class="ease-link" href="{{url("/QA")}}"><span class="ease-color">SORU &amp; CEVAP</span></a></li>
+                                    <li><a class="ease-link" href="{{url("/tutorial")}}"><span class="ease-color">EĞİTİM &amp; MAKALELER</span></a></li>
+                                    <li><a class="ease-link" href="{{url("/events")}}"><span class="ease-color">ETKİNLİKLER</span></a></li>
                                     @if(Auth::guest())
                                         <li><a class="ease-link" href="{{url("/auth/login")}}"><span class="ease-color">GİRİŞ</span></a>
                                         </li>
@@ -93,10 +84,6 @@ $url_vendor_ckeditor="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/
 
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-    <!--[if IE]>
-    <meta https-equiv="X-UA-Compatible" content="IE=edge"/><![endif]-->
-    <!--[if lt IE 9]>
-    <script>window.navigate('http://outdatedbrowser.com/tr');</script><![endif]-->
 
     <link rel="icon" href="img/favicon.ico"/>
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png"/>
@@ -130,7 +117,7 @@ $url_vendor_ckeditor="http://localhost/laravel/vendor/unisharp/laravel-ckeditor/
         </div>
         <div class="portlet padding-15 margin-20-t rounded bordered light-bordered theme-gray ui-x-light">
             <a href="#" target="_blank"><img class="img-responsive"
-                                             src="{{$url_css_js}}dummy/demo-banner.jpg"
+                                             src="{{$url_css_js}}/dummy/demo-banner.jpg"
                                              alt="Demo Banner"></a>
         </div>
     </div>

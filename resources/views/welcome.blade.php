@@ -62,7 +62,7 @@ $url_css_js = "http://localhost/laravel/resources/assets/";
                     <nav>
                         <ul class="primary-nav">
                             <li><a href="#question">SORU & CEVAP</a></li>
-                            <li><a href="#assets">EĞİTİM</a></li>
+                            <li><a href="#assets">EĞİTİM VE MAKALELER</a></li>
                             <li><a href="#blog">ETKİNLİKLER</a></li>
                         </ul>
                         <ul class="member-actions">
@@ -82,7 +82,7 @@ $url_css_js = "http://localhost/laravel/resources/assets/";
             <div class="col-md-10 col-md-offset-1">
                 <div class="hero-content text-center">
                     <h1>YouTestify</h1>
-                    <p class="intro">A unique web platform for test engineers.</p>
+                    <p class="intro">Test Mühendisleri İçin Eşsiz Bir Platform</p>
                 </div>
             </div>
         </div>
@@ -94,23 +94,23 @@ $url_css_js = "http://localhost/laravel/resources/assets/";
                 {{--<span data-icon="&#xe033;" class="icon"></span>--}}
                 {{--</div>--}}
                 <div class="intro-content">
-                    <h5>Articles & Tutorials</h5>
-                    <p>Browse various informative articles and tutorials to improve your know-how!</p>
-                    <p>Subscribe to your favorite authors to follow articles and blogs that interests you!</p>
+                    <h5>Eğitim & Makaleler</h5>
+                    <p>Çeşitli eğitim materyalleri ve makaleleri inceleyin ve bilginizi arttırın!</br>
+                    Beğendiğiniz yazarların makalelerini takip edebilmek için onlara abone olun!</p>
                 </div>
             </div>
             <div class="col-md-4 intro-feature">
                 <div class="intro-content">
-                    <h5>Questions & Answers</h5>
-                    <p>Ask questions on Questions&Answers section to access professional information and expertise or
-                        answer questions and
-                        share your valuable information with others</p>
+                    <h5>Soru & Cevap</h5>
+                    <p>Soru & Cevap bölümünde sorularınızı sorun,
+                        profesyonel ve cevaplar ve bilgiler alın
+                        ya da mevcut soruları cevaplayarak değerli bilgilerinizi paylaşın!</p>
                 </div>
             </div>
             <div class="col-md-4 intro-feature">
                 <div class="intro-content last">
-                    <h5>Track Events</h5>
-                    <p>Track test engineering related events and improve your career in testing!</p>
+                    <h5> Etkinlikleri Takip Edin</h5>
+                    <p>Test mühendisliği ile ilgili etkinlikleri takip edin ve kariyerinizi geliştirin!</p>
                 </div>
             </div>
         </div>
@@ -141,7 +141,7 @@ $url_css_js = "http://localhost/laravel/resources/assets/";
             <div class="col-md-5">
                 <div class="feature-list">
                     <h3>SORU & CEVAP</h3>
-                    <p>Bu bölümde test mühendisliği ile ilgili sorularınızı sorabilirsiniz</p>
+                    <p>Bu bölümde test mühendisliği ile ilgili sorularınızı sorabilirsiniz...</p>
                     <a href="/QA" class="btn btn-ghost btn-accent btn-large">SORU & CEVAP</a>
                 </div>
             </div>
@@ -154,7 +154,7 @@ $url_css_js = "http://localhost/laravel/resources/assets/";
             <div class="col-md-5">
                 <div class="feature-list">
                     <h3>EĞİTİMLER VE MAKALELER</h3>
-                    <p>Bu bölümde test mühendisliği hakkında eğitimlere erişebilirsiniz.</p>
+                    <p>Bu bölümde test mühendisliği hakkında eğitimlere erişebilirsiniz...</p>
                     <a href="/tutorial" class="btn btn-ghost btn-accent btn-large">EĞİTİMLER VE MAKALELER</a>
                 </div>
             </div>
@@ -187,71 +187,10 @@ $url_css_js = "http://localhost/laravel/resources/assets/";
             <div class="col-md-5">
                 <div class="feature-list">
                     <h3>ETKİNLİKLER</h3>
-                    <p>Test mühendisliği hakkındaki gelecek etkinliklere buradan ulaşabilirsiniz.</p>
+                    <p>Test mühendisliği hakkındaki gelecek etkinliklere buradan ulaşabilirsiniz...</p>
                     <a href="/events" class="btn btn-ghost btn-accent btn-large">ETKİNLİKLER</a>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-<section class="blog text-center">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4">
-                <article class="blog-post">
-                    <figure>
-                        <a href="img/blog-img-01.jpg" class="single_image">
-                            <div class="blog-img-wrap">
-                                <div class="overlay">
-                                    <i class="fa fa-search"></i>
-                                </div>
-                                <img src="{{$url_css_js}}img/blog-img-01.jpg" alt="Sedna blog image"/>
-                            </div>
-                        </a>
-                        <figcaption>
-                            <h2><a href="#" class="blog-category" data-toggle="tooltip" data-placement="top" data-original-title="See more posts">Product</a></h2>
-                            <p><a href="#" class="blog-post-title">Getting started with Sedna <i class="fa fa-angle-right"></i></a></p>
-                        </figcaption>
-                    </figure>
-                </article>
-            </div>
-            <div class="col-md-4">
-                <article class="blog-post">
-                    <figure>
-                        <a href="img/blog-img-02.jpg" class="single_image">
-                            <div class="blog-img-wrap">
-                                <div class="overlay">
-                                    <i class="fa fa-search"></i>
-                                </div>
-                                <img src="{{$url_css_js}}img/blog-img-02.jpg" alt="Sedna blog image"/>
-                            </div>
-                        </a>
-                        <figcaption>
-                            <h2><a href="#" class="blog-category" data-toggle="tooltip" data-placement="top" data-original-title="See more posts">Technology</a></h2>
-                            <p><a href="#" class="blog-post-title">Why IE8 support is deminishing <i class="fa fa-angle-right"></i></a></p>
-                        </figcaption>
-                    </figure>
-                </article>
-            </div>
-            <div class="col-md-4">
-                <article class="blog-post">
-                    <figure>
-                        <a href="img/blog-img-03.jpg" class="single_image">
-                            <div class="blog-img-wrap">
-                                <div class="overlay">
-                                    <i class="fa fa-search"></i>
-                                </div>
-                                <img src="{{$url_css_js}}img/blog-img-03.jpg" class="single_image" alt="Sedna blog image"/>
-                            </div>
-                        </a>
-                        <figcaption>
-                            <h2><a href="#" class="blog-category" data-toggle="tooltip" data-placement="top" data-original-title="See more posts">Product</a></h2>
-                            <p><a href="#" class="blog-post-title">Sedna tutorial: How to begin your <i class="fa fa-angle-right"></i></a></p>
-                        </figcaption>
-                    </figure>
-                </article>
-            </div>
-            <a href="#" class="btn btn-ghost btn-accent btn-small">More news</a>
         </div>
     </div>
 </section>
@@ -322,18 +261,19 @@ $url_css_js = "http://localhost/laravel/resources/assets/";
             <div class="col-md-7">
                 <div class="footer-links">
                     <ul class="footer-group">
-                        <li><a href="#">HAKKINDA</a></li>
-                        <li><a href="#">GİZLİLİK</a></li>
-                        <li><a href="#">İLETİŞİM</a></li>
+                        <li><a href="{{url('/QA')}}">SORU & CEVAP</a></li>
+                        <li><a href="{{url('/tutorial')}}">EĞİTİM VE MAKALELER</a></li>
+                        <li><a href="{{('/events')}}">ETKİNLİKLER</a></li>
+                        <li><a href="{{url('/about')}}">HAKKINDA</a></li>
+                        <li><a href="{{('/privacy')}}">GİZLİLİK</a></li>
                     </ul>
                     <p>Copyright © 2015 <a href="http://www.havelsan.com.tr" target="_blank">Havelsan A.Ş.</a><br></p>
                 </div>
             </div>
             <div class="social-share">
-                <p>Share Sedna with your friends</p>
-                <a href="https://twitter.com/peterfinlan" class="twitter-share"><i class="fa fa-twitter"></i></a> <a
-                        href="https://www.facebook.com/pages/Codrops/159107397912" class="facebook-share"><i
-                            class="fa fa-facebook"></i></a>
+                <p>Arkadaşlarınızla Paylaşın</p>
+                <a href="#" class="twitter-share"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="facebook-share"><i class="fa fa-facebook"></i></a>
             </div>
         </div>
     </div>
