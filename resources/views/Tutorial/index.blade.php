@@ -21,8 +21,10 @@ git@extends('layouts.masterTutorial')
                                 <div class="row row-no-padding">
                                     <div class="col-6 xs-align-center xs-responsive">
                                         @foreach($tags as $tag)
+                                            @if($tag)
                                             <a class="btn btn-xs padding-10-h circle ease-bg searchTag"
                                                href="#">{{$tag}}</a>
+                                            @endif
                                         @endforeach
                                     </div>
                                     <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
