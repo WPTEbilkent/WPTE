@@ -2,8 +2,9 @@
 @extends('HeadFoot')
 @section('content')
 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script type="text/javascript">
-        $(function(){
+        $(function () {
             $('#tutorialText').ckeditor();
 
             function split(val) {
@@ -73,7 +74,7 @@
         <div class="col-md-8">
             {!! Form::open(array('route' => 'tutorial.store', 'class' => 'form')) !!}
 
-            <div class="form-group", style="margin-top: 4%">
+            <div class="form-group" , style="margin-top: 4%">
                 {!! Form::label('Başlık :') !!}
                 {!! Form::text('title', null, array('required', 'class'=>'form-control', 'placeholder'=>'Başlık')) !!}
             </div>
@@ -86,7 +87,9 @@
                 {!! Form::textarea('content', null, array('id' => 'tutorialText', 'required',  'class'=>'form-control',  'placeholder'=>'Mesaj')) !!}
             </div>
 
-            <button id="myBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Fotoğraf Yükle</button>
+            <button id="myBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Fotoğraf
+                Yükle
+            </button>
             @if(Session::has('success'))
                 <div class="alert-box success">
                     <h5>{!! Session::get('success') !!}</h5>
@@ -105,7 +108,8 @@
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -123,7 +127,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div id="success"> </div>
+                        <div id="success"></div>
                         {!! Form::submit('Yükle', array('class'=>'send-btn btn btn-primary')) !!}
                         {!! Form::close() !!}
                     </div>
