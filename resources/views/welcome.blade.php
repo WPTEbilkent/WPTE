@@ -1,6 +1,6 @@
 <?php
-//$url_css_js = "http://localhost/laravel/resources/assets/";
-$url_css_js = "http://localhost/bitirme/WPTE_v1/resources/assets/";
+$url_css_js = "http://localhost/laravel/resources/assets/";
+//$url_css_js = "http://localhost/bitirme/WPTE_v1/resources/assets/";
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -64,7 +64,6 @@ $url_css_js = "http://localhost/bitirme/WPTE_v1/resources/assets/";
                             <li><a href="#question">SORU & CEVAP</a></li>
                             <li><a href="#assets">EĞİTİM</a></li>
                             <li><a href="#blog">ETKİNLİKLER</a></li>
-                            <li><a href="#article">MAKALELER</a></li>
                         </ul>
                         <ul class="member-actions">
                             <li id="users"><a href="#login" class="login">GİRİŞ</a></li>
@@ -154,9 +153,9 @@ $url_css_js = "http://localhost/bitirme/WPTE_v1/resources/assets/";
         <div class="row">
             <div class="col-md-5">
                 <div class="feature-list">
-                    <h3>EĞİTİM</h3>
+                    <h3>EĞİTİMLER VE MAKALELER</h3>
                     <p>Bu bölümde test mühendisliği hakkında eğitimlere erişebilirsiniz.</p>
-                    <a href="/tutorial" class="btn btn-ghost btn-accent btn-large">EĞİTİM</a>
+                    <a href="/tutorial" class="btn btn-ghost btn-accent btn-large">EĞİTİMLER VE MAKALELER</a>
                 </div>
             </div>
             <div class="col-md-7">
@@ -180,7 +179,7 @@ $url_css_js = "http://localhost/bitirme/WPTE_v1/resources/assets/";
         </div>
     </div>
 </section>
-<section class="question-extra section-padding" id="blog">
+<section class="question section-padding" id="blog">
     <div class="container">
         <div class="row">
             <div class="col-md-7">
@@ -189,38 +188,8 @@ $url_css_js = "http://localhost/bitirme/WPTE_v1/resources/assets/";
                 <div class="feature-list">
                     <h3>ETKİNLİKLER</h3>
                     <p>Test mühendisliği hakkındaki gelecek etkinliklere buradan ulaşabilirsiniz.</p>
+                    <a href="/events" class="btn btn-ghost btn-accent btn-large">ETKİNLİKLER</a>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="question-extra section-padding" id="article">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-                <div class="feature-list">
-                    <h3>MAKALELER</h3>
-                    <p>Bu bölümde test mühendisliği hakkında makalelere erişebilirsiniz.</p>
-                    <a href="/tutorial" class="btn btn-ghost btn-accent btn-large">MAKALELER</a>
-                </div>
-            </div>
-            <div class="col-md-7">
-                {{--<table class="table table-hover ">--}}
-                    {{--<?php--}}
-                    {{--$tutorials = App\Tutorial::orderBy('date')--}}
-                            {{--->take(10)--}}
-                            {{--->get();--}}
-                    {{--foreach ($tutorials as $tutorial) {--}}
-                        {{--echo "<tr>";--}}
-                        {{--echo "<td id='question_header' colspan='2'><a href='tutorial/$tutorial->id'><h4>$tutorial->title</h4></a></td>";--}}
-                        {{--echo "</tr>";--}}
-                        {{--echo "<tr>";--}}
-                        {{--echo "<td>$tutorial->tags</td>";--}}
-                        {{--echo "<td>$tutorial->date</td>";--}}
-                        {{--echo "</tr>";--}}
-                    {{--}--}}
-                    {{--?>--}}
-                {{--</table>--}}
             </div>
         </div>
     </div>

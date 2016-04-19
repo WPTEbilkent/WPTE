@@ -9,7 +9,7 @@
                         ?>
                         <div class="portlet rounded bordered light-bordered">
                             <div class="content-side padding-15">
-                                <span class="dark x-large">By:</span> <a class="x-large link-default ease-link"
+                                <span class="dark x-large">Soruyu Soran:</span> <a class="x-large link-default ease-link"
                                                                          href="{{url('/profile')}}/{{$item->user->id}}">{{$item->user->name}}</a>
                                 <div class="sp10"></div>
                                 <a class="question-link ease-color" href="#"><?php

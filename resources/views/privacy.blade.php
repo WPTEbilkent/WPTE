@@ -1,9 +1,21 @@
 @extends('layouts.masterPrivacy')
 @extends('HeadFoot')
 @section('content')
+    <div class="row row-no-padding-hor theme-gray ui-light">
+        <div class="col-12">
+            <div class="fixed">
+                <div class="row row-no-padding-ver">
+                    <div class="col-12 xs-responsive">
+                        <h4 class="align-left xs-align-center theme-night ui-text margin-5-v">Gizlilik</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <article class="blog-item">
+    <div class="fixed padding-20-v">
         <div class="row">
+            <div class="col-12">
                 <p>Siteye erişiminizden veya siteyi kullanımınızdan önce lütfen bu bildirimi dikkatle okuyunuz. Siteye
                     erişmekle ve siteyi kullanmakla, aşağıda belirtilen hüküm ve koşulları kabul etmiş sayılırsınız.
                     YouTestify bu Gizlilik Bildirimi ve Yasal Uyarı üzerinde değişiklikler yapma hakkını saklı tutar;
@@ -50,8 +62,8 @@
                     YouTestify
                 </p>
 
-
+            </div>
         </div>
-    </article>
+    </div>
 
 @endsection

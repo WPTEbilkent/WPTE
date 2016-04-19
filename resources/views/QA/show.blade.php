@@ -40,6 +40,7 @@
     </div>
 </div>
 
+
 <div class="fixed padding-20-v">
     <div class="row">
         <div class="portlet rounded bordered light-bordered">
@@ -49,14 +50,12 @@
                         <button class="btn xx-large rounded bordered shadow theme-white ui-light ease-bg" type="button"
                                 title="Up"
                                 onClick="addVote('{!! $question->id !!}', 'question', '1', '{!! $question->user_id !!}' )">
-                            <i
-                                    class="dark fa fa-angle-up"></i></button>
+                            <i class="dark fa fa-angle-up"></i></button>
                         <span id="vote_question_{!! $question->id !!}" class="dark xx-large">{{$question->vote}}</span>
                         <button class="btn xx-large rounded bordered shadow theme-white ui-light ease-bg" type="button"
                                 title="Down"
                                 onClick="addVote('{!! $question->id !!}', 'question', '-1', '{!! $question->user_id !!}' )">
-                            <i
-                                    class="dark fa fa-angle-down"></i></button>
+                            <i class="dark fa fa-angle-down"></i></button>
                     </div>
                 </div>
                 <div class="row">

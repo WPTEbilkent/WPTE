@@ -26,12 +26,14 @@ class ProfileController extends Controller
         if (Auth::guest()) {
             return Redirect::to('/auth/login');
         } else {
+            $newEventsCount = 0;
             $subbed_users_name = "";
             $user = User::findorfail($id);
             $subs = Subs::where('subscriber_id', $id)->get();
 
             if(Auth::user()->isAdmin()){
                 $newEventsCount = Events::where('status', '=', '0')->orderBy('insert_date')->count();
+
             }
 
             return view('profile')->with('user', $user)->with('subs',$subs)->with('newEventsCount',$newEventsCount);

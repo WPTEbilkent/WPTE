@@ -1,36 +1,29 @@
+<?php header('Content-Type: text/html; charset=utf-8'); ?>
+        <!--al-->
 <!DOCTYPE html>
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
+<html dir="ltr" lang="tr">
 
-<html class="no-js"> <!--<![endif]-->
+<head>
+    <title>YouTestify - A unique web platform for test engineers</title>
+    <!--  Necessary scripts  -->
+    @yield('scripts')
 
+</head>
 
 <body>
-
 @yield('header')
 
-<main>
-
+<main role="main" class="container">
     @yield('content')
 
 </main>
-
-<footer>
-    @yield('footer')
-</footer>
-
-<!--  Necessary scripts  -->
-@yield('scripts')
-
-
-        <!-- smooth-scroll -->
-@yield('smooth-script')
-
+<!-- footer -->
+@yield('footer')
 
 </body>
 </html>
+
+
+
+
+
