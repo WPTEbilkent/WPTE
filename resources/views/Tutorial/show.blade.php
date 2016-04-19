@@ -40,7 +40,7 @@
                                 <div class="row row-no-padding-ver">
                                     <div class="col-6 xs-align-center xs-responsive">
                                         <?php
-                                        $tags = explode(',', $item->tags);
+                                        $tags = explode(',', $tutorial[0]->tags);
                                         ?>
                                         @foreach($tags as $tag)
                                                 @if($tag)

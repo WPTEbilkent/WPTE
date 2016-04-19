@@ -194,7 +194,7 @@ $url_css_js = "http://localhost/laravel/resources/assets/";
         </div>
     </div>
 </section>
-<section class="testimonial-slider section-padding text-center">
+{{--<section class="testimonial-slider section-padding text-center">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -220,7 +220,7 @@ $url_css_js = "http://localhost/laravel/resources/assets/";
             </div>
         </div>
     </div>
-</section>
+</section>--}}
 <section class="sign-up section-padding text-center" id="login">
     <div class="container">
         <div class="row">
