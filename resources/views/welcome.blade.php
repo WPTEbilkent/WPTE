@@ -1,6 +1,6 @@
 <?php
-$url_css_js = "http://localhost/laravel/resources/assets/";
-//$url_css_js = "http://localhost/bitirme/WPTE_v1/resources/assets/";
+//$url_css_js = "http://localhost/laravel/resources/assets/";
+$url_css_js = "http://localhost/bitirme/WPTE_v1/resources/assets/";
 ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -230,10 +230,10 @@ $url_css_js = "http://localhost/laravel/resources/assets/";
                 <form class="signup-form" action="auth/login" method="POST" role="form">
                         {{ csrf_field() }}
                     <div class="form-input-group">
-                        <i class="fa fa-envelope"></i><input type="text" name="email" class="" placeholder="E-mail Adresinizi Girin" required>
+                        <i class="fa fa-envelope"></i><input id="inputEmail3" type="email" name="email" class="form-control" placeholder="E-mail Adresinizi Girin" required>
                     </div>
                     <div class="form-input-group">
-                        <i class="fa fa-lock"></i><input type="password" name="password" class="" placeholder="Şifrenizi Girin" required>
+                        <i class="fa fa-lock"></i><input id="inputPassword3" type="password" name="password" class="form-control" placeholder="Şifrenizi Girin" required>
                     </div>
                     <button type="submit" class="btn-fill sign-up-btn">GİRİŞ YAP</button>
                 </form>

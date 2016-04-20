@@ -48,6 +48,9 @@ html:not(.mobile) .header-nav a:hover:after,.header-nav li.selected a:after { wi
 /* main */
 html:not(.mobile) .question-link:hover { color: #f73f5e; text-decoration: none; }
 
+.rate { text-align: center; }
+.rate > span { padding-top: 5px; padding-bottom: 5px; display: block; }
+
 /* footer */
 .footer-links { margin-bottom: 5px; }
 .footer-links a:not(:first-child) { margin-left: 6px; }

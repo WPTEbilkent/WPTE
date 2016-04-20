@@ -28,14 +28,13 @@ class FileUploadController extends Controller
 
     public function upload()
     {
-
         $old_val_title = Input::get('old_val_title');
         $old_val_tags = Input::get('old_val_tags');
         $old_val_text = Input::get('old_val_text');
         // getting all of the post data
         $file = array('image' => Input::file('image'));
         // setting up rules
-        $rules = array('image' => 'required|mimes:jpeg,bmp,png',); //mimes:jpeg,bmp,png and for max size max:10000
+        $rules = array('image' => 'required|mimes:jpeg,bmp,png|max:10000',); //mimes:jpeg,bmp,png and for max size max:10000
         // doing the validation, passing post data, rules and the messages
         $validator = Validator::make($file, $rules);
         if ($validator->fails()) {

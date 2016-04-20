@@ -6,14 +6,14 @@
 <head>
 
     <title>YouTestify - A unique web platform for test engineers</title>
-    <?php include('meta-tags.php'); ?>
+    <?php include ('meta-tags.php'); ?>
 
 </head>
 
 <body>
 
     <!-- header -->
-    <?php include('header.php'); ?>
+    <?php include ('header.php'); ?>
 
     <!-- main -->
     <main role="main" class="container">
@@ -41,15 +41,15 @@
                         <div class="content-side padding-15">
                             <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
                             <div class="sp10"></div>
-                            <a class="question-link ease-color" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed maximus tellus. Morbi at sodales libero. In mollis mi ut ipsum hendrerit congue. Fusce gravida, mauris nec dignissim dictum, sem nisi euismod elit, sit amet ornare augue metus vel ipsum. Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
+                            <a class="question-link ease-color" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed maximus tellus. Morbi at sodales libero.</a>
                         </div>
                         <div class="content-side padding-15 theme-gray ui-x-light">
                             <div class="row row-no-padding">
                                 <div class="col-6 xs-align-center xs-responsive">
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">ozan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">turkcan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">laravel</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">test</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">ozan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">turkcan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">laravel</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">test</a>
                                 </div>
                                 <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
                                     <i class="fa fa-calendar-o margin-5-r"></i> 2016-04-17 00:23:19
@@ -66,10 +66,10 @@
                         <div class="content-side padding-15 theme-gray ui-x-light">
                             <div class="row row-no-padding">
                                 <div class="col-6 xs-align-center xs-responsive">
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">ozan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">turkcan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">laravel</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">test</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">ozan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">turkcan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">laravel</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">test</a>
                                 </div>
                                 <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
                                     <i class="fa fa-calendar-o margin-5-r"></i> 2016-04-17 00:23:19
@@ -81,55 +81,15 @@
                         <div class="content-side padding-15">
                             <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
                             <div class="sp10"></div>
-                            <a class="question-link ease-color" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed maximus tellus. Morbi at sodales libero. In mollis mi ut ipsum hendrerit congue. Fusce gravida, mauris nec dignissim dictum, sem nisi euismod elit, sit amet ornare augue metus vel ipsum. Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
+                            <a class="question-link ease-color" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed maximus tellus. Morbi at sodales libero.</a>
                         </div>
                         <div class="content-side padding-15 theme-gray ui-x-light">
                             <div class="row row-no-padding">
                                 <div class="col-6 xs-align-center xs-responsive">
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">ozan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">turkcan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">laravel</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">test</a>
-                                </div>
-                                <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
-                                    <i class="fa fa-calendar-o margin-5-r"></i> 2016-04-17 00:23:19
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portlet rounded bordered light-bordered">
-                        <div class="content-side padding-15">
-                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
-                            <div class="sp10"></div>
-                            <a class="question-link ease-color" href="#">Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
-                        </div>
-                        <div class="content-side padding-15 theme-gray ui-x-light">
-                            <div class="row row-no-padding">
-                                <div class="col-6 xs-align-center xs-responsive">
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">ozan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">turkcan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">laravel</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">test</a>
-                                </div>
-                                <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
-                                    <i class="fa fa-calendar-o margin-5-r"></i> 2016-04-17 00:23:19
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portlet rounded bordered light-bordered">
-                        <div class="content-side padding-15">
-                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
-                            <div class="sp10"></div>
-                            <a class="question-link ease-color" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed maximus tellus. Morbi at sodales libero. In mollis mi ut ipsum hendrerit congue. Fusce gravida, mauris nec dignissim dictum, sem nisi euismod elit, sit amet ornare augue metus vel ipsum. Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
-                        </div>
-                        <div class="content-side padding-15 theme-gray ui-x-light">
-                            <div class="row row-no-padding">
-                                <div class="col-6 xs-align-center xs-responsive">
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">ozan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">turkcan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">laravel</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">test</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">ozan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">turkcan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">laravel</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">test</a>
                                 </div>
                                 <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
                                     <i class="fa fa-calendar-o margin-5-r"></i> 2016-04-17 00:23:19
@@ -146,10 +106,10 @@
                         <div class="content-side padding-15 theme-gray ui-x-light">
                             <div class="row row-no-padding">
                                 <div class="col-6 xs-align-center xs-responsive">
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">ozan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">turkcan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">laravel</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">test</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">ozan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">turkcan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">laravel</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">test</a>
                                 </div>
                                 <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
                                     <i class="fa fa-calendar-o margin-5-r"></i> 2016-04-17 00:23:19
@@ -161,55 +121,15 @@
                         <div class="content-side padding-15">
                             <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
                             <div class="sp10"></div>
-                            <a class="question-link ease-color" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed maximus tellus. Morbi at sodales libero. In mollis mi ut ipsum hendrerit congue. Fusce gravida, mauris nec dignissim dictum, sem nisi euismod elit, sit amet ornare augue metus vel ipsum. Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
+                            <a class="question-link ease-color" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed maximus tellus. Morbi at sodales libero.</a>
                         </div>
                         <div class="content-side padding-15 theme-gray ui-x-light">
                             <div class="row row-no-padding">
                                 <div class="col-6 xs-align-center xs-responsive">
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">ozan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">turkcan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">laravel</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">test</a>
-                                </div>
-                                <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
-                                    <i class="fa fa-calendar-o margin-5-r"></i> 2016-04-17 00:23:19
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portlet rounded bordered light-bordered">
-                        <div class="content-side padding-15">
-                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
-                            <div class="sp10"></div>
-                            <a class="question-link ease-color" href="#">Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
-                        </div>
-                        <div class="content-side padding-15 theme-gray ui-x-light">
-                            <div class="row row-no-padding">
-                                <div class="col-6 xs-align-center xs-responsive">
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">ozan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">turkcan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">laravel</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">test</a>
-                                </div>
-                                <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
-                                    <i class="fa fa-calendar-o margin-5-r"></i> 2016-04-17 00:23:19
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portlet rounded bordered light-bordered">
-                        <div class="content-side padding-15">
-                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
-                            <div class="sp10"></div>
-                            <a class="question-link ease-color" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed maximus tellus. Morbi at sodales libero. In mollis mi ut ipsum hendrerit congue. Fusce gravida, mauris nec dignissim dictum, sem nisi euismod elit, sit amet ornare augue metus vel ipsum. Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
-                        </div>
-                        <div class="content-side padding-15 theme-gray ui-x-light">
-                            <div class="row row-no-padding">
-                                <div class="col-6 xs-align-center xs-responsive">
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">ozan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">turkcan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">laravel</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">test</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">ozan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">turkcan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">laravel</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">test</a>
                                 </div>
                                 <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
                                     <i class="fa fa-calendar-o margin-5-r"></i> 2016-04-17 00:23:19
@@ -226,10 +146,130 @@
                         <div class="content-side padding-15 theme-gray ui-x-light">
                             <div class="row row-no-padding">
                                 <div class="col-6 xs-align-center xs-responsive">
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">ozan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">turkcan</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">laravel</a>
-                                    <a class="btn btn-xs padding-10-h circle ease-bg" href="#">test</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">ozan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">turkcan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">laravel</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">test</a>
+                                </div>
+                                <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
+                                    <i class="fa fa-calendar-o margin-5-r"></i> 2016-04-17 00:23:19
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet rounded bordered light-bordered">
+                        <div class="content-side padding-15">
+                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
+                            <div class="sp10"></div>
+                            <a class="question-link ease-color" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed maximus tellus. Morbi at sodales libero.</a>
+                        </div>
+                        <div class="content-side padding-15 theme-gray ui-x-light">
+                            <div class="row row-no-padding">
+                                <div class="col-6 xs-align-center xs-responsive">
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">ozan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">turkcan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">laravel</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">test</a>
+                                </div>
+                                <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
+                                    <i class="fa fa-calendar-o margin-5-r"></i> 2016-04-17 00:23:19
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet rounded bordered light-bordered">
+                        <div class="content-side padding-15">
+                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
+                            <div class="sp10"></div>
+                            <a class="question-link ease-color" href="#">Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
+                        </div>
+                        <div class="content-side padding-15 theme-gray ui-x-light">
+                            <div class="row row-no-padding">
+                                <div class="col-6 xs-align-center xs-responsive">
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">ozan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">turkcan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">laravel</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">test</a>
+                                </div>
+                                <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
+                                    <i class="fa fa-calendar-o margin-5-r"></i> 2016-04-17 00:23:19
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet rounded bordered light-bordered">
+                        <div class="content-side padding-15">
+                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
+                            <div class="sp10"></div>
+                            <a class="question-link ease-color" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed maximus tellus. Morbi at sodales libero.</a>
+                        </div>
+                        <div class="content-side padding-15 theme-gray ui-x-light">
+                            <div class="row row-no-padding">
+                                <div class="col-6 xs-align-center xs-responsive">
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">ozan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">turkcan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">laravel</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">test</a>
+                                </div>
+                                <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
+                                    <i class="fa fa-calendar-o margin-5-r"></i> 2016-04-17 00:23:19
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet rounded bordered light-bordered">
+                        <div class="content-side padding-15">
+                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
+                            <div class="sp10"></div>
+                            <a class="question-link ease-color" href="#">Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
+                        </div>
+                        <div class="content-side padding-15 theme-gray ui-x-light">
+                            <div class="row row-no-padding">
+                                <div class="col-6 xs-align-center xs-responsive">
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">ozan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">turkcan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">laravel</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">test</a>
+                                </div>
+                                <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
+                                    <i class="fa fa-calendar-o margin-5-r"></i> 2016-04-17 00:23:19
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet rounded bordered light-bordered">
+                        <div class="content-side padding-15">
+                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
+                            <div class="sp10"></div>
+                            <a class="question-link ease-color" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed maximus tellus. Morbi at sodales libero.</a>
+                        </div>
+                        <div class="content-side padding-15 theme-gray ui-x-light">
+                            <div class="row row-no-padding">
+                                <div class="col-6 xs-align-center xs-responsive">
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">ozan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">turkcan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">laravel</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">test</a>
+                                </div>
+                                <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
+                                    <i class="fa fa-calendar-o margin-5-r"></i> 2016-04-17 00:23:19
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet rounded bordered light-bordered">
+                        <div class="content-side padding-15">
+                            <span class="dark x-large">In:</span> <a class="x-large link-default ease-link" href="#">Yaşar Ozan Türkcan</a>
+                            <div class="sp10"></div>
+                            <a class="question-link ease-color" href="#">Cras ut bibendum est. Sed at neque posuere, fermentum mauris ut, sodales sem.</a>
+                        </div>
+                        <div class="content-side padding-15 theme-gray ui-x-light">
+                            <div class="row row-no-padding">
+                                <div class="col-6 xs-align-center xs-responsive">
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">ozan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">turkcan</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">laravel</a>
+                                    <a class="btn btn-xs padding-10-h margin-5-b circle ease-bg" href="#">test</a>
                                 </div>
                                 <div class="col-6 align-right xs-align-center dark small padding-5-v xs-responsive">
                                     <i class="fa fa-calendar-o margin-5-r"></i> 2016-04-17 00:23:19
@@ -269,7 +309,7 @@
     </main>
 
     <!-- footer -->
-    <?php include('footer.php'); ?>
+    <?php include ('footer.php'); ?>
 
 </body>
 </html>

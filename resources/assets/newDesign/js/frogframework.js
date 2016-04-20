@@ -11,7 +11,7 @@ var
     cdnVersion = '', // your URL version (optional)
 
     //auto import ffc- components
-    componentImporter = false,
+    componentImporter = true,
     cssPath = '',
     jsPath = '',
 
@@ -19,15 +19,15 @@ var
     imgPath = '',
     spriteImages = '', // single example: icons.png // multiple example: icons.png,logos.png
     spriteImageSizes = '', // single example: 640x140 // multiple example: 640x140,1000x600
-    loadNonRetinaSprites = false, // if you embed your images before set false
-    enableRetinaSprites = false,
+    loadNonRetinaSprites = true, // if you embed your images before set false
+    enableRetinaSprites = true,
 
     //forms
     placeHoldersforIE9 = true,
 
     //transitions
     transitionEffects = true,
-    transitionsPreload = false,
+    transitionsPreload = true,
     androidTansitionEffects = false,
     easeTime = 150,
 
@@ -37,11 +37,13 @@ var
 
     //scroll top button
     showScrollTopButton = true,
-    scrollTopButtonClasses = 'rounded', // single example: circle // multiple example: circle theme-red ui-dark
-    scrollTopButtonTarget = 'html,body'; // single example: .my-div // multiple example: html,body
+    scrollTopButtonClasses = 'rounded',
+    scrollTopIcon = 'icon xx-light fa-2x fa fa-angle-up',
+    scrollTopButtonTarget = ''; // example: .my-div // if left blank default: body tag
+
 
 /*global $, jQuery, alert, console, document, window */
-var html, userLang, mobile = false, android = false, androidWebView = false, ios = false, customScrollbarGlobal = false, stopTransitionResize, preventSwipe, openPageTransition, pageTransition, closePageTransition;
+var html, userLang, mobile = false, android = false, androidWebView = false, ios = false, customScrollbarGlobal = false, stopTransitionResize, preventSwipe, openPageTransition, pageTransition, closePageTransition, orderStaticGrids;
 
 if (typeof jQuery === 'undefined') {
     throw new Error('Frog Framework requires jQuery');
@@ -236,7 +238,7 @@ if (typeof jQuery === 'undefined') {
         }());
 
         /*!order static grids*/
-        (function () {
+        orderStaticGrids = (function () {
 
             var screenW, fnc1, fnc2, p, siblings, i;
 
@@ -385,7 +387,7 @@ if (typeof jQuery === 'undefined') {
             function androidMultiSelects() {
 
                 var titleText;
-                if (userLang === 'tr') { titleText = 'Ãœye'; } else { titleText = 'Item(s)'; }
+                if (userLang === 'tr') { titleText = 'ÃƒÅ“ye'; } else { titleText = 'Item(s)'; }
 
                 if ($('.android .select-multi').length > 0) {
                     $('.android .select-multi').each(function () { $('option', $(this)).eq(0).before('<option selected disabled>' + $('option:selected', $(this)).length + ' ' + titleText + '</option>'); });
@@ -482,32 +484,37 @@ if (typeof jQuery === 'undefined') {
             // scroll top button
             if (showScrollTopButton) {
 
-                var titleText;
-                if (userLang === 'tr') { titleText = 'Yukarı Dön!'; } else { titleText = 'Back To Top!'; }
+                var t, titleText, targetClick, targetScroll, btnShow, btnHide;
 
-                $('body').append('<button class="scroll-top ' + scrollTopButtonClasses + ' ease-opacity" title="' + titleText + '"><i class="icon fa fa-2x fa-angle-up xx-light ease-margin-top"></i></button>');
-                $('.scroll-top').on('click', function () { $(scrollTopButtonTarget).stop().animate({scrollTop: '0'}, 400); });
+                if (userLang === 'tr') { titleText = 'YukarÃ„Â± DÃƒÂ¶n!'; } else { titleText = 'Back To Top!'; }
+                $('body').append('<button class="scroll-top ' + scrollTopButtonClasses + ' ease-opacity" title="' + titleText + '"><i class="' + scrollTopIcon + ' ease-margin-top"></i></button>');
+                t = $('.scroll-top');
 
-                $(window).on('scroll', function () {
+                btnShow = function () {
+                    if (!t.hasClass('open')) {
+                        t.addClass('open');
+                        setTimeout(function () { t.addClass('open-ease'); }, easeTime);
+                    }
+                };
 
-                    var t = $('.scroll-top'),
-                        btnShow = function () {
-                            if (!t.hasClass('open')) {
-                                t.addClass('open');
-                                setTimeout(function () { t.addClass('open-ease'); }, easeTime);
-                            }
+                btnHide = function () {
+                    if (t.hasClass('open')) {
+                        t.removeClass('open-ease');
+                        setTimeout(function () { t.removeClass('open'); }, easeTime);
+                    }
+                };
 
-                        },
-                        btnHide = function () {
-                            if (t.hasClass('open')) {
-                                t.removeClass('open-ease');
-                                setTimeout(function () { t.removeClass('open'); }, easeTime);
-                            }
-                        };
+                if (scrollTopButtonTarget === '') {
+                    targetClick = $('html:not(:animated),body:not(:animated)');
+                    targetScroll = $(window);
 
-                    if ($(this).scrollTop() > 50) { btnShow(); } else { btnHide(); }
+                } else {
+                    targetClick = $(scrollTopButtonTarget);
+                    targetScroll = $(scrollTopButtonTarget + ':not(:animated)');
+                }
 
-                });
+                $('.scroll-top').on('click', function () { targetClick.stop().animate({scrollTop: '0'}, 400); });
+                targetScroll.on('scroll', function () { if ($(this).scrollTop() > 50) { btnShow(); } else { btnHide(); } });
 
             }
 

@@ -4,9 +4,8 @@
 
 <head>
     <title>YouTestify - A unique web platform for test engineers</title>
-    <!--  Necessary scripts  -->
-    @yield('scripts')
-
+<!--  Necessary scripts  -->
+@yield('scripts')
     <script type="text/javascript">
         $(document).ready(function () {
             var input = "";
@@ -29,15 +28,17 @@
                 ajax(url);
             });
         });
+        $(document).keypress(function(e) {
+            if(e.which == 13) {
+                $("#searchButton").click();
+            }
+        });
         function ajax(url) {
             $.get(url, function (tutorials) {
                 $("#TutorialContent").html(tutorials);
             });
         }
-
     </script>
-
-
 </head>
 <body>
 @yield('header')

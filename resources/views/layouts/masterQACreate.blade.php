@@ -28,6 +28,11 @@
                 ajax(url);
             });
         });
+        $(document).keypress(function(e) {
+            if(e.which == 13) {
+                $("#searchButton").click();
+            }
+        });x""
         function ajax(url) {
             $.get(url, function (question) {
                 $("#QAContent").html(question);
@@ -59,7 +64,7 @@
             <div id="QAContent">
                 @yield('content')
             </div>
-            @yield('sidebar')
+            {{--@yield('sidebar')--}}
         </div>
     </div>
 
